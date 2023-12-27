@@ -1,0 +1,78 @@
+% !TEX program = pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{graphicx}
+\usepackage{array, setspace, changepage, xassoccnt, fancyhdr}
+\usepackage[
+    a4paper, left=3cm, right=2cm, top=1.5cm, bottom=1.5cm,
+    includehead, includefoot, headheight=14pt, heightrounded
+]{geometry} % formatting margins
+\graphicspath{{./images/}}
+% create the total page counter
+\NewTotalDocumentCounter{totalrealpage}
+\stepcounter{totalrealpage} % increase total page by 1
+% create the current page counter
+\NewDocumentCounter{realpage}
+
+\DeclareAssociatedCounters{page}{realpage,totalrealpage}
+\makeatletter
+\AtBeginDocument{
+  \setcounter{realpage}{1}
+}
+
+\renewcommand{\footrulewidth}{1.25pt} % default is 0pt
+\renewcommand{\headrulewidth}{1.25pt} % default is 0.4pt
+\pagestyle{fancy} % allow fancy headers & footers
+\setstretch{1.5} % set line spacing
+% configuring fancyhdr
+\lhead{
+    \begin{minipage}{1cm}
+        \includegraphics[scale=0.02]{logo}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}{7.25cm}
+        \texttt{TRƯỜNG ĐẠI HỌC BÁCH KHOA - ĐHQG-HCM}\\
+        \texttt{KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}
+    \end{minipage}
+}
+\lfoot{\texttt{\scriptsize Báo cáo môn Kỹ năng chuyên nghiệp cho kỹ sư - Học kỳ 1 năm học 2023 - 2024}}
+\rfoot{\texttt{\scriptsize Trang \therealpage/\TotalValue{totalrealpage}}}
+\begin{document}
+\thispagestyle{empty} % remove fancyhdr on first page
+\pagenumbering{gobble} % remove page numbering
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
+\textbf{KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH}\\
+\vspace{2.5cm}
+\includegraphics[scale=0.09375]{logo}
+\vspace{1.5cm}
+\end{center}
+\textbf{\large Kỹ năng chuyên nghiệp cho kỹ sư - CO2001}\\
+\hrule height 1.25pt \relax
+\vspace{0.5cm}
+\noindent\textbf{Báo cáo}
+\begin{adjustwidth}{0.2cm}{0.2cm}
+    \begin{center}
+        \textbf{\LARGE PHÂN TÍCH ẢNH HƯỞNG CỦA MẠNG XÃ HỘI ĐẾN LỐI SỐNG VÀ TÂM LÝ CỦA GIỚI TRẺ VIỆT NAM}
+    \end{center}
+\end{adjustwidth}
+\vspace{0.25cm}
+\hrule height 1.25pt \relax
+\vspace{0.5cm}
+\begin{center}
+    \begin{tabular}{m{4.5cm} m{5cm}}
+        \multicolumn{1}{r}{\textit{Giảng viên hướng dẫn:}}&TS. Vũ A Q\cr
+        \multicolumn{1}{r}{\textit{Sinh viên thực hiện:}}&2011111 - Huỳnh Đ V\cr
+        &2022222 - Nguyễn D K\cr
+        &2033333 - Nguyễn H C\cr
+        &2044444 - Nguyễn D H\cr
+        &2055555 - Nguyễn H T H
+    \end{tabular}\\
+    \vspace{\fill}
+    TP. Hồ Chí Minh, 08/2023
+\end{center}
+\newpage
+Đây là một câu văn.
+\end{document}
