@@ -1,0 +1,373 @@
+\section*{Phần 1.1}
+\subsection*{Bài 8}
+Cho rằng điện thoại A có 256 MB RAM và 32 GB ROM, độ phân giải camera là 8 MP; điện thoại B có 288 MB RAM và 64 GB ROM, độ phân giải camera là 4 MP; điện thoại C có 128 MB RAM và 32 GB ROM, độ phân giải camera là 5 MP. Xác định các mệnh đề sau đúng hay sai.
+\begin{enumerate}[label=\alph*)]
+    \item Điện thoại B có nhiều RAM nhất trong 3 điện thoại.
+    \item Điện thoại C có nhiều ROM hoặc độ phân giải cao hơn điện thoại B.
+    \item Điện thoại B có nhiều RAM, nhiều ROM và độ phân giải cao hơn điện thoại A.
+    \item Nếu điện thoại B có nhiều RAM và nhiều ROM hơn điện thoại C, thì nó sẽ có độ phân giải cao hơn.
+    \item Điện thoại A có nhiều RAM hơn điện thoại B khi và chỉ khi điện thoại B có nhiều RAM hơn điện thoại A.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Đúng, vì điện thoại B có 288 MB RAM, nhiều hơn điện thoại A (256 MB), điện thoại C (128 MB).
+        \item Đặt \begin{itemize}
+            \item $P$: "Điện thoại C có nhiều ROM hơn điện thoại B"
+            \item $Q$: "Điện thoại C có độ phân giải cao hơn điện thoại B"
+        \end{itemize}
+        Mệnh đề chính có dạng: $P\lor Q$, mà $Q$ đúng nên ta có mệnh đề chính đúng.
+        \item Đặt \begin{itemize}
+            \item $P$: "Điện thoại B có nhiều RAM hơn điện thoại A"
+            \item $Q$: "Điện thoại B có nhiều ROM hơn điện thoại A"
+            \item $R$: "Điện thoại B có độ phân giải cao hơn điện thoại A"
+        \end{itemize}
+        Mệnh đề chính có dạng $P\land Q\land R$, mà $R$ sai nên mệnh đề chính sai.
+        \item Đặt \begin{itemize}
+            \item $P$: "Điện thoại B có nhiều RAM hơn điện thoại C"
+            \item $Q$: "Điện thoại B có nhiều ROM hơn điện thoại C"
+            \item $R$: "Điện thoại B có độ phân giải cao hơn điện thoại C"
+        \end{itemize}
+        Mệnh đề chính có dạng $P\land Q\rightarrow R$.\begin{itemize}
+            \item $P\land Q$ đúng vì cả $P$ và $Q$ đều đúng.
+            \item Mệnh đề chính sai vì $P\land Q$ đúng và $R$ sai.
+        \end{itemize}
+        \item Đặt \begin{itemize}
+            \item $P$: "Điện thoại A có nhiều RAM hơn điện thoại B"
+            \item $Q$: "Điện thoại B có nhiều RAM hơn điện thoại A"
+        \end{itemize}
+        Mệnh đề chính có dạng $P\leftrightarrow Q$, mà $P=\neg Q$ nên mệnh đề chính sai.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 9}
+Cho rằng trong thời gian một năm, doanh thu hằng năm của công ty máy tính Acme là 138 tỉ đôla và lợi nhuận là 8 tỉ đôla, doanh thu hằng năm của công ty phần mềm Nadir là 87 tỉ đôla và lợi nhuận là 5 tỉ đôla, doanh thu hằng năm của công ty đa phương tiện Quixote là 111 tỉ đôla và lợi nhuận là 13 tỉ đôla. Lập bảng chân trị của từng mệnh đề trong thời điểm một năm gần nhất.
+\begin{enumerate}[label=\alph*)]
+    \item Công ty Quixote có doanh thu cao nhất.
+    \item Công ty Nadir có lợi nhuận thấp nhất và công ty Acme có doanh thu cao nhất.
+    \item Công ty Acme có lợi nhuận cao nhất hoặc công ty Quixote có lợi nhuận cao nhất.
+    \item Nếu công ty Quixote có lợi nhuận thấp nhất, thì công ty Acme có doanh thu cao nhất.
+    \item Công ty Nadir có lợi nhuận thấp nhất khi và chỉ khi công ty Acme có doanh thu cao nhất.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Đặt $P$: "Công ty Quixote có doanh thu cao nhất"
+        \begin{center}
+            \begin{tabular}{c|c}
+                $P$ & $P$\cr\hline
+                F & F\cr
+                T & T
+            \end{tabular}
+        \end{center}
+        \item Đặt $P$: "Công ty Nadir có lợi nhuận thấp nhất", $Q$: "Công ty Acme có doanh thu cao nhất". Mệnh đề chính có dạng $P\land Q$.
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                $P$&$Q$&$P\land Q$\cr\hline
+                T&T&T\cr
+                T&F&F\cr
+                F&T&F\cr
+                F&F&F
+            \end{tabular}
+        \end{center}
+        \item Đặt $P$: "Công ty Acme có lợi nhuận cao nhất", $Q$: "Công ty Quixote có lợi nhuận cao nhất". Mệnh đề chính có dạng $P\lor Q$.
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                $P$&$Q$&$P\lor Q$\cr\hline
+                T&T&T\cr
+                T&F&T\cr
+                F&T&T\cr
+                F&F&F
+            \end{tabular}
+        \end{center}
+        \item Đặt $P$: "Công ty Quixote có lợi nhuận thấp nhất", $Q$: "Công ty Acme có doanh thu cao nhất". Mệnh đề chính có dạng $P\rightarrow Q$.
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                $P$&$Q$&$P\rightarrow Q$\cr\hline
+                T&T&T\cr
+                T&F&F\cr
+                F&T&T\cr
+                F&F&T
+            \end{tabular}
+        \end{center}
+        \item Đặt $P$: "Công ty Nadir có lợi nhuận thấp nhất", $Q$: "Công ty Acme có doanh thu cao nhất". Mệnh đề chính có dạng $P\leftrightarrow Q$.
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                $P$&$Q$&$P\leftrightarrow Q$\cr\hline
+                T&T&T\cr
+                T&F&F\cr
+                F&T&F\cr
+                F&F&T
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 11}
+Cho $p$ và $q$ lần lượt là các mệnh đề "Được phép bơi ở bờ biển New Jersey" và "Cá mập được phát hiện gần bờ biển". Phát biểu các mệnh đề sau đây.
+\begin{multicols}{3}
+    \begin{enumerate}[label=\alph*)]
+        \item $\neg q$
+        \item $p\land q$
+        \item $\neg p\land q$
+        \item $p\rightarrow\neg q$
+        \item $\neg q\rightarrow p$
+        \item $\neg q\rightarrow\neg p$
+        \item $\neg p\rightarrow\neg q$
+        \item $p\leftrightarrow\neg q$
+        \item $\neg p\land(p\lor\neg q)$
+    \end{enumerate}
+\end{multicols}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item "Cá mập được phát hiện xa bờ biển"
+        \item "Được phép bơi ở bờ biển New Jersey nhưng cá mập được phát hiện gần bờ biển"
+        \item "Cấm bơi ở bờ biển New Jersey và cá mập được phát hiện gần bờ biển"
+        \item "Nếu được phép bơi ở bờ biển New Jersey thì cá mập được phát hiện xa bờ biển"
+        \item "Nếu cá mập được phát hiện xa bờ biển thì được phép bơi ở bờ biển New Jersey."
+        \item "Nếu cá mập được phát hiện xa bờ biển thì cấm bơi ở bờ biển New Jersey."
+        \item "Nếu không được phép bơi ở bờ biển New Jersey thì cá mập được phát hiện xa bờ biển"
+        \item "Được phép bơi ở bờ biển New Jersey khi và chỉ khi cá mập được phát hiện xa bờ biển"
+        \item "Cấm bơi ở bờ biển New Jersey và chỉ được phép bơi ở bờ biển New Jersey hoặc cá mập được phát hiện xa bờ biển"
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 15}
+Cho $p$ và $q$ là các mệnh đề sau: \begin{itemize}
+    \item $p$: "Bạn lái xe trên 65 dặm một giờ"
+    \item $q$: "Bạn nhận được giấy phạt"
+\end{itemize}
+Viết các mệnh đề sau dùng kí hiệu $p$, $q$ và các kí hiệu logic (kể cả kí hiệu phủ định).
+\begin{enumerate}[label=\alph*)]
+    \item "Bạn không lái xe trên 65 dặm một giờ."
+    \item "Bạn lái xe trên 65 dặm một giờ, nhưng bạn không nhận được giấy phạt."
+    \item "Bạn sẽ nhận được giấy phạt nếu bạn lái xe trên 65 dặm một giờ"
+    \item "Nếu bạn không lái xe trên 65 dặm một giờ, thì bạn sẽ không nhận được giấy phạt."
+    \item "Lái xe trên 65 dặm một giờ là đủ để nhận được giấy phạt"
+    \item "Bạn nhận được giấy phạt nhưng bạn không lái xe trên 65 dặm một giờ"
+    \item "Bất cứ khi nào bạn nhận được giấy phạt, bạn đang lái xe trên 65 dặm một giờ"
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{3}
+            \item $\neg p$
+            \item $p\land \neg q$
+            \item $p\rightarrow q$
+            \item $\neg p\rightarrow \neg q$
+            \item $p\rightarrow q$
+            \item $q\land \neg p$
+            \item $q\leftrightarrow p$
+        \end{multicols}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 16}
+Cho $p$, $q$, $r$ là các mệnh đề sau: \begin{itemize}
+    \item $p$: "Bạn được điểm A trong kì thi cuối kì"
+    \item $q$: "Bạn làm toàn bộ bài tập trong sách"
+    \item $r$: "Bạn được điểm A ở môn này"
+\end{itemize}
+Viết các mệnh đề sau dùng kí hiệu $p$, $q$, $r$ và các kí hiệu logic (kể cả kí hiệu phủ định).
+\begin{enumerate}[label=\alph*)]
+    \item "Bạn được điểm A ở môn này, nhưng bạn không làm toàn bộ bài tập trong sách"
+    \item "Bạn được điểm A trong kì thi cuối kì, bạn làm toàn bộ bài tập trong sách và bạn được điểm A ở môn này"
+    \item "Để được điểm A ở môn này, được điểm A trong kì thi cuối kì là rất cần thiết"
+    \item "Bạn được điểm A trong kì thi cuối kì, nhưng bạn không làm toàn bộ bài tập trong sách; dù sao thì bạn được điểm A ở môn này"
+    \item "Được điểm A trong kì thi cuối kì và làm toàn bộ bài tập trong sách là đủ để được điểm A ở môn này"
+    \item "Bạn sẽ được điểm A ở môn này khi và chỉ khi làm toàn bộ bài tập trong sách hoặc được điểm A trong kì thi cuối kì"
+\end{enumerate}
+\begin{proof}.
+    \begin{multicols}{3}
+        \begin{enumerate}[label=\alph*)]
+            \item $r\land \neg q$
+            \item $p\land q\land r$
+            \item $p\rightarrow r$
+            \item $(p\land \neg q)\land r$
+            \item $(p\land q)\rightarrow r$
+            \item $r\leftrightarrow (q\lor p)$
+        \end{enumerate}
+    \end{multicols}
+\end{proof}
+\subsection*{Bài 17}
+Cho $p$, $q$, $r$ là các mệnh đề sau: \begin{itemize}
+    \item $p$: "Gấu xám đã được tìm thấy trong khu vực"
+    \item $q$: "Leo núi theo sườn núi thì an toàn"
+    \item $r$: "Những quả mọng chín đầy sườn núi"
+\end{itemize}
+Viết các mệnh đề sau dùng kí hiệu $p$, $q$, $r$ và các kí hiệu logic (kể cả kí hiệu phủ định).
+\begin{enumerate}[label=\alph*)]
+    \item "Những quả mọng chín đầy sườn núi, nhưng gấu xám chưa được tìm thấy trong khu vực"
+    \item "Gấu xám đã được tìm thấy trong khu vực và leo núi theo sườn núi thì an toàn, nhưng những quả mọng chín đầy sườn núi"
+    \item "Nếu những quả mọng chín đầy sườn núi, leo núi theo sườn núi thì an toàn khi và chỉ khi gấu xám chưa được tìm thấy trong khu vực"
+    \item "Leo núi theo sườn núi thì nguy hiểm, nhưng gấu xám chưa được tìm thấy trong khu vực và những quả mọng chín đầy sườn núi"
+    \item "Để leo núi theo sườn núi an toàn, những quả mọng chưa chín đầy sườn núi và gấu xám chưa được tìm thấy trong khu vực là điều kiện cần"
+    \item "Leo núi theo sườn núi thì nguy hiểm mỗi khi gấu xám đã được tìm thấy trong khu vực và những quả mọng chín đầy sườn núi"
+\end{enumerate}
+\begin{proof}.
+    \begin{multicols}{3}
+        \begin{enumerate}[label=\alph*)]
+            \item $r\land\neg p$
+            \item $p\land q\land r$
+            \item $r\land (q\leftrightarrow p)$
+            \item $\neg q\land \neg p\land r$
+            \item $q\rightarrow (\neg r\land \neg p)$
+            \item $\neg q\leftrightarrow (p\land\neg r)$
+        \end{enumerate}
+    \end{multicols}
+\end{proof}
+\subsection*{Bài 36}
+Lập bảng chân trị cho từng mệnh đề kết hợp sau:
+\begin{multicols}{3}
+    \begin{enumerate}[label=\alph*)]
+        \item $p\oplus p$
+        \item $p\oplus \neg p$
+        \item $p\oplus \neg q$
+        \item $\neg p\oplus \neg q$
+        \item $(p\oplus q)\lor (p\oplus \neg q)$
+        \item $(p\oplus q)\land (p\oplus \neg q)$
+    \end{enumerate}
+\end{multicols}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item \begin{tabular}{c|c}
+                $p$ & $p\oplus p$\cr\hline
+                T & F\cr
+                F & F\cr
+            \end{tabular}
+            \item \begin{tabular}{c|c|c}
+                $p$ & $\neg p$ & $p\oplus\neg p$\cr\hline
+                T & F & T\cr
+                F & T & T\cr
+            \end{tabular}
+            \item \begin{tabular}{c|c|c|c}
+                $p$ & $q$ & $\neg q$ & $p\oplus\neg q$\cr\hline
+                T & T & F & T\cr
+                T & F & T & F\cr
+                F & T & F & F\cr
+                F & F & T & T
+            \end{tabular}
+            \item \begin{tabular}{c|c|c|c|c}
+                $p$ & $q$ & $\neg p$ & $\neg q$ & $\neg p\oplus\neg q$\cr\hline
+                T & T & F & F & F\cr
+                T & F & F & T & T\cr
+                F & T & T & F & T\cr
+                F & F & T & T & F
+            \end{tabular}
+        \end{multicols}
+        \item \begin{tabular}{c|c|c|c|c|c}
+            $p$ & $q$ & $\neg q$ & $p\oplus q$ & $p\oplus\neg q$ & $(p\oplus q)\lor (p\oplus \neg q)$\cr\hline
+            T & T & F & F & T & T\cr
+            T & F & T & T & F & T\cr
+            F & T & F & T & F & T\cr
+            F & F & T & F & T & T
+        \end{tabular}
+        \item \begin{tabular}{c|c|c|c|c|c}
+            $p$ & $q$ & $\neg q$ & $p\oplus q$ & $p\oplus\neg q$ & $(p\oplus q)\land (p\oplus \neg q)$\cr\hline
+            T & T & F & F & T & F\cr
+            T & F & T & T & F & F\cr
+            F & T & F & T & F & F\cr
+            F & F & T & F & T & F
+        \end{tabular}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 37}
+Lập bảng chân trị cho từng mệnh đề kết hợp sau:
+\begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+        \item $p\rightarrow q$
+        \item $\neg p\rightarrow q$
+        \item $(p\rightarrow q)\lor (\neg p\rightarrow q)$
+        \item $(p\rightarrow q)\land (\neg p\rightarrow q)$
+        \item $(p\leftrightarrow q)\lor (\neg p\leftrightarrow q)$
+        \item $(\neg p\leftrightarrow\neg q)\leftrightarrow(p\leftrightarrow q)$
+    \end{enumerate}
+\end{multicols}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item \begin{tabular}{c|c|c}
+                $p$ & $q$ & $p\rightarrow q$\cr\hline
+                T & T & T\cr
+                T & F & F\cr
+                F & T & T\cr
+                F & F & T\cr
+            \end{tabular}
+            \item \begin{tabular}{c|c|c|c}
+                $p$ & $q$ & $\neg p$ & $\neg p\rightarrow q$\cr\hline
+                T & T & F & T\cr
+                T & F & F & T\cr
+                F & T & T & T\cr
+                F & F & T & F
+            \end{tabular}
+        \end{multicols}
+        \item \begin{tabular}{c|c|c|c|c|c}
+            $p$ & $q$ & $\neg p$ & $p\rightarrow q$ & $\neg p\rightarrow q$ & $(p\rightarrow q)\lor (\neg p\rightarrow q)$\cr\hline
+            T & T & F & T & T & T\cr
+            T & F & F & F & T & T\cr
+            F & T & T & T & T & T\cr
+            F & F & T & T & F & T\cr
+        \end{tabular}
+        \item \begin{tabular}{c|c|c|c|c|c}
+            $p$ & $q$ & $\neg p$ & $p\rightarrow q$ & $\neg p\rightarrow q$ & $(p\rightarrow q)\land (\neg p\rightarrow q)$\cr\hline
+            T & T & F & T & T & T\cr
+            T & F & F & F & T & F\cr
+            F & T & T & T & T & T\cr
+            F & F & T & T & F & F\cr
+        \end{tabular}
+        \item \begin{tabular}{c|c|c|c|c|c}
+            $p$ & $q$ & $\neg p$ & $p\leftrightarrow q$ & $\neg p\leftrightarrow q$ & $(p\leftrightarrow q)\lor (\neg p\leftrightarrow q)$\cr\hline
+            T & T & F & T & F & T\cr
+            T & F & F & F & T & T\cr
+            F & T & T & F & T & T\cr
+            F & F & T & T & F & T\cr
+        \end{tabular}
+        \item \begin{tabular}{c|c|c|c|c|c|c}
+            $p$ & $q$ & $\neg p$ & $\neg q$ & $p\leftrightarrow q$ & $\neg p\leftrightarrow \neg q$ & $(\neg p\leftrightarrow\neg q)\leftrightarrow(p\leftrightarrow q)$\cr\hline
+            T & T & F & F & T & T & T\cr
+            T & F & F & T & F & F & T\cr
+            F & T & T & F & F & F & T\cr
+            F & F & T & T & T & T & T\cr
+        \end{tabular}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 44}
+Nếu $p_1,p_2,\dots,p_n$ là $n$ mệnh đề, giải thích vì sao
+$$\bigwedge_{i=1}^{n-1}\bigwedge_{j=i+1}^{n}(\neg p_i\lor\neg p_j)$$ đúng khi và chỉ khi nhiều nhất là một mệnh đề trong $p_1,p_2,\dots,p_n$ là đúng.
+\begin{proof}
+    \par Ta viết lại đề bài:\\
+    Nếu $p_1,p_2,\dots,p_n$ là $n$ mệnh đề, giải thích vì sao
+$$\bigwedge_{i=1}^{n-1}\bigwedge_{j=i+1}^{n}(p_i\lor p_j)$$ sai khi và chỉ khi nhiều nhất là một mệnh đề trong $p_1,p_2,\dots,p_n$ là sai.\\\\
+\textbf{Trường hợp 1:} Tất cả các mệnh đề đều đúng.
+\par Ta dễ thấy rằng công thức của đề bài thực hiện phép tuyển đối với toàn bộ các cặp mệnh đề có thể xảy ra (hai mệnh đề giống nhau không tạo thành cặp, không có cặp nào bị trùng lặp do giao hoán), sau đó thực hiện phép hội trên các kết quả thu được. Vì tất cả các mệnh đề đều đúng, nghĩa là toàn bộ các phép tuyển đều sẽ đúng, vì thế toàn bộ các phép hội cũng đúng.\\
+\textbf{Trường hợp 2:} Có duy nhất một mệnh đề $p_i$ sai.
+\par Ta thấy rằng nếu mệnh đề $p_i$ sai, vì hai mệnh đề giống nhau không tạo thành cặp nên toàn bộ các phép tuyển vẫn đúng, vì chỉ có một mệnh đề nguyên tử của nó bị sai (điều này xảy ra trong các cặp mệnh đề có chứa $p_i$), dẫn tới toàn bộ các phép hội đều đúng.\\
+\par Trong các trường hợp còn lại, nếu có từ hai mệnh đề trở lên bị sai, giả sử hai mệnh đề bất kì $p_i$, $p_j$ bị sai, thì sẽ có một phép tuyển bị sai (cặp mệnh đề tạo thành từ $p_i$ và $p_j$), dẫn tới các phép hội cũng sai. Ta chứng minh tương tự với trường hợp từ ba mệnh đề trở lên.
+\end{proof}
+\subsection*{Bài 45}
+Dùng bài 44 để tạo ra một mệnh đề hợp đúng khi và chỉ khi đúng một mệnh đề trong tập hợp $p_1,p_2,\dots,p_n$ đúng. [\textit{Gợi ý:} Kết hợp mệnh đề hợp ở bài 44 và một mệnh đề hợp đúng khi và chỉ khi ít nhất một mệnh đề trong tập hợp $p_1,p_2,\dots,p_n$ đúng.]
+\begin{proof}
+    Giả sử có duy nhất một mệnh đề $p_k$ đúng. Vậy ta sẽ có tổng cộng $n$ dãy logic có quan hệ với nhau, với $i=1\dots n$.\\
+    \par Ta xét một dãy logic duy nhất, để dãy logic từ $j=i+1\dots n$ đúng, ta chỉ cho phép một và chỉ một mệnh đề phần tử đúng, vậy mệnh đề hợp là: $$\neg p_j\land\neg p_{j+1}\dots p_k\dots \neg p_{n-1}\land\neg p_n=p_k\bigwedge_{j=i+1}^n \neg p_j (j\neq k)$$
+    Ta nhận thấy, nếu $p_k$ sai hoặc một mệnh đề nào đó ngoài $p_k$ đúng thì mệnh đề này sẽ sai. Tổng cộng ta sẽ có $n$ dãy logic như vậy, và sẽ có $k$ dãy chứa $p_k$. Nếu $p_k$ sai, $k$ dãy này sẽ sai thì mệnh đề chính sẽ sai, hoặc $n-k$ dãy còn lại sẽ sai. Dễ thấy rằng ta có thể dùng phép hội:
+    $$\bigwedge_{i=1}^{n-1}\bigg(p_k\bigwedge_{j=i+1}^n\neg p_j\bigg) (j\neq k)$$
+    Đây chính là mệnh đề chính.
+\end{proof}
+\subsection*{Bài 52}
+Đây chính là nghịch lí nói dối. Nếu ta đặt mệnh đề $P$: "Câu này sai", vậy ta có:
+\begin{itemize}
+    \item Nếu $P$ đúng, thì "Câu này sai" là đúng (nghĩa là $P$ sai).
+    \item Nếu $P$ sai, thì "Câu này sai" là sai (nghĩa là $P$ đúng).
+\end{itemize}
+Vậy câu nói này không phải mệnh đề, vì nó không có tính đúng sai rõ ràng.
+\subsection*{Bài 53}
+Câu thứ $n$ trong một danh sách gồm 100 câu là "Có đúng $n$ câu trong danh sách này sai".
+\begin{enumerate}[label=\alph*)]
+    \item Có thể rút ra kết luận gì từ những câu này?
+    \item Trả lời câu (a) nếu mệnh đề thứ $n$ là "Ít nhất $n$ câu trong danh sách này sai".
+    \item Trả lời câu (b) nếu danh sách có 99 câu.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item \begin{itemize}
+            \item Ta viết lại danh sách thành: "Có đúng $n-k$ câu trong danh sách này đúng".
+            \item Dễ thấy rằng sẽ có 1 câu bị phủ định 100 lần, 1 câu 99 lần\dots, mà những câu bị phủ định $2n$ lần thì coi như không có gì xảy ra cả, còn câu bị phủ định $2n+1$ lần thì ta coi như đã bị phủ định. Danh sách sẽ trở thành: "Có 100 câu sai", "Có 99 câu đúng", "Có 98 câu sai"... Vậy chỉ có 50 câu đúng (những câu bị phủ định $2n$ lần), là những câu "Có $2n$ câu sai".
+        \end{itemize}
+        \item Chỉ có 1 câu đúng trong danh sách: "Có ít nhất 100 câu sai" vì nó bị phủ định đúng 100 lần, các câu khác (câu thứ $k$) đều có thể bị phủ định từ $k$ cho đến 100 lần, ta không thể xác định tính đúng sai của các câu khác.
+        \item Lúc này các câu sẽ bị phủ định từ $k$ cho đến 99 lần.
+    \end{enumerate}
+\end{proof}
