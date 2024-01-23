@@ -1,0 +1,208 @@
+\section*{Phần 1.4}
+\subsection*{Bài 9}
+Cho $P(x)$ là mệnh đề "$x$ có thể nói tiếng Nga", $Q(x)$ là "$x$ biết C++". Viết lại những câu sau dùng kí hiệu $P(x)$, $Q(x)$, lượng từ và các phép logic. Miền khảo sát là toàn bộ học sinh trong trường.
+\begin{enumerate}[label=\alph*)]
+    \item Có một học sinh trong trường có thể nói tiếng Nga và biết C++.
+    \item Có một học sinh trong trường có thể nói tiếng Nga và nhưng không biết C++.
+    \item Tất cả học sinh trong trường có thể nói tiếng Nga hoặc biết C++.
+    \item Không học sinh nào trong trường có thể nói tiếng Nga hoặc biết C++.
+\end{enumerate}
+\begin{proof}.
+    \begin{multicols}{2}
+        \begin{enumerate}[label=\alph*)]
+            \item $\exists x(P(x)\land Q(x))$
+            \item $\exists x(P(x)\land\neg Q(x))$
+            \item $\forall x(P(x)\lor Q(x))$
+            \item $\forall x(\neg P(x)\lor \neg Q(x))$
+        \end{enumerate}
+    \end{multicols}
+\end{proof}
+\subsection*{Bài 10}
+Cho $C(x)$ là mệnh đề "$x$ có một con mèo", $D(x)$ là "$x$ có một con chó", $F(x)$ là "$x$ có một con chồn sương". Viết lại những câu sau dùng kí hiệu $C(x)$, $D(x)$, $F(x)$, lượng từ và các phép logic. Miền khảo sát là toàn bộ học sinh trong lớp.
+\begin{enumerate}[label=\alph*)]
+    \item Một học sinh trong lớp có mèo, chó và chồn sương.
+    \item Tất cả học sinh trong lớp có mèo, chó hoặc chồn sương.
+    \item Một vài học sinh trong lớp có mèo và chồn sương, nhưng không có chó.
+    \item Không học sinh nào trong lớp có mèo, chó và chồn sương.
+    \item Với mỗi con vật, có một học sinh trong lớp có con đó.
+\end{enumerate}
+\begin{proof}.
+    \begin{multicols}{2}
+        \begin{enumerate}[label=\alph*)]
+            \item $\exists x(C(x)\land D(x)\land F(x))$
+            \item $\forall x(P(x)\lor Q(x)\lor F(x))$
+            \item $\exists x(C(x)\land F(x)\land \neg D(x))$
+            \item $\forall x(\neg(P(x)\land Q(x)\land F(x)))$
+            \item $\exists x(C(x)\lor Q(x)\lor F(x))$
+        \end{enumerate}
+    \end{multicols}
+\end{proof}
+\subsection*{Bài 33}
+Viết lại những câu sau dùng lượng từ, sau đó phủ định nó sao cho không có từ phủ định nào ở bên trái lượng từ. Cuối cùng biểu diễn phủ định bằng tiếng Anh (không được dùng "It is not the case that")
+\begin{enumerate}[label=\alph*)]
+    \item Some old dogs can learn new tricks.
+    \item No rabbits knows calculus.
+    \item Every bird can fly.
+    \item There is no dog that can talk.
+    \item There is no one in this class who knows French and
+    Russian.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Đặt $x$ với $F(x)$: "$x$ can learn new tricks.", ta có: $\exists x(F(x))\rightarrow \forall x(\neg F(x))\Rightarrow$ Most old dogs can't learn new tricks.
+        \item Đặt $x$ với $F(x)$: "$x$ knows calculus.", ta có: $\forall x(\neg F(x))\rightarrow \exists x(F(x))\Rightarrow$ Some rabbits knows calculus.
+        \item Đặt $x$ với $F(x)$: "$x$ can fly.", ta có: $\forall x(F(x))\rightarrow \exists x(\neg F(x))\Rightarrow$ There are some birds that can't fly.
+        \item Đặt $x$ với $F(x)$: "$x$ can talk.", ta có: $\forall x(\neg F(x))\rightarrow \exists x(F(x))\Rightarrow$ There are some dogs that can talk.
+        \item Đặt $x$ với $F(x)$: "$x$ knows French and Russian.", ta có: $\forall x(\neg F(x))\rightarrow \exists x(F(x))\Rightarrow$ Some students in this class know French and Russian.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 34}
+Phủ định lại những mệnh đề sau bằng lượng từ, sau đó viết lại bằng tiếng Anh.
+\begin{enumerate}[label=\alph*)]
+    \item Some drivers do not obey the speed limit.
+    \item All Swedish movies are serious.
+    \item No one can keep a secret.
+    \item There is someone in this class who does not have a
+    good attitude.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Đặt $x$ với $F(x)$: "$x$ obey the speed limit.", ta có: $\exists x(\neg F(x))\rightarrow \forall x(F(x))\Rightarrow$ All drivers obey the speed limit.
+        \item Đặt $x$ với $F(x)$: "$x$ is serious.", ta có: $\forall x(F(x))\rightarrow \exists x(\neg F(x))\Rightarrow$ Some Swedish movies aren't serious.
+        \item Đặt $x$ với $F(x)$: "$x$ can keep a secret.", ta có: $\forall x(\neg F(x))\rightarrow \exists x(F(x))\Rightarrow$ Some people can keep a secret.
+        \item Đặt $x$ với $F(x)$: "$x$ has a good attitude.", ta có: $\exists x(\neg F(x))\rightarrow \forall x(F(x))\Rightarrow$ Everyone in this class has a good attitude.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 39}
+Viết lại các câu sau dùng vị từ và lượng từ:
+\begin{enumerate}[label=\alph*)]
+    \item Một hành khách trên máy bay được coi là một người bay chuyên nghiệp nếu người đó bay hơn 25,000 dặm trong một năm hoặc đi hơn 25 chuyến bay trong năm đó.
+    \item Một người đạt yêu cầu marathon nếu thời gian ngắn nhất của anh ta ít hơn 3 tiếng, một người phụ nữ đạt yêu cầu marathon nếu thời gian ngắn nhất của cô ta ít hơn 3.5 tiếng.
+    \item Một học sinh phải học ít nhất 60 giờ, hoặc 45 giờ và một bài luận văn thạc sĩ, và nhận được điểm không dưới B trong tất cả các môn, sẽ được nhận bằng thạc sĩ.
+    \item Có một sinh viên đã học hơn 21 giờ trong một kì và đạt điểm A toàn bộ.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Khảo sát $x$ trong tập hợp các hành khách, $y\in\mathbb{R}$, đặt $V(x)$ là "$x$ là một người bay chuyên nghiệp", $Q(x, y)$ là "$x$ bay hơn $y$ dặm một năm", $Z(x, y)$ là "$x$ đi hơn $y$ chuyến bay trong năm đó". Ta có: $$\forall x(Q(x;25,000)\lor Z(x,25)\rightarrow V(x))$$
+        \item Khảo sát $x$ trong tập hợp các vận động viên marathon, $y\in\mathbb{R}$, đặt $Q(x)$ là "$x$ là một người đàn ông", $P(x)$ là "$x$ đạt yêu cầu marathon", $V(x,y)$ là "thời gian ngắn nhất của $x$ ít hơn $y$ tiếng". Ta có: $$\forall x[(Q(x)\land V(x,3))\lor (\neg Q(x)\land V(x,3.5))\rightarrow P(x)]$$
+        \item Khảo sát $x$ trong tập hợp các học sinh, $y\in\mathbb{R}$, đặt $P(x,y)$ là "$x$ phải học ít nhất $y$ giờ", $Q(x)$ là "$x$ phải làm một bài luận văn thạc sĩ", $R(x)$ là "$x$ được điểm không dưới B trong tất cả các môn", $S(x)$ là "$x$ được nhận bằng thạc sĩ", ta có: $$\forall x[P(x,60)\lor (P(x,45)\land Q(x))\land R(x)\rightarrow S(x)]$$
+        \item Khảo sát $x$ trong tập hợp các học sinh, $y\in\mathbb{R}$, đặt $P(x,y)$ là "$x$ học hơn $y$ giờ trong một kì" và $Q(x)$ là "$x$ đạt điểm A toàn bộ", ta có: $$\exists x(P(x,21)\land Q(x))$$
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 44}
+Viết lại các yêu cầu hệ thống sau đây dùng vị từ, lượng từ và các phép logic.
+\begin{enumerate}[label=\alph*)]
+    \item Mỗi người dùng có thể truy cập một hộp thư điện tử.
+    \item Hộp thư hệ thống có thể được truy cập bởi bất cứ ai trong nhóm nếu hệ thống tập tin bị khoá.
+    \item Tường lửa ở trạng thái chẩn đoán chỉ khi máy chủ proxy ở trạng thái chẩn đoán.
+    \item Ít nhất một router hoạt động bình thường nếu tốc độ truyền tải là từ 100 kb/s đến 500 kb/s và máy chủ proxy không ở trong trạng thái chẩn đoán.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Khảo sát $x$ trong tập hợp người dùng, $Q(x)$ là "$x$ có thể truy cập hộp thư điện tử", ta có: $\forall xQ(x)$.
+        \item Khảo sát $x$ trong tập hợp người trong nhóm, $Q$ là hệ thống tập tin bị khoá", $R(x)$ là "$x$ có thể truy cập hộp thư hệ thống", ta có: $\forall x(Q\rightarrow R(x))$
+        \item Khảo sát $x$ trong tập hợp tường lửa và máy chủ proxy, đặt $P(x,y)$ là "$x$ ở trạng thái chẩn đoán", ta có: $$\forall x[P(\text{tường lửa})\rightarrow P(\text{máy chủ proxy})]$$
+        \item Khảo sát $x$ trong tập hợp các router, đặt $P(x)$ là "$x$ hoạt động bình thường", $Q$ là "máy chủ proxy ở trong trạng thái chẩn đoán", $R(x,y)$ là "tốc độ truyền tải từ $x$ kb/s đến $y$ kb/s", ta có: $$\exists x(R(100,500)\land Q\rightarrow P(x))$$
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 45}
+Xác định xem $\forall x(P(x)\rightarrow Q(x))$ và $\forall xP(x)\rightarrow\forall xQ(x)$ có tương đương nhau không, chứng minh câu trả lời.
+\begin{proof}
+    Giả sử $\forall x(P(x)\rightarrow Q(x))$, nghĩa là nếu $x$ nằm trong vùng khảo sát, $P(x)\rightarrow Q(x)$ đúng, vậy ta có ba trường hợp:
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            $P(x)$ & $Q(x)$ & $P(x)\rightarrow Q(x)$\cr
+            \hline
+            T & T & T\cr
+            F & T & T\cr
+            F & F & T\cr
+        \end{tabular}
+    \end{center}
+    Giả sử $\forall xP(x)\rightarrow\forall xQ(x)$ đúng, thì $P(x)$ đúng và $Q(x)$ đúng, do đó ta có $P(x)\land Q(x)$ đúng. Như vậy với hai trường hợp còn lại thì $P(x)\rightarrow Q(x) \not\equiv P(x)\land Q(x)$.
+
+    Vậy $\forall x(P(x)\rightarrow Q(x)) \not\equiv \forall xP(x)\rightarrow\forall xQ(x)$.
+\end{proof}
+\subsection*{Bài 46}
+Xác định xem $\forall x(P(x)\leftrightarrow Q(x))$ và $\forall xP(x)\leftrightarrow\forall xQ(x)$ có tương đương nhau không, chứng minh câu trả lời.
+\begin{proof}
+    Giả sử $\forall x(P(x)\rightarrow Q(x))$, nghĩa là nếu $x$ nằm trong vùng khảo sát, $P(x)\leftrightarrow Q(x)$ đúng, vậy ta có hai trường hợp:
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            $P(x)$ & $Q(x)$ & $P(x)\rightarrow Q(x)$\cr
+            \hline
+            T & T & T\cr
+            F & F & T\cr
+        \end{tabular}
+    \end{center}
+    Giả sử $\forall xP(x)\leftrightarrow\forall xQ(x)$ đúng, thì $P(x)$ đúng và $Q(x)$ đúng, do đó ta có $P(x)\land Q(x)$ đúng. Như vậy với trường hợp còn lại thì $P(x)\leftrightarrow Q(x) \not\equiv P(x)\land Q(x)$.
+
+    Vậy $\forall x(P(x)\leftrightarrow Q(x)) \not\equiv \forall xP(x)\leftrightarrow\forall xQ(x)$.
+\end{proof}
+\subsection*{Bài 47}
+Chứng minh $\exists x(P(x)\lor Q(x))$ và $\exists xP(x)\lor\exists xQ(x)$.
+\begin{proof}
+    Giả sử $\exists x(P(x)\lor Q(x))$, nghĩa là nếu $x$ nằm trong vùng khảo sát, $P(x)\lor Q(x)$ có thể đúng hoặc sai, vậy ta có bốn trường hợp:
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            $P(x)$ & $Q(x)$ & $P(x)\lor Q(x)$\cr
+            \hline
+            T & T & T\cr
+            T & F & F\cr
+            F & T & F\cr
+            F & F & T
+        \end{tabular}
+    \end{center}
+    Giả sử $\exists xP(x)\lor\exists xQ(x)$ đúng, thì $P(x)$ và $Q(x)$ có thể đúng hoặc sai, do đó ta có $P(x)\lor Q(x)$ cũng có thể đúng hoặc sai với bảng chân trị như trên.
+
+    Vậy $\exists x(P(x)\lor Q(x)) \equiv \exists xP(x)\lor\exists xQ(x)$.
+\end{proof}
+\subsection*{Bài 63}
+Cho $P(x)$, $Q(x)$, $R(x)$ và $S(x)$ lần lượt là các câu "$x$ là em bé", "$x$ có tính logic", "$x$ có thể quản lí một con cá sấu" và "$x$ bị khinh bỉ". Giả sử miền khảo sát là tất cả mọi người. Viết lại những câu dưới đây dùng lượng từ, phép logic, $P(x)$, $Q(x)$, $R(x)$ và $S(x)$.
+\begin{enumerate}[label=\alph*)]
+    \item Em bé không có tính logic.
+    \item Không ai khinh bỉ người có thể quản lí một con cá sấu.
+    \item Người không có logic bị khinh bỉ.
+    \item Em bé không thể quản lí cá sấu.
+    \item Câu (d) có được suy ra từ câu (a), (b) và (c) không? Nếu không, có kết luận nào hợp lí không?
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item $\forall x(P(x)\rightarrow \neg Q(x))$
+            \item $\forall x(R(x)\rightarrow \neg S(x))$
+            \item $\forall x(\neg Q(x)\rightarrow S(x))$
+            \item $\forall x(P(x)\rightarrow \neg R(x))$
+        \end{multicols}
+        \item Câu (d) được suy ra từ câu (a), (b), (c) vì theo giả thiết: $P(x)$ đúng thì $R(x)$ sai. Quan sát ta thấy:
+        \begin{itemize}
+            \item Để $P(x)\rightarrow \neg Q(x)$ đúng mà $P(x)$ đúng thì $Q(x)$ phải sai.
+            \item Để $\neg Q(x)\rightarrow S(x)$ đúng mà $Q(x)$ sai thì $S(x)$ phải đúng.
+            \item Để $R(x)\rightarrow \neg S(x)$ đúng mà $S(x)$ đúng thì $R(x)$ phải sai.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 64}
+Cho $P(x)$, $Q(x)$, $R(x)$ và $S(x)$ lần lượt là các câu "$x$ là vịt", "$x$ là một trong những con gia cầm của tôi", "$x$ là sĩ quan" và "$x$ sẽ nhảy". Giả sử miền khảo sát là tất cả mọi người. Viết lại những câu dưới đây dùng lượng từ, phép logic, $P(x)$, $Q(x)$, $R(x)$ và $S(x)$.
+\begin{enumerate}[label=\alph*)]
+    \item Không con vịt nào sẽ nhảy.
+    \item Không sĩ quan nào từ chối nhảy.
+    \item Toàn bộ gia cầm của tôi là vịt.
+    \item Gia cầm của tôi không phải là các sĩ quan.
+    \item Câu (d) có được suy ra từ câu (a), (b) và (c) không? Nếu không, có kết luận nào hợp lí không?
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item $\forall x(P(x)\rightarrow \neg S(x))$
+            \item $\forall x(R(x)\rightarrow S(x))$
+            \item $\forall x(Q(x)\rightarrow P(x))$
+            \item $\forall x(Q(x)\rightarrow \neg R(x))$
+        \end{multicols}
+        \item Câu (d) được suy ra từ câu (a), (b), (c) vì theo giả thiết: $Q(x)$ đúng thì $R(x)$ sai. Quan sát ta thấy:
+        \begin{itemize}
+            \item Để $Q(x)\rightarrow P(x)$ đúng mà $Q(x)$ đúng thì $P(x)$ phải đúng.
+            \item Để $P(x)\rightarrow \neg S(x)$ đúng mà $P(x)$ đúng thì $S(x)$ phải sai.
+            \item Để $R(x)\rightarrow S(x)$ đúng mà $S(x)$ sai thì $R(x)$ phải sai.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}

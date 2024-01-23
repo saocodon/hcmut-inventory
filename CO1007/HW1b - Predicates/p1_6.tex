@@ -1,0 +1,100 @@
+\section*{Phần 1.6}
+\subsection*{Bài 11}
+Chứng minh rằng tranh luận có cơ sở $p_1,p_2,\dots,p_n$ và kết luận $q\rightarrow r$ hợp lệ nếu tranh luận có cơ sở $p_1,p_2,\dots,p_n,q$ và kết luận $r$ là hợp lệ.
+\begin{proof}
+    Tranh luận thứ hai cho ta thấy nếu $q$ là mệnh đề cơ sở, $r$ là mệnh đề kết luận và cả tranh luận là hợp lệ thì $q$ đúng và $r$ đúng ($q$ hỗ trợ cho $r$), vì vậy $q\rightarrow r$ đúng, suy ra được kết luận của tranh luận thứ nhất.
+\end{proof}
+\subsection*{Bài 23}
+Tìm lỗi trong tranh luận sau cho rằng nếu $\exists xP(x)\lor\exists xQ(x)$ đúng thì $\exists x(P(x)\lor Q(x))$ đúng.
+\begin{center}
+    \begin{tabular}{ccc}
+            1. & $\exists xP(x)\lor \exists xQ(x)$ & Cơ sở\cr
+            2. & $\exists xP(x)$ & Đơn giản hoá từ (1)\cr
+            3. & $P(c)$ & Xét $c$ từ (2)\cr
+            4. & $\exists xQ(x)$ & Đơn giản hoá từ (1)\cr
+            5. & $Q(c)$ & Khởi tạo hiện sinh từ (2)\cr
+            6. & $P(c)\lor Q(c)$ & Kết hợp từ (3) và (5)\cr
+            7. & $\exists x(P(x)\lor Q(x))$ & Tổng quát hoá
+    \end{tabular}
+\end{center}
+\begin{proof}
+    Theo định luật đơn giản hoá (Simplification), ta có $p\land q\rightarrow p$, nhưng ở (2) ta có $p\lor q$, không thể dùng được phép này.
+\end{proof}
+\subsection*{Bài 24}
+Tìm lỗi trong tranh luận sau cho rằng nếu $\forall x(P(x)\lor Q(x))$ đúng thì $\forall xP(x)\lor\forall Q(x)$ đúng.
+\begin{center}
+    \begin{tabular}{ccc}
+            1. & $\forall x(P(x)\lor Q(x))$ & Cơ sở\cr
+            2. & $P(c)\lor Q(c)$ & Khởi tạo hiện sinh từ (1)\cr
+            3. & $P(c)$ & Đơn giản hoá từ (2)\cr
+            4. & $\forall xP(x)$ & Tổng quát hoá từ (3)\cr
+            5. & $Q(c)$ & Đơn giản hoá từ (2)\cr
+            6. & $P(c)\lor Q(c)$ & Tổng quát hoá từ (5)\cr
+            7. & $\exists x(P(x)\lor Q(x))$ & Kết hợp (4) và (6)
+    \end{tabular}
+\end{center}
+\begin{proof}.
+    \begin{itemize}
+        \item Theo định luật đơn giản hoá (Simplification), ta có $p\land q\rightarrow p$, nhưng ở (2) ta có $p\lor q$, không thể dùng được phép này.
+        \item Không thể dùng phép tổng quát hoá ở (4) vì $c$ là một trường hợp cụ thể, không phải là một biến trừu tượng.
+    \end{itemize}
+\end{proof}
+\subsection*{Bài 34}
+Bài Toán Logic, lấy từ \textit{WFF'N PROOF, The Game Of Logic}, cho rằng hai điều sau đây:
+\begin{enumerate}
+    \item "Logic khó hoặc không nhiều học sinh thích logic"
+    \item "Nếu toán dễ thì logic không khó"
+\end{enumerate}
+Bằng cách biến đổi những câu này thành các câu chứa biến mệnh đề và phép logic, kiểm tra xem mỗi câu sau đây có phải là kết luận hợp lệ của những luận điểm này không?
+\begin{enumerate}[label=\alph*)]
+    \item Toán không dễ nếu nhiều học sinh thích logic.
+    \item Không nhiều học sinh thích logic nếu toán không dễ.
+    \item Toán không dễ hoặc logic khó.
+    \item Logic không khó hoặc toán không dễ.
+    \item Nếu không nhiều học sinh thích logic, thì toán không dễ hoặc logic không khó.
+\end{enumerate}
+\begin{proof}
+    Gọi mệnh đề $L$: "Logic khó", $S$: "Nhiều học sinh thích logic", $M$: "Toán dễ", ta biến đổi như sau:\\\\
+    \begin{tabular}{ccc}
+        1. & $L\lor\neg S$ & Cơ sở\cr
+        2. & $\neg L\rightarrow S$ & Biến đổi tương đương từ (1)\cr
+        3. & $M\rightarrow\neg L$ & Cơ sở\cr
+        \hline
+        & $\therefore M\rightarrow S$ & Suy luận từ (2) và (3)
+    \end{tabular}\\\\
+    Ta xét từng câu:
+    \begin{enumerate}[label=\alph*)]
+        \item Mệnh đề có dạng $S\rightarrow \neg M$. Vì $M\rightarrow S\equiv \neg S\rightarrow\neg M$ nên câu này không hợp lệ.
+        \item Mệnh đề có dạng $\neg M\rightarrow \neg S$. Vì $M\rightarrow S$ đúng với $\neg M\land \neg S$ nên câu này hợp lệ.
+        \item Mệnh đề có dạng $\neg M\lor L$. Vì $\neg M\lor L\equiv M\rightarrow L$ nên câu này không hợp lệ.
+        \item Mệnh đề có dạng $\neg L\lor\neg M$. Vì $\neg L\lor\neg M\equiv L\rightarrow\neg M\equiv M\rightarrow\neg L$ nên câu này hợp lệ.
+        \item Mệnh đề có dạng $\neg S\rightarrow(\neg M\lor\neg L)$. Vì $\neg S\rightarrow(\neg M\lor\neg L)\equiv(\neg S\rightarrow\neg M)\lor(\neg S\rightarrow\neg L)$ nên câu này hợp lệ.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 35}
+Kiểm tra xem tranh luận này, lấy từ Kalish và Montague [KaMo64], hợp lệ.
+\begin{adjustwidth}{0.5cm}{}
+Nếu siêu nhân có thể và sẽ ngăn chặn kẻ xấu, anh ta sẽ làm vậy. Nếu siêu nhân không thể ngăn chặn kẻ xấu, anh ta trở nên vô dụng; nếu anh ta không sẵn sàng ngăn chặn kẻ xấu, anh ta đang tiếp tay cho cái ác. Siêu nhân không ngăn chặn kẻ xấu. Nếu siêu nhân tồn tại, anh ta vừa không vô dụng vừa không tiếp tay cho kẻ xấu. Vì vậy, siêu nhân không tồn tại.
+\end{adjustwidth}
+\begin{proof}
+    Gọi các mệnh đề sau: \begin{itemize}
+        \item $S$: "Siêu nhân mạnh"
+        \item $M$: "Siêu nhân tiếp tay cho cái xấu"
+        \item $I$: "Siêu nhân vô dụng"
+        \item $D$: "Siêu nhân sẽ ngăn chặn kẻ xấu"
+        \item $E$: "Siêu nhân tồn tại"
+    \end{itemize}
+    Tranh luận có thể được viết lại như sau:
+    \begin{center}
+        \begin{tabular}{c}
+            $S\land\neg M\rightarrow D$\cr
+            $\neg S\rightarrow I$\cr
+            $\neg D\rightarrow M$\cr
+            $\neg D$\cr
+            $E\rightarrow\neg I\land\neg M$\cr
+            \hline\
+            $\therefore\neg E$
+        \end{tabular}
+    \end{center}
+    Ta có ba cơ sở mâu thuẫn nhau: $S\land\neg M\rightarrow D$, $\neg D\rightarrow M$ và $\neg D$. Cơ sở là $\neg D\rightarrow M$, mà $E\rightarrow\neg M$. Vậy siêu nhân không tồn tại, tranh luận trên hợp lệ.
+\end{proof}

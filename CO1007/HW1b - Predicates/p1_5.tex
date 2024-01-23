@@ -1,0 +1,141 @@
+\section*{Phần 1.5}
+\subsection*{Bài 17}
+Viết lại các yêu cầu hệ thống sau đây dùng vị từ, lượng từ và phép logic nếu cần.
+\begin{enumerate}[label=\alph*)]
+    \item Mỗi người dùng chỉ được truy cập duy nhất một hộp thư.
+    \item Có một tiến trình tiếp tục chạy ở mọi điều kiện lỗi chỉ khi nhân hoạt động đúng.
+    \item Mọi người dùng trong mạng trường có thể truy cập mọi trang web có URL đuôi .edu.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item "Với mọi người dùng $x$, có một hộp thư $y$ sao cho người đó có quyền truy cập vào, và với mọi hộp thư $z$, nếu $z\neq y$ thì người đó không có quyền truy cập.". Đặt $P(x,y)$ là "$x$ được phép truy cập hộp thư $y$", ta có: $$\forall x\exists y(P(x,y)\land \forall z((z\neq y)\rightarrow \neg P(x,z)))$$
+        \item "Nếu nhân hoạt động đúng, có một tiến trình $x$, với mọi điều kiện lỗi $y$, $x$ tiếp tục chạy ở điều kiện $y$.". Gọi $P(x,y)$ là "$x$ chạy ở điều kiện lỗi $y$", ta có: $\exists x\forall y P(x,y)$
+        \item "Với mọi người dùng $x$ trong mạng trường, $x$ có thể truy cập mọi trang web $y$ mà URL của $y$ có đuôi .edu". Gọi $P(x,y)$ là "$x$ có thể truy cập trang web $y$", $Q(y)$ là "trang web $y$ có URL đuôi .edu", ta có: $$\forall x\forall y(Q(y)\rightarrow P(x,y))$$
+        \item "Với mọi máy chủ remote $x$, có đúng hai hệ thống $y_1$ và $y_2$ quản lí, và với mọi hệ thống $z\neq y_1$ và $z\neq y_2$ thì $z$ không quản lí $x$". Vậy ta có: $$\forall x\forall y_1\forall y_2\forall z(((y_2\neq y_1)\land P(x,y_1)\land P(x,y_2)\land P(x,z))\rightarrow z=y_1\lor z=y_2)$$
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 18}
+Viết lại các yêu cầu hệ thống sau đây dùng vị từ, lượng từ và phép logic nếu cần.
+\begin{enumerate}[label=\alph*)]
+    \item Ít nhất một giao diện dòng lệnh phải có khả năng truy cập với mọi điều kiện lỗi.
+    \item Có thể lấy được địa chỉ email của mọi người dùng mỗi khi tập tin nén chứa ít nhất một tin nhắn được gửi bởi tất cả người dùng trong hệ thống.
+    \item Với mỗi lỗ hổng bảo mật, có ít nhất một cơ chế có thể phát hiện lỗ hổng đó khi và chỉ khi có một tiến trình bị rò rỉ thông tin.
+    \item Có ít nhất hai đường kết nối hai điểm phân biệt trong mạng lưới.
+    \item Không ai biết mật khẩu của mọi người dùng trong hệ thống trừ quản trị viên hệ thống, người biết tất cả các mật khẩu.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item "Với mọi điều kiện lỗi $x$, ít nhất một giao diện dòng lệnh $y$ phải có khả năng truy cập", gọi $P(x,y)$ là "Giao diện dòng lệnh $y$ có khả năng truy cập trong điều kiện lỗi $x$", ta có: $\forall x\exists yP(x,y)$
+        \item "Với mọi người dùng $x$, ta có thể lấy được địa chỉ email của $x$ nếu tập tin nén chứa ít nhất một tin nhắn $y$ được gửi bởi $x$", gọi $P(x)$ là "có thể lấy được địa chỉ email của $x$", $Q(x,y)$ là "tập tin nén chứa tin nhắn $y$ được gửi bởi $x$", ta có: $$\forall x(\exists yQ(x,y))\rightarrow \forall xP(x)$$
+        \item "Với mỗi lỗ hổng bảo mật $x$, có ít nhất một cơ chế $y$ có thể phát hiện $x$ khi và chỉ khi có một tiến trình $z$ bị rò rỉ thông tin". Đặt $P(z)$ là "tiến trình $z$ bị rò rỉ thông tin", $Q(x,y)$ là "cơ chế $y$ có thể phát hiện $x$", ta có: $$\exists zP(z)\leftrightarrow \forall x\exists yQ(x,y)$$
+        \item "Với mọi cặp điểm $x$, $y$ ($x\neq y$), tồn tại ít nhất 1 đường $z_1$ và 1 đường $z_2$ ($z_1\neq z_2$) sao cho đường $z_1$ và đường $z_2$ đều kết nối $x$ và $y$". Gọi $P(x,y,z)$ là "đường $z$ kết nối $x$ và $y$", ta có: $$\forall x\forall y\exists z_1\exists z_2((x\neq y\land z_1\neq z_2)\rightarrow P(x,y,z_1)\land P(x,y,z_2))$$
+        \item Vì quản trị viên hệ thống cũng là một người dùng nên ta viết lại: "Với mọi người dùng $x$, $y (x\neq y)$, nếu $x$ là quản trị viên hệ thống thì $x$ biết mật khẩu của $y$", vậy đặt $P(x,y)$ là "$x$ biết mật khẩu của $y$", $Q(x)$ là "$x$ là quản trị viên hệ thống", ta có: $$\forall x\forall y((x\neq y\land Q(x))\rightarrow P(x,y))$$
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 36}
+Viết lại các câu sau đây dùng lượng từ. Sau đó phủ định nó sao cho không có phép phủ định nào bên trái lượng từ. Sau đó, viết lại câu bằng tiếng Anh. (không được dùng "It is not the case that")
+\begin{enumerate}[label=\alph*)]
+    \item No one has lost more than one thousand dollars playing the lottery.
+    \item There is a student in this class who has chatted with exactly one other student.
+    \item No student in this class has sent e-mail to exactly two other students in this class.
+    \item Some student has solved every exercise in this book.
+    \item No student has solved at least one exercise in every section of this book.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Khảo sát $x$ với tất cả mọi người, đặt $P(x)$ là "$x$ has lost more than one thousand dollars playing the lottery", ta có: $\forall x\neg P(x)\rightarrow \exists xP(x)$: Some people have more than one thousand dollars playing the lottery.
+        \item "There is a student $x$ who has chatted with a student $y$, where for every student $z$ if that student is not $y$ then $z$ hasn't chatted with $x$ in this class", ta đặt $P(x,y)$ là "$x$ has chatted with $y$", ta có: $$Q(x):\exists x\exists y(P(x,y)\land \forall z((z\neq y)\rightarrow \neg P(x,z)))$$
+        Phủ định lại câu ta có: \begin{align*}
+            &\neg \exists x\exists y(P(x,y)\land \forall z((z\neq y)\rightarrow \neg P(x,z)))\\
+            \equiv&\forall x\neg \exists y(P(x,y)\land \forall z((z\neq y)\rightarrow \neg P(x,z)))\\
+            \equiv&\forall x\forall y\neg (P(x,y)\land \forall z((z\neq y)\rightarrow \neg P(x,z)))\\
+            \equiv&\forall x\forall y(\neg P(x,y)\lor \neg \forall z((z\neq y)\rightarrow \neg P(x,z)))\\
+            \equiv&\forall x\forall y(\neg P(x,y)\lor\exists z\neg((z\neq y)\rightarrow \neg P(x,z))\\
+            \equiv&\forall x\forall y(\neg P(x,y)\lor\exists z((z\neq y)\land P(x,z))
+        \end{align*}
+        Vậy câu phủ định là "Everyone has either never talked to anyone, or talked to more than one student".
+        \item Khảo sát $x,y$ trong tất cả các học sinh trong lớp, ta đặt $P(x,y)$ là "$x$ has sent email to $y$", ta có thể biểu diễn $Q(x): $"$x$ has sent email to exactly two students $y$ and $z$" như sau: $$Q(x):\exists y\exists z((x\neq y)\land (x\neq z)\land \forall t((t\neq y)\land (t\neq z)\rightarrow \neg P(x,t)))$$
+        Vậy ta có mệnh đề chính là $\forall x\neg Q(x)$. Phủ định lại ta được $\exists x Q(x)$: "There is a student who has sent email to exactly two other students in this class."
+        \item Khảo sát $x$ trong toàn bộ học sinh trong lớp, $y$ trong tập hợp các bài của sách, gọi $P(x,y)$ là "Student $x$ has solved exercise $y$ in this book", ta có: $\exists x\forall yP(x,y)$, phủ định lại ta có $$\neg\exists x\forall yP(x,y)\equiv \forall x\neg\forall yP(x,y)\equiv \forall x\exists y\neg P(x,y)$$hay "All students haven't solved every exercises in this book."
+        \item Khảo sát $x$ trong toàn bộ học sinh trong lớp, $z$ trong tập hợp các bài của sách, $y$ trong tập hợp các phần của sách, "For all students $x$, for all sections $y$ of this book, no one has solved at least one exercise $y$". Gọi $P(x,y,z)$ là "student $x$ has solved question $z$ in section $y$", ta có: $\forall x\forall y\forall z \neg P(x,y,z)$, ta phủ định thành
+        \begin{align*}
+            &\neg\forall x\forall y\forall z\neg P(x,y,z)\\
+            &\equiv \exists x\neg \forall y\forall z\neg P(x,y,z)\\
+            &\equiv \exists x\exists y\neg\forall z\neg P(x,y,z)\\
+            &\equiv \exists x\exists y\exists zP(x,y,z)
+        \end{align*}hay "Some students have solved some exercises in some sections of this book."
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 37}
+Viết lại các câu sau đây dùng lượng từ. Sau đó phủ định nó sao cho không có phép phủ định nào bên trái lượng từ. Sau đó, viết lại câu bằng tiếng Anh. (không được dùng "It is not the case that")
+\begin{enumerate}[label=\alph*)]
+    \item Every student in this class has taken exactly two mathematics classes at this school.
+    \item Someone has visited every country in the world except Libya.
+    \item No one has climbed every mountain in the Himalayas.
+    \item Some student has solved every exercise in this book.
+    \item Every movie actor has either been in a movie with Kevin Bacon or has been in a movie with someone who has been in a movie with Kevin Bacon.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Khảo sát $x$ trong toàn bộ học sinh, $y$ trong toàn bộ các môn toán, gọi $P(x,y)$ là "$x$ has taken mathematics class $y$", để diễn tả $Q(x):$ "$x$ has taken exactly two mathematics class $y$ and $z$" ta có: $$Q(x):\exists y\exists z((y\neq z)\land\forall t(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))$$Vậy mệnh đề chính ta có $\forall xQ(x)$, phủ định lại ta có:
+        \begin{align*}
+            &\neg\exists y\exists z((y\neq z)\land\forall t(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))\\
+            \equiv& \forall y\neg\exists z((y\neq z)\land\forall t(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))\\
+            \equiv&\forall y\forall z\neg((y\neq z)\land\forall t(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))\\
+            \equiv&\forall y\forall z(\neg(y\neq z)\lor\neg\forall t(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))\\
+            \equiv&\forall y\forall z(\neg(y\neq z)\lor\exists t\neg(((t\neq y)\land (t\neq z))\rightarrow\neg P(x,t)))\\
+            \equiv&\forall y\forall z(\neg(y\neq z)\lor\exists t(((t\neq y)\land (t\neq z))\land P(x,t)))
+        \end{align*} hay "Every student in this class has either taken only one mathematics class, or taken more than two mathematics classes."
+        \item Khảo sát $x$ trong tất cả mọi người, $y$ trong tất cả các nước trên thế giới, ta đặt $P(x,y)$ là "$x$ đã đi nước $y$", $Q(x)$ là "$x$ đã đi Libya", ta có: $\exists x\forall y(\neg Q(x)\land P(x,y))$, phủ định lại ta có:
+        \begin{align*}
+            &\neg\exists x\forall y(\neg Q(x)\land P(x,y))\\
+            \equiv& \forall x\neg\forall y(\neg Q(x)\land P(x,y))\\
+            \equiv& \forall x\exists y\neg(\neg Q(x)\land P(x,y))\\
+            \equiv& \forall x\exists y(Q(x)\lor\neg P(x,y))
+        \end{align*}hay "Everyone has visited Libya or hasn't visited every country in the world".
+        \item Khảo sát $x$ trong tất cả mọi người, $y$ trong tất cả các núi ở dãy Himalaya, đặt $P(x,y)$ là "$x$ has climbed mountain $y$ in the Himalayas", ta có: $\forall x\exists y\neg P(x,y)$, phủ định lại ta có $$\neg\forall x\exists y\neg P(x,y)\equiv \exists x\neg\forall y\neg P(x,y)\equiv\exists x\exists yP(x,y)$$hay "Someone has climbed some mountains in the Himalayas".
+        \item Khảo sát $x$ trong số các diễn viên, ta viết lại đề: "For all movie actors, $x$ has acted with Kevin Bacon or with someone acted with him", đặt $P(x,y)$ là "$x$ has been in a movie with $y$", $Q(x)$ là "$x$ has been in a movie with Kevin Bacon", ta có: $$\forall x\exists y(Q(x)\lor (P(x,y)\land Q(y)))$$.
+        Phủ định lại, ta có:\begin{align*}
+            &\neg\forall x\exists y(Q(x)\lor (P(x,y)\land Q(y)))\\
+            \equiv& \exists x\neg \exists y((Q(x))\lor (P(x,y)\land Q(y)))\\
+            \equiv& \exists x\forall y\neg(Q(x)\lor (P(x,y)\land Q(y)))\\
+            \equiv& \exists x\forall y(\neg Q(x)\land \neg(P(x,y)\land Q(y)))\\
+            \equiv& \exists x\forall y(\neg Q(x)\land (\neg P(x,y)\lor \neg Q(y)))
+        \end{align*} hay "There is a movie actor who has never been in a movie with Kevin Bacon, and for other movie actors, either they have never been in a movie with that person, or they have never been in a movie with Kevin Bacon."
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 47}
+Cho hai mệnh đề $\neg\exists x\forall yP(x,y)$ và $\forall x\exists y\neg P(x,y)$, cả hai lượng từ ở biến thứ nhất trong $P(x,y)$ chung miền khảo sát, và cả hai lượng từ ở biến thứ hai trong $P(x,y)$ chung miền khảo sát, là tương đương logic với nhau.
+\begin{proof}
+    Ta biến đổi biểu thức đầu tiên:
+    $$\neg\exists x\forall yP(x,y)\equiv\forall x\neg\forall yP(x,y)\equiv\forall x\exists y\neg P(x,y)$$
+    Vậy hai mệnh đề tương đương logic với nhau.
+\end{proof}
+\subsection*{Bài 48}
+Chứng minh rằng $\forall xP(x)\lor\forall xQ(x)$ và $\forall x\forall y(P(x)\lor Q(y))$, khi mọi lượng từ đều chung một miền khảo sát khác rỗng, là tương đương logic với nhau. (Biến $y$ mới được thêm vào để kết hợp các lượng từ cho đúng.)
+\begin{proof}.
+    \begin{itemize}
+        \item Xét mệnh đề đầu tiên: Cho $x$ trong miền khảo sát, với điều kiện này $P(x)$ đúng, $Q(x)$ cũng đúng, vì vậy $P(x)\lor Q(x)$ cũng đúng, ta đưa lượng từ $\forall$ ra làm lượng từ chung cho cả mệnh đề, ta được: $\forall x(P(x)\lor Q(x))$, đổi tên biến ta được $\forall x\forall y(P(x)\lor Q(y))$.
+        \item Xét mệnh đề thứ hai: Cho $x$ và $y$ đều trong miền khảo sát, trong điều kiện này thì $P(x)\lor Q(y)$ đúng, nhưng bản thân $P(x)$ cũng đúng và $Q(y)$ cũng đúng, vì vậy ta tách ra thành hai hạng tử $\forall xP(x)$ và $\forall yQ(y)$, thêm phép tuyển ở giữa ta được mệnh đề đầu tiên.
+    \end{itemize}
+    Vậy hai mệnh đề tương đương logic với nhau.
+\end{proof}
+\subsection*{Bài 49}
+\begin{enumerate}[label=\alph*)]
+    \item Chứng minh rằng $\forall xP(x)\land\exists xQ(x)$ tương đương logic với $\forall x\exists y(P(x)\land Q(y))$, với mọi lượng từ đều chung một miền khảo sát khác rỗng.
+    \item Chứng minh rằng $\forall xP(x)\lor\exists xQ(x)$ tương đương logic với $\forall x\exists y(P(x)\lor Q(y))$, với mọi lượng từ đều chung một miền khảo sát khác rỗng.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có tập hợp của $\exists x\subset\forall x$, vì vậy ta có hai trường hợp: $P(x)$ đúng, $Q(x)$ đúng và $P(x)$ đúng, $Q(x)$ sai.
+        \begin{itemize}
+            \item Với trường hợp 1, ta có $Q(x)\land P(x)$ đúng, ta đưa các lượng từ ra ngoài, ta được $\forall x\exists y(P(x)\land Q(y))$. Chứng minh theo chiều ngược lại, ta có $x$ trong miền khảo sát của $\exists x$ thì $P(x)$ và $Q(y)$ đúng, vậy $P(x)$ đúng và $Q(x)$ đúng, tách riêng ra ta được $\forall xP(x)\land\exists xQ(x)$.
+            \item Với trường hợp 2, $P(x)$ đúng và $Q(x)$ sai, vậy $P(x)\land Q(x)$ sai ($P(x)$ phải đúng vì $x$ đang nằm trong miền khảo sát $\forall xP(x)$ nhưng ngoài $\exists xQ(x)$), đưa các lượng từ ra ngoài, ta được $\forall x\exists y(P(x)\land Q(y))$. Chứng minh theo chiều ngược lại, ta có $x$ trong miền khảo sát của $\forall x$ thì $P(x)\land Q(x)$ sai ($P(x)$ phải đúng vì $x$ đang nằm trong miền khảo sát $\forall xP(x)$ nhưng ngoài $\exists xQ(x)$), vậy $Q(x)$ sai, tách riêng ra ta được $\forall xP(x)\land\exists xQ(x)$.
+        \end{itemize}
+        \item Ta có tập hợp của $\exists x\subset\forall x$, vì vậy ta có hai trường hợp: $P(x)$ đúng, $Q(x)$ đúng và $P(x)$ đúng, $Q(x)$ sai.
+        \begin{itemize}
+            \item Với trường hợp 1, ta có $Q(x)\lor P(x)$ đúng, ta đưa các lượng từ ra ngoài, ta được $\forall x\exists y(P(x)\lor Q(y))$. Chứng minh theo chiều ngược lại, ta có $x$ trong miền khảo sát của $\exists x$ thì $P(x)$ và $Q(y)$ đúng, vậy $P(x)$ đúng và $Q(x)$ đúng, tách riêng ra ta được $\forall xP(x)\lor\exists xQ(x)$.
+            \item Với trường hợp 2, $P(x)$ đúng và $Q(x)$ sai, vậy $P(x)\lor Q(x)$ đúng, đưa các lượng từ ra ngoài, ta được $\forall x\exists y(P(x)\lor Q(y))$. Chứng minh theo chiều ngược lại, ta có $x$ trong miền khảo sát của $\forall x$ thì $P(x)\lor Q(x)$ đúng ($P(x)$ phải đúng vì $x$ đang nằm trong miền khảo sát $\forall xP(x)$ nhưng ngoài $\exists xQ(x)$), vậy $Q(x)$ sai, tách riêng ra ta được $\forall xP(x)\lor\exists xQ(x)$.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
