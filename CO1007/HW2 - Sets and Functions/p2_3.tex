@@ -1,0 +1,483 @@
+\section*{Phần 2.3}
+\subsection*{Bài 25}
+Đặt $f:\mathbb{R}\rightarrow\mathbb{R}$ và $f(x)>0$ với mọi $x\in\mathbb{R}$. Chứng minh rằng $f(x)$ tăng nghiêm ngặt khi và chỉ khi $g(x)=1/f(x)$ giảm nghiêm ngặt.
+\begin{proof}
+    Ta có $g(x)=1/f(x)\rightarrow f(x)=1/g(x)$.
+    \par Chứng minh theo chiều thuận, nếu $f(x_1)<f(x_2)$ trên dãy số $x>0$ thì $g(x_1)=1/f(x_1)$, $g(x_2)=1/f(x_2)$ và $g(x_1)>g(x_2)$.
+    \par Chứng minh theo chiều nghịch, nếu $g(x_1)>g(x_2)$ trên dãy số $x>0$ thì $f(x_1)=1/g(x_1)$ và $f(x_2)=1/g(x_2)$ và $f(x_1)<f(x_2)$.
+\end{proof}
+\subsection*{Bài 26}
+\begin{enumerate}[label=\alph*)]
+    \item Chứng minh rằng một hàm tăng nghiêm ngặt từ $\mathbb{R}$ đến chính nó là hàm đơn ánh.
+    \item Cho một ví dụ của một hàm tăng từ $\mathbb{R}$ đến chính nó nhưng không là hàm đơn ánh.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Nếu $f$ là hàm tăng nghiêm ngặt, với $x_1$ và $x_2$ sao cho $x_1<x_2$ ta luôn có $f(x_1)<f(x_2)$, và vì $f(x)$ là duy nhất nên nó thoả mãn tính chất đơn ánh.
+        \item Ví dụ hàm $f(x)=\max(0,x)$. Đây là một hàm có tính tăng không nghiêm ngặt (với mọi $x<0$ thì $f(x)=0$) và cũng không thoả tính đơn ánh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 27}
+\begin{enumerate}[label=\alph*)]
+    \item Chứng minh rằng một hàm giảm nghiêm ngặt từ $\mathbb{R}$ đến chính nó là hàm đơn ánh.
+    \item Cho một ví dụ của một giảm tăng từ $\mathbb{R}$ đến chính nó nhưng không là hàm đơn ánh.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Nếu $f$ là hàm tăng nghiêm ngặt, với $x_1$ và $x_2$ sao cho $x_1>x_2$ ta luôn có $f(x_1)>f(x_2)$, và vì $f(x)$ là duy nhất nên nó thoả mãn tính chất đơn ánh.
+        \item Ví dụ hàm $f(x)=\min(0,x)$. Đây là một hàm có tính giảm không nghiêm ngặt (với mọi $x\geq0$ thì $f(x)=0$) và cũng không thoả tính đơn ánh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 33}
+Giả sử $g$ là một hàm từ $A$ sang $B$ và $f$ là một hàm từ $B$ sang $C$.
+\begin{enumerate}[label=\alph*)]
+    \item Chứng minh rằng nếu cả $f$ và $g$ đều là hàm đơn ánh, thì $f\circ g$ cũng đơn ánh.
+    \item Chứng minh rằng nếu cả $f$ và $g$ đều là hàm toàn ánh, thì $f\circ g$ cũng toàn ánh.
+\end{enumerate}
+\begin{proof}
+    $(f\circ g)(x)=f(g(x))$
+    \begin{enumerate}[label=\alph*)]
+        \item Vì $t=g(x)$ là duy nhất, mà $y=f(t)$ cũng duy nhất, suy ra điều phải chứng minh.
+        \item Vì $t=g(x)$ toàn ánh, mà $y=f(t)$ cũng toàn ánh, suy ra điều phải chứng minh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 34}
+Giả sử $g$ là một hàm từ $A$ sang $B$ và $f$ là một hàm từ $B$ sang $C$. Chứng minh từng câu dưới đây.
+\begin{enumerate}[label=\alph*)]
+    \item Nếu $f\circ g$ toàn ánh, thì $f$ phải toàn ánh.
+    \item Nếu $f\circ g$ đơn ánh, thì $g$ phải đơn ánh.
+    \item Nếu $f\circ g$ song ánh, thì $g$ toàn ánh khi và chỉ khi $f$ đơn ánh.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Giả sử $f\circ g$ toàn ánh, nghĩa là với mọi $y$ luôn tồn tại \textbf{ít nhất} một giá trị $t=g(x)$ thoả mãn $y=f(t)$. Nếu $f$ không toàn ánh, chứng tỏ tồn tại ít nhất một giá trị $t=g(x)$ sao cho với mọi $x$ thì $y\neq f(t)$. Điều này mâu thuẫn với giả thiết ta đặt ra, vì vậy $f$ phải toàn ánh.
+        \item Giả sử $f\circ g$ đơn ánh, nghĩa là với mọi $x_1\neq x_2$ ta đều có $f(g(x_1))\neq f(g(x_2))$. Nếu $g$ không đơn ánh, sẽ tồn tại ít nhất một cặp $x_1\neq x_2$ sao cho $g(x_1)=g(x_2)$, suy ra $f(g(x_1))=f(g(x_2))$, trái với giả thiết. Vì vậy $g$ phải đơn ánh.
+        \item Giả sử $f\circ g$ song ánh, nghĩa là với mọi $y$ có \textbf{duy nhất} một giá trị $x$ sao cho $y=f(g(x))$. \begin{itemize}
+            \item Nếu $g$ toàn ánh, thì với mọi $t$ đều có ít nhất một $x$ sao cho $t=g(x)$. Nếu $f$ không đơn ánh, vậy sẽ tồn tại ít nhất một cặp $t_1\neq t_2$ sao cho $f(t_1)=f(t_2)$, trái ngược với giả thiết. Vậy $f$ phải đơn ánh.
+            \item Nếu $f$ đơn ánh thì với mọi $t_1\neq t_2$ ta luôn có $f(t_1)\neq f(t_2)$. Nếu $g$ không toàn ánh, vậy sẽ có một giá trị $t$ sao cho với mọi $x$ thì $t\neq g(x)$, suy ra $|B|<|C|$, trái ngược với giả thiết $f\circ g$ là một hàm song ánh ($|B|=|C|$). Vậy $g$ phải toàn ánh.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 35}
+Tìm một ví dụ của hai hàm $f$ và $g$ sao cho $f\circ g$ là hàm song ánh, nhưng $g$ không toàn ánh và $f$ không đơn ánh.
+\begin{proof}
+    Hàm không đơn ánh thường là hàm không đơn điệu, tăng giảm ở nhiều chỗ, ví dụ $y=x^2$. Hàm không toàn ánh thường là hàm có tập xác định $D\subset X$ ($X$ là tập đang xét, giả sử $X=\mathbb{R}$), ví dụ $y=\sqrt x$ trên $\mathbb{R}$.
+
+    Vậy nếu $f(x)=x^2$, $g(x)=\sqrt{x}$, ta có $(f\circ g)(x)=x$, dễ thấy là hàm song ánh vì đầu vào bằng đầu ra, và mỗi $x$ là duy nhất.
+\end{proof}
+\subsection*{Bài 36}
+Nếu $f$ và $f\circ g$ là hàm đơn ánh, có thể suy ra $g$ là hàm đơn ánh không? Đánh giá câu trả lời của bạn.
+\begin{proof}
+    Giả sử $f\circ g$ là hàm đơn ánh, vậy với mọi $t_1\neq t_2$ ($t_1=g(x_1),t_2=g(x_2)$) ta đều có $f(t_1)\neq f(t_2)$, suy ra $f$ cũng đơn ánh. Nếu $g$ không đơn ánh, sẽ có một giá trị $t$ sao cho $x_1\neq x_2$ và $g(x_1)=g(x_2)=t$, thì $f(g(x_1))=f(g(x_2))=t$. Vậy có thể rút ra rằng, có nhiều giá trị $x$ cho cùng một kết quả $y$, mâu thuẫn với đề bài. Vậy có thể suy ra $g$ là hàm đơn ánh.
+\end{proof}
+\subsection*{Bài 37}
+Nếu $f$ và $f\circ g$ là hàm toàn ánh, có thể suy ra $g$ là hàm toàn ánh không? Đánh giá câu trả lời của bạn.
+\begin{proof}
+    Giả sử $f\circ g$ là hàm toàn ánh, vậy với mọi $y$ sẽ tồn tại ít nhất một giá trị $t=g(x)$ sao cho $y=f(t)$, suy ra $f$ cũng toàn ánh.\begin{itemize}
+        \item Nếu $g$ không phải hàm toàn ánh, sẽ tồn tại một giá trị $t$ sao cho với mọi $x$ thì $t\neq g(x)$. Nhưng vì $f$ là hàm toàn ánh, nên dù có bao nhiêu giá trị $t$ không thoả đi chăng nữa, toàn bộ các giá trị $y$ đều sẽ có ít nhất một giá trị $t$ thoả mãn $t=g(x)$ để đảm bảo rằng $g$ là một hàm.
+        \item Nếu $g$ là hàm toàn ánh, thì toàn bộ các giá trị $t$ của nó đều tương ứng với một giá trị $x$, cùng với giả thiết $f$ toàn ánh, đảm bảo mỗi giá trị $y$ đều có một giá trị $x$.
+    \end{itemize}
+    Vậy trong cả hai trường hợp, tính đúng của đề bài không phụ thuộc vào tính toàn ánh của $g$. Vậy không thể suy ra $g$ là hàm toàn ánh.
+\end{proof}
+\subsection*{Bài 42}
+Cho $f$ là hàm biến đổi từ tập hợp $A$ sang tập hợp $B$. Cho $S$ và $T$ là các tập con của $A$. Chứng minh rằng
+\begin{enumerate}[label=\alph*)]
+    \item $f(S\cup T)=f(S)\cup f(T)$
+    \item $f(S\cap T)\subseteq f(S)\cap f(T)$
+\end{enumerate}
+\begin{proof}
+    Đặt $A=\{a_1\dots a_n\},S=\{a_i\dots a_j\},T=\{a_k\dots a_l\}$.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có: \begin{align*}
+            f(S)&=\{b_i\dots b_j|b_m=f(a_m)\}\\
+            f(T)&=\{b_k\dots b_l|b_m=f(a_m)\}\\
+            \rightarrow f(S)\cup f(T)&=\{(b_i\dots b_j)\lor(b_k\dots b_l)|b_m=f(a_m)\}=f(S\cup T)
+        \end{align*}
+        với $S\cup T=\{a_i\dots a_l\}$, suy ra điều phải chứng minh.
+        \item Tương tự câu a, ta có: $$f(S)\cap f(T)=\{(b_i\dots b_j)\land(b_k\dots b_l)|b_m=f(a_m)\}$$
+        Ta có $f(S\cap T)=\{(b_i\dots b_l)\lor(b_k\dots b_j)|b_m=f(a_m)\}$. Ta có 4 trường hợp sau: \begin{itemize}
+            \item $i<j<k<l$: $S\cap T=\emptyset$ suy ra $f(S\cap T)=\emptyset$, đồng thời $f(S)=\{b_i\dots b_j|b_m=f(a_m)\}$ và $f(T)=\{(b_k\dots b_l)|b_m=f(a_m)\}$, suy ra $f(S)\cap f(T)=\emptyset$ (với điều kiện $f$ đơn ánh) hoặc bằng một tập hợp chứa các giá trị $b_m=f(a_{m1})=f(a_{m2})$ sao cho $a_{m1}\in S\land a_{m2}\in T$ (với điều kiện $f$ toàn ánh).
+            \item $i<k<j<l$: $S\cap T=\{a_k\dots a_j\}$ suy ra $f(S\cap T)=\{b_k\dots b_j|b_m=f(a_m)\}=f(S)\cap f(T)$ (với điều kiện $f$ đơn ánh) hoặc bằng tập hợp trên nhưng chứa các giá trị $b_m=f(a_{m1})=f(a_{m2})$ sao cho $a_{m1}\in S\land a_{m2}\in T$ (với điều kiện $f$ toàn ánh).
+            \item $i<k<l<j$: Thay đổi vai trò của $l$ và $j$.
+            \item $k<i<l<j$: Thay đổi vai trò của $i$ và $k$.
+            \item $k<l<i<j$: Thay đổi vai trò để trở thành $i<j<k<l$.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 43}
+\begin{enumerate}[label=\alph*)]
+    \item Tìm một ví dụ thoả câu (b) bài 42 sao cho $f(S\cap T)\subset f(S)\cap f(T)$.
+    \item Chứng minh rằng nếu $f$ là hàm đơn ánh, $f(S\cap T)=f(S)\cap f(T)$.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Cho $f(x)=x^2,A=\mathbb{R},S=(-\infty;0),T=[0;+\infty)$. Ta có $f(S)\cup f(T)=(0;+\infty)$, mà $f(S\cup T)=\emptyset$.
+        \item Nếu $f$ là hàm đơn ánh, chứng tỏ nếu $x_1\neq x_2$ thì $f(x_1)\neq f(x_2)$, suy ra $|S\cap T|=|f(S\cap T)|$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 44}
+Cho $f:\mathbb{R}\to\mathbb{R}$ định nghĩa bởi $f(x)=x^2$. Tìm
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $f^{-1}(\{1\})$
+        \item $f^{-1}(\{x|0<x<1\})$
+        \item $f^{-1}(\{x|x>4\})$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}
+    Ta có $y=x^2$. Vậy với mỗi $y$ sẽ có hai giá trị $x$ thoả mãn $f^{-1}(y)=x$.
+    \begin{enumerate}[label=\alph*)]
+        \item $\{-1;1\}$ vì $(-1)^2=1^2=1$.
+        \item Ta có $x^2>0$ và $x^2<1$, suy ra $x\neq 0$ và ($x<1$ hoặc $x>-1$). Vậy đáp án là $(-1;1)\setminus\{0\}$.
+        \item Ta có $x^2>4$, suy ra $x>2$ hoặc $x<-2$. Vậy đáp án là $\mathbb{R}\setminus[-2;2]$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 45}
+Đặt $g(x)=\lfloor x\rfloor$. Tìm
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $g^{-1}(\{0\})$
+        \item $g^{-1}(\{-1,0,1\})$
+        \item $f^{-1}(\{x|0<x<1\})$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}
+    Ta có $n\leq x<n+1$ thì $y=n$. Vậy:
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có $y=0$ suy ra đáp án là $\{x|0\leq x<1\}$.
+        \item Lần lượt cho $y=-1,y=0,y=1$, ta có $\{x|-1\leq x<0\},\{x|0\leq x<1\},\{x|1\leq x<2\}$, hợp các trường hợp lại ta có đáp án là $\{x|-1\leq x<2\}$
+        \item Vì $y=g(x)$ là một số nguyên nên với điều kiện $0<y<1$, không có số nguyên nào tồn tại trong khoảng đó, thì không tồn tại $y$, suy ra đáp án là $\emptyset$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 46}
+Cho $f$ là một hàm từ $A$ đến $B$. Đặt $S$ và $T$ là các tập con của $B$. Chứng minh rằng
+\begin{enumerate}[label=\alph*)]
+    \item $f^{-1}(S\cup T)=f^{-1}(S)\cup f^{-1}(T)$
+    \item $f^{-1}(S\cap T)=f^{-1}(S)\cap f^{-1}(T)$
+\end{enumerate}
+\begin{proof}
+    Đặt $A=\{a_1\dots a_n\}$, tương tự $B=\{b_1\dots b_n\}$, $S=\{a_i\dots a_j\}$, $T=\{a_k\dots a_l\}$.
+    \begin{enumerate}[label=\alph*)]
+        \item Tương tự câu (a) bài 42, vì $f^{-1}$ cũng là hàm như $f$ nên có đầy đủ các tính chất của $f$, ta chỉ cần thay đổi vai trò giữa $A$ và $B$. \begin{align*}
+            f^{-1}(S)&=\{a_i\dots a_j|a_m=f^{-1}(b_m)\}\\
+            f^{-1}(T)&=\{a_k\dots a_l|a_m=f^{-1}(b_m)\}\\
+            \rightarrow f^{-1}(S)\cup f^{-1}(T)&=\{(a_i\dots a_j)\lor(a_k\dots a_l)|a_m=f^{-1}(b_m)\}\\
+            &=f^{-1}(S\cup T)
+        \end{align*}
+        \item Để tồn tại $f^{-1}$ thì $f$ phải là hàm song ánh, vì vậy $f^{-1}$ cũng là hàm song ánh. Tương tự câu (b) bài 42, nhưng vế trái sẽ bằng vế phải, không phải tập con vì sẽ không xuất hiện các phần tử $y=f{-1}(x_1)=f^{-1}(x_2)$ với $x_1\neq x_2$. $$f^{-1}(S)\cap f^{-1}(T)=\{(a_i\dots a_j)\land(a_k\dots a_l)|a_m=f^{-1}(b_m)\}$$
+        Ta có $f^{-1}(S\cap T)=\{(b_i\dots b_l)\lor(b_k\dots b_j)|a_m=f^{-1}(b_m)\}$. Ta có 4 trường hợp sau: \begin{itemize}
+            \item $i<j<k<l$: $S\cap T=\emptyset$ suy ra $f(S\cap T)=\emptyset$, đến đây thì không tồn tại $f^{-1}(\emptyset)$ vì có rất nhiều cách chọn $S$ và $T$ sao cho chúng không giao nhau.
+            \item $i<k<j<l$: $S\cap T=\{b_k\dots b_j\}$ suy ra $f^{-1}(S\cap T)=\{a_k\dots a_j|a_m=f^{-1}(b_m)\}=f^{-1}(S)\cap f^{-1}(T)$.
+            \item $i<k<l<j$: Thay đổi vai trò của $l$ và $j$.
+            \item $k<i<l<j$: Thay đổi vai trò của $i$ và $k$.
+            \item $k<l<i<j$: Thay đổi vai trò để trở thành $i<j<k<l$.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 47}
+Cho $f$ là một hàm từ $A$ đến $B$. Cho $S$ là một tập con của $B$. Chứng minh rằng $f^{-1}(\bar S)=\overline{f^{-1}(S)}$.
+\begin{proof}
+    Đặt $A=\{a_1\dots a_n\},B=\{b_1\dots b_n\},S=\{b_1\dots b_k\}(k<n)$.
+    \begin{itemize}
+        \item $\bar S=\{b_k\dots b_n\}\rightarrow f^{-1}(\bar S)=\{a_k\dots a_n\}$.
+        \item $\overline{f^{-1}(S)}=A\setminus\{a_1\dots a_k\}=\{a_k\dots a_n\}$.
+    \end{itemize}
+\end{proof}
+\subsection*{Bài 60}
+Cần bao nhiêu byte để mã hoá $n$ bit dữ liệu khi $n$ bằng
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{4}
+        \item 4
+        \item 10
+        \item 500
+        \item 3000
+    \end{multicols}
+\end{enumerate}
+\begin{proof}
+    Ta có 1 byte = 8 bit dữ liệu, vậy $n$ byte = $8n$ bit dữ liệu. Tuy nhiên nếu dữ liệu nhiều hơn $n$ byte nhưng ít hơn $n+1$ byte ta vẫn cần $n+1$ byte để mã hoá chúng, suy ra $f(n)=\lceil\frac{n}{8}\rceil$. Vậy:
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{4}
+            \item $f(4)=1$
+            \item $f(10)=2$
+            \item $f(500)=63$
+            \item $f(3000)=375$
+        \end{multicols}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 61}
+Cần bao nhiêu byte để mã hoá $n$ bit dữ liệu khi $n$ bằng
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{4}
+        \item 7
+        \item 17
+        \item 1001
+        \item 28,800
+    \end{multicols}
+\end{enumerate}
+\begin{proof}
+    Tương tự bài 60, ta có:
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item $f(7)=1$
+            \item $f(17)=3$
+            \item $f(1001)=126$
+            \item $f(28,800)=3600$
+        \end{multicols}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 62}
+Bao nhiêu gói dữ liệu bất đồng bộ (đã được giải thích ở ví dụ 30) có thể được truyền qua trong 10 giây qua một đường truyền hoạt động ở các tốc độ như sau?
+\begin{enumerate}[label=\alph*)]
+    \item 128 kilobit mỗi giây (1 kilobit = 1000 bit)
+    \item 300 kilobit mỗi giây
+    \item 1 megabit mỗi giây (1 megabit = 1,000,000 bit)
+\end{enumerate}
+\begin{proof}
+    Ta lập hàm $f(v)=\lfloor \frac{10v}{424} \rfloor$, ta có số bit được truyền qua trong 10 giây là $10v$ với $v$ là số bit truyền qua trong 1 giây, và vì một gói là $53\times 8=424$ bit nên ta chia cho 424, đồng thời làm tròn xuống vì ta sẽ không tính gói đang trong quá trình chuyển (kết quả không nguyên). Vậy:
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{3}
+            \item $f(128000)=3018$
+            \item $f(300000)=7075$
+            \item $f(1,000,000)=23584$
+        \end{multicols}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 63}
+Dữ liệu được truyền qua một mạng lưới Ethernet cụ thể dưới dạng các gói 1500 octet (các gói 8 bit). Cần bao nhiêu gói để truyền lượng dữ liệu sau đây qua mạng lưới này? (Lưu ý một byte là một từ đồng nghĩa của một octet, 1 kilobyte = 1000 byte, và 1 megabyte = 1,000,000 byte.)
+\begin{enumerate}[label=\alph*)]
+    \item 150 kilobyte dữ liệu
+    \item 384 kilobyte dữ liệu
+    \item 1.544 megabyte dữ liệu
+    \item 45.3 megabyte dữ liệu
+\end{enumerate}
+\begin{proof}
+    Ta thấy một gói tương đương 1500 byte, vì vậy số gói cần thiết để chứa lượng dữ liệu trên là $f(n)=\lceil \frac{n}{1500} \rceil$, chúng ta sẽ cần thêm một gói nữa để chứa phần dữ liệu thừa chưa đủ 1500 byte. Vậy:
+    \begin{enumerate}[label=\alph*)]
+        \begin{multicols}{2}
+            \item $f(150000)=100$
+            \item $f(384000)=256$
+            \item $f(1,544,000)=1030$
+            \item $f(45,300,000)=30200$
+        \end{multicols}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 72}
+Cho rằng $f$ là một hàm khả nghịch từ $Y$ sang $Z$ và $g$ là một hàm khả nghịch từ $X$ sang $Y$. Chứng minh rằng nghịch đảo của hàm hợp $f\circ g$ là $(f\circ g)^{-1}=g^{-1}\circ f^{-1}$.
+\begin{proof}
+    Ta giả sử hai hàm $z=f(y)$, $y=g(x)$. Dựa vào điều này ta có $z=f(g(x))=(f\circ g)(x)$. Theo định nghĩa hàm ngược, $f^{-1}(f(x))=x$. Ta sẽ chứng minh rằng $g^{-1}\circ f^{-1}$ đưa $z$ trở về $x$.
+    \begin{align*}
+        (f\circ g)^{-1}(z) = (f\circ g)^{-1}((f\circ g)(x)) &= g^{-1}(f^{-1}((f(g(x)))))\\
+        &=g^{-1}(g(x))=x
+    \end{align*}
+\end{proof}
+\subsection*{Bài 73}
+Cho $S$ là tập con của tập đang xét $U$. \textbf{Hàm đặc trưng} $f_S$ của $S$ là hàm biến đổi từ $U$ thành tập hợp $\{0,1\}$ sao cho $f_S(x)=1$ nếu $x\in S$ và $f_S(x)=0$ nếu $x\notin S$. Cho $A$ và $B$ là các tập hợp. Chứng minh rằng với mọi $x\in U$,
+\begin{enumerate}[label=\alph*)]
+    \item $f_{A\cap B}(x)=f_A(x).f_B(x)$
+    \item $f_{A\cup B}(x)=f_A(x)+f_B(x)-f_A(x).f_B(x)$
+    \item $f_{\bar A}(x)=1-f_A(x)$
+    \item $f_{A\oplus B}(x)=f_A(x)+f_B(x)-2f_A(x)f_B(x)$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có $f_{A\cap B}(x)=1$ khi $f_A(x)=1$ ($x\in A$) và $f_B(x)=1$ ($x\in B$), nói cách khác, $x\in A\cap B$ khi $x\in A\land x\in B$. Hàm này bằng 0 trong các trường hợp còn lại, khi một trong hai $f_A(x)$ hoặc $f_B(x)$ bằng 0 (không thuộc một trong hai tập hợp), hoặc không thuộc cả hai (cả hai hàm bằng 0).
+        \item Hàm này bằng 1 khi $f_A(x)=1$ (thuộc $A$), $f_B(x)=1$ (thuộc $B$) hoặc cả hai bằng 1 (thuộc cả hai), lúc này kết quả sẽ bằng 2, tích $f_A(x).f_B(x)=1$ bị trừ đi khỏi kết quả. Nói cách khác, $A\cup B=A+B-A\cap B$. Hàm này bằng 0 khi toàn bộ các hạng tử bằng 0 (không thuộc cả $A$ và $B$).
+        \item Ta có $f_{\bar A}(x)$ là hàm phủ định của hàm $f_A(x)$, vì nếu $f_A(x)=0$ thì hàm này bằng 1 và ngược lại. Hay, nếu $x\in A$ thì $x\notin\bar A$ và ngược lại.
+        \item Tương tự câu (b), nhưng vì phép $A\oplus B$ loại bỏ các phần tử thuộc $A\cap B$, và cũng vì tích $2f_A(x)f_B(x)$ chỉ có thể bằng 0 hoặc bằng 2, hàm này bằng 1 khi $f_A(x)=1$ (thuộc $A$) hoặc $f_B(x)=1$ (thuộc $B$) và bằng 0 nếu không thuộc cả hai hoặc thuộc cả hai. Hay, $A\oplus B=A+B-2(A\cap B)$
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 74}
+Cho rằng $f$ là hàm từ $A$ sang $B$, khi $A$ và $B$ là các tập hợp hữu hạn với $|A|=|B|$. Chứng minh rằng $f$ đơn ánh khi và chỉ khi $f$ toàn ánh.
+\begin{proof}
+    Đặt $A=\{x_1\dots x_n\},B=\{y_1\dots y_n\}$.
+    \par Giả sử $f$ đơn ánh, nghĩa là với mọi $x_1\neq x_2$ thuộc $A$ ta có $f(x_1)\neq f(x_2)$. Như vậy $|B|\geq|A|$, mà giả thiết cho $|B|=|A|$ nên suy ra với mọi $y\in B$ ta luôn có một $x$ thoả mãn $y=f(x)$, hay $f$ toàn ánh.
+    \par Giả sử $f$ toàn ánh, nghĩa là với mọi $y\in B$ ta luôn có một $x$ thoả mãn $y=f(x)$, vậy ta có $|B|\geq|A|$, mà giả thiết cho $|B|=|A|$ nên suy ra với mọi $x\in A$, nếu $x_1\neq x_2$ thì $f(x_1)\neq f(x_2)$, hay $f$ đơn ánh.
+    \par Vậy ta suy ra được điều phải chứng minh.
+\end{proof}
+\subsection*{Bài 75}
+Chứng minh hoặc bác bỏ mỗi câu sau đây về hàm làm tròn xuống và làm tròn lên.
+\begin{enumerate}[label=\alph*)]
+    \item $\lceil\lfloor x\rfloor\rceil=\lfloor x\rfloor$ với mọi số thực $x$.
+    \item $\lfloor 2x\rfloor=2\lfloor x\rfloor$ bất cứ khi nào $x$ là một số thực.
+    \item $\lceil x\rceil+\lceil y\rceil-\lceil x+y\rceil=0$ hoặc 1 mỗi khi $x$ và $y$ là số thực.
+    \item $\lceil xy\rceil=\lceil x\rceil\lceil y\rceil$ với mọi số thực $x$ và $y$.
+    \item $\lceil\frac{x}{2}\rceil=\lfloor\frac{x+1}{2}\rfloor$ với mọi số thực $x$.
+\end{enumerate}
+\begin{proof}
+    Giả sử $n\in\mathbb{Z}$.
+    \begin{enumerate}[label=\alph*)]
+        \item Xét $n\leq x<n+1$, ta có $\lfloor x\rfloor=n\rightarrow \lceil\lfloor x\rfloor\rceil=n$.
+        \item Xét $n\leq x<n+0.5$, ta có:
+        \begin{align*}
+            \left[
+            \begin{array}{l}
+                \lfloor2n\rfloor=\lfloor2x\rfloor<\lfloor2n+1\rfloor\\
+                \lfloor n\rfloor=\lfloor x\rfloor=\lfloor n+0.5\rfloor
+            \end{array}
+            \right .
+            \leftrightarrow
+            \left[
+            \begin{array}{l}
+                2n=2x<2n+1\\
+                n=x=n
+            \end{array}
+            \right .
+        \end{align*}
+        Xét $n+0.5\leq x<n+1$, ta có:
+        \begin{align*}
+            \left[
+            \begin{array}{l}
+                \lfloor2n+1\rfloor=\lfloor2x\rfloor<\lfloor2n+2\rfloor\\
+                \lfloor n+0.5\rfloor=\lfloor x\rfloor=\lfloor n+1\rfloor
+            \end{array}
+            \right .
+            \leftrightarrow
+            \left[
+            \begin{array}{ll}
+                2n+1=2x<2n+2&\\
+                n=x=n+1 & \text{(vô lí)}
+            \end{array}
+            \right .
+        \end{align*}
+        Vậy câu này sai.
+        \item Đặt $0<d<1$. Cho $x',y'$ là các số nguyên, suy ra $x=x'+d$ và $y=y'+d$. Ta có các trường hợp: \begin{itemize}
+            \item $\lceil x'\rceil+\lceil y'\rceil-\lceil x'+y'\rceil=x'+y'-x'-y'=0$.
+            \item $\lceil x'+d\rceil+\lceil y\rceil-\lceil x'+y'+d\rceil=x'+1+y-x'-y'-1=0$. Tương tự cho trường hợp $x=x'$ và $y=y'+d$.
+            \item \begin{align*}
+                &\lceil x'+d\rceil+\lceil y'+d\rceil-\lceil x'+y'+2d\rceil\\
+                =&
+                \left[
+                \begin{array}{ll}
+                    x+1+y+1-x-y-1 & \text{nếu $d>0.5$}\\
+                    x+1+y+1-x-y-2 & \text{nếu $d\leq0.5$}
+                \end{array}
+                \right .\\
+                =&
+                \left[
+                \begin{array}{ll}
+                    1 & \text{nếu $d>0.5$}\\
+                    0 & \text{nếu $d\leq0.5$}
+                \end{array}
+                \right .
+            \end{align*}
+        \end{itemize}
+        Suy ra được điều phải chứng minh.
+        \item Đặt $0<d<1$. Cho $x',y'$ là các số nguyên, suy ra $x=x'+d$ và $y=y'+d$. Xét $x=x'+d$ và $y$:
+            $\lceil x'+d\rceil\lceil y'\rceil=(x'+1)y'$ và
+            \begin{align*}
+                \lceil(x'+d)y'\rceil=\lceil x'y'+y'.d\rceil=
+                \left[
+                \begin{array}{ll}
+                    x'y'+\lfloor y'd\rfloor+1 & \text{nếu $y'd\notin\mathbb{Z}$}\\
+                    x'y+y'd & \text{nếu $y'd\in\mathbb{Z}$}
+                \end{array}
+                \right .
+            \end{align*}
+            Ta thấy kết quả hai vế khác nhau. Vậy câu này sai.
+        \item Ta xét hai trường hợp: \begin{itemize}
+            \item Nếu $x=2t$ ($x$ chẵn) ta có $\lceil\frac{2t}{2}\rceil=t$ và $\lfloor\frac{2t+1}{2}\rfloor=t$.
+            \item Nếu $x=2t+1$ ($x$ lẻ) ta có $\lceil\frac{2t+1}{2}\rceil=t+1$ và $\lfloor\frac{2t+2}{2}\rfloor=t+1$.
+        \end{itemize}
+        Vậy suy ra được điều phải chứng minh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 76}
+Chứng minh hoặc bác bỏ mỗi câu sau đây về hàm làm tròn xuống và làm tròn lên.
+\begin{enumerate}[label=\alph*)]
+    \item $\lfloor\lceil x\rceil\rfloor=\lceil x\rceil$ với mọi số thực $x$.
+    \item $\lfloor x+y\rfloor=\lfloor x\rfloor+\lfloor y\rfloor$ với mọi số thực $x$ và $y$.
+    \item $\lceil\lceil x/2\rceil/2\rceil=\lceil x/4\rceil$ với mọi số thực $x$.
+    \item $\lfloor\sqrt{\lceil x\rceil}\rfloor=\lfloor\sqrt x\rfloor$ với mọi số thực dương $x$.
+    \item $\lfloor x\rfloor+\lfloor y\rfloor+\lfloor x+y\rfloor\leq\lfloor2x\rfloor+\lfloor2y\rfloor$ với mọi số thực $x$ và $y$.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Xét $n<x\leq n+1$, ta có $\lceil x\rceil=x+1\rightarrow\lfloor\lceil x\rceil\rfloor=x+1$. Vậy câu này sai.
+        \item Đặt $0<d<1$. Cho $x',y'$ là các số nguyên, suy ra $x=x'+d$ và $y=y'+d$. Xét $x=x'+d$ và $y=y'+d$, ta có $\lfloor x'+d\rfloor+\lfloor y'+d\rfloor=x'+y'$ và:
+            \begin{align*}
+                \lfloor x'+d+y'+d\rfloor=\lfloor x'+y'+2d\rfloor=
+                \left[
+                \begin{array}{ll}
+                    x'+y'+1 & \text{nếu $d>0.5$}\\
+                    x'+y' & \text{nếu $d\leq0.5$}
+                \end{array}
+                \right .\\
+            \end{align*}
+        Vậy câu này sai.
+        \item Ta xét 4 trường hợp: \begin{itemize}
+            \item $x=4t$: vế trái bằng $\lceil\lceil4t/2\rceil/2\rceil=t$, vế phải bằng $\lceil4t/4\rceil=t$.
+            \item $x=4t+1$: vế trái bằng $\lceil\lceil(4t+1)/2\rceil/2\rceil=\lceil\frac{2t+1}{2}\rceil=t+1$, vế phải bằng $\lceil(4t+1)/4\rceil=t+1$.
+            \item $x=4t+2$: vế trái bằng $\lceil\lceil(4t+2)/2\rceil/2\rceil=\lceil\frac{2t+1}{2}\rceil=t+1$, vế phải bằng $\lceil(4t+2)/4\rceil=t+1$.
+            \item $x=4t+3$: vế trái bằng $\lceil\lceil(4t+3)/2\rceil/2\rceil=\lceil\frac{2t+2}{2}\rceil=t+1$, vế phải bằng $\lceil(4t+3)/4\rceil=t+1$.
+            \item $x=4t+4$: vế trái bằng $\lceil\lceil(4t+4)/2\rceil/2\rceil=\lceil\frac{2t+2}{2}\rceil=t+1$, vế phải bằng $\lceil(4t+4)/4\rceil=t+1$.
+        \end{itemize}
+        Vậy trong cả 4 trường hợp, vế trái đều bằng vế phải, suy ra điều phải chứng minh.
+        \item Giả sử $0<d<1$. Ta có: \begin{itemize}
+            \item $\lfloor\sqrt{\lceil x\rceil}\rfloor=\lfloor\sqrt x\rfloor$
+            \item $\lfloor\sqrt{\lceil x+d\rceil}\rfloor=\lfloor\sqrt{x+1}\rfloor\neq \lfloor\sqrt x\rfloor$ trong trường hợp $x=t^2-1,t\in\mathbb{Z}$.
+        \end{itemize}
+        Vậy câu này sai.
+        \item Đặt $0<d<1$. Cho $x',y'$ là các số nguyên, suy ra $x=x'+d$ và $y=y'+d$. Ta chia thành 4 trường hợp: \begin{itemize}
+            \item $\lfloor x'\rfloor+\lfloor y'\rfloor+\lfloor x'+y'\rfloor=\lfloor2x'\rfloor+\lfloor2y'\rfloor$
+            \item \begin{align*}
+                \lfloor x'+d\rfloor+\lfloor y'\rfloor+\lfloor x'+y'+d\rfloor&\leq\lfloor2x'+2d\rfloor+\lfloor2y'\rfloor\\
+                \leftrightarrow2x'+2y'&\leq\lfloor2x'+2d\rfloor+\lfloor2y'\rfloor
+            \end{align*}
+            Vế phải sẽ bằng $2x'+2y'+1$ nếu $d\geq0.5$ và $2x'+2y'$ nếu ngược lại. Tương tự với trường hợp $y=y'+d,x=x'$.
+            \item \begin{align*}
+                \lfloor x'+d\rfloor+\lfloor y'+d\rfloor+\lfloor x'+y'+2d\rfloor&\leq\lfloor2x'+2d\rfloor+\lfloor2y'+2d\rfloor\\
+                \leftrightarrow x'+y'+\lfloor x+y+2d\rfloor&\leq\lfloor2x'+2d\rfloor+\lfloor2y'+2d\rfloor
+            \end{align*}
+            Nếu $d\geq0.5$, ta có $2x'+2y'+1\leq2x'+2y'+2$, ngược lại ta có $2x'+2y'=2x'+2y'$.
+        \end{itemize}
+        Ta thấy trong cả 4 trường hợp bất đẳng thức đều đúng. Vậy suy ra điều phải chứng minh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 77}
+Chứng minh rằng nếu $x$ là một số thực dương, thì
+\begin{enumerate}[label=\alph*)]
+    \item $\lfloor\sqrt{\lfloor x\rfloor}\rfloor=\lfloor\sqrt x\rfloor$
+    \item $\lceil\sqrt{\lceil x\rceil}\rceil=\lceil\sqrt x\rceil$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có $\lfloor x\rfloor=x$, suy ra điều phải chứng minh.
+        \item \begin{itemize}
+            \item Khi $x$ là số nguyên, $\lceil x\rceil=x$, suy ra điều phải chứng minh.
+            \item Đặt $0<d<1$, $x=x'+d$ với $x'=t^2,t\in\mathbb{Z}$. Ta có:
+            \begin{align*}
+                \lceil\sqrt{\lceil x'+d\rceil}\rceil&=\lceil\sqrt{x'+d}\rceil\\
+                \leftrightarrow\lceil\sqrt{x'+1}\rceil&=\lceil\sqrt{x'+d}\rceil
+            \end{align*}
+            Ta thấy cả 2 vế đều lớn hơn $\sqrt{x'}$ nên ta có 2 vế bằng nhau và bằng $\sqrt{x'}+1$.
+        \end{itemize}
+        Vậy suy ra điều phải chứng minh.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 78}
+Cho $x$ là một số thực. Chứng minh rằng $\lfloor3x\rfloor=\lfloor x\rfloor+\lfloor x+\frac{1}{3}\rfloor+\lfloor x+\frac{2}{3}\rfloor$.
+\begin{proof}.
+    \begin{itemize}
+        \item Nếu $x$ là số nguyên thì $\lfloor x\rfloor=x$, biểu thức trở thành $3x=x+x+x$, thoả điều kiện.
+        \item Nếu $x$ là số thực, ta đặt $0<d<\frac{1}{3},x=\frac{n}{3}+d$ với $n$ chia hết cho 3. Ta có: $$\bigg\lfloor3.(\frac{n}{3}+d)\bigg\rfloor=\bigg\lfloor\frac{n}{3}+d\bigg\rfloor+\bigg\lfloor\frac{n}{3}+d+\frac{1}{3}\bigg\rfloor+\bigg\lfloor\frac{n}{3}+d+\frac{2}{3}\bigg\rfloor$$
+        thu được $\lfloor n+3d\rfloor=\frac{n}{3}+\frac{n}{3}+\frac{n}{3}$. Tương tự với trường hợp $\frac{1}{3}\leq d<\frac{2}{3}$, ta thu được $n+1=\frac{n}{3}+\frac{n}{3}+\frac{n}{3}+1$, trường hợp $\frac{2}{3}\leq d<1$ ta thu được $n+2=\frac{n}{3}+\frac{n}{3}+\frac{n}{3}+2$. Vậy suy ra điều phải chứng minh.
+    \end{itemize}
+\end{proof}
+\subsection*{Bài 79}
+Với mỗi hàm bộ phận dưới đây, xác định miền đang xét, miền giá trị, miền xác định, và tập hợp các giá trị làm cho nó không xác định. Ngoài ra, kiểm tra xem nó có phải là một hàm đầy đủ không.
+\begin{enumerate}[label=\alph*)]
+    \item $f:\mathbb{Z}\to\mathbb{R},f(n)=1/n$
+    \item $f:\mathbb{Z}\to\mathbb{Z},f(n)=\lceil n/2\rceil$
+    \item $f:\mathbb{Z}\times\mathbb{Z}\to\mathbb{Q},f(m,n)=m/n$
+    \item $f:\mathbb{Z}\times\mathbb{Z}\to\mathbb{Z},f(m,n)=mn$
+    \item $f:\mathbb{Z}\times\mathbb{Z}\to\mathbb{Z},f(m,n)=m-n$ nếu $m>n$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Miền đang xét: $\mathbb{Z}$, miền giá trị và miền xác định: $\mathbb{R}\setminus\{0\}$, tập hợp các giá trị làm cho không xác định: $\{0\}$, vì vậy đây không phải hàm đầy đủ.
+        \item Miền đang xét: $\mathbb{Z}$, miền giá trị và miền xác định: $\mathbb{R}$, tập hợp các giá trị làm cho không xác định: $\emptyset$, vì vậy đây là hàm đầy đủ.
+        \item Miền đang xét: $\mathbb{Z}$, miền giá trị: $\mathbb{R}$, miền xác định: $\{(m,n)|n\neq 0\}$, tập hợp các giá trị làm cho không xác định: $\{(m,0)\}$, vì vậy đây không phải hàm đầy đủ.
+        \item Miền đang xét: $\mathbb{Z}$, miền giá trị: $\mathbb{R}$, miền xác định: $\mathbb{Z}$, tập hợp các giá trị làm cho không xác định: $\emptyset$, vì vậy đây là hàm đầy đủ.
+        \item Miền đang xét: $\mathbb{Z}$, miền giá trị: $\mathbb{R}$, miền xác định: $\mathbb{Z}$, tập hợp các giá trị làm cho không xác định: $\{(m,n)|m\leq n\}$, vì vậy đây không phải hàm đầy đủ.
+    \end{enumerate}
+\end{proof}

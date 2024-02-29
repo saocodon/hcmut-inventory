@@ -1,0 +1,194 @@
+\section*{Phần 2.1}
+\subsection*{Bài 11}
+Xác định xem mỗi câu sau là đúng hay sai.
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $0\in\emptyset$
+        \item $\emptyset\in\{0\}$
+        \item $\{0\}\subset\emptyset$
+        \item $\emptyset\subset\{0\}$
+        \item $\{0\}\in\{0\}$
+        \item $\{0\}\subset\{0\}$
+        \item $\{\emptyset\}\subseteq\{\emptyset\}$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Không đúng vì 0 không phải một tập hợp, và tập hợp rỗng thì không chứa gì cả.
+        \item Tập hợp rỗng không thuộc tập hợp $\{0\}$ nhưng thuộc $\mathcal{P}(\{0\})$.
+        \item Không đúng vì tập hợp rỗng thì không chứa gì cả, và cũng không có tập con nào.
+        \item Không đúng vì tập hợp bên phải không chứa $\emptyset$.
+        \item Không đúng vì tập hợp bên phải chỉ chứa 0, không chứa $\{0\}$.
+        \item Không đúng vì dù một tập hợp có thể là tập hợp con của chính nó, nhưng kí hiệu $\subset$ yêu cầu vế trái khác vế phải.
+        \item Vì hai tập hợp bằng nhau và một tập hợp có thể là tập hợp con của chính nó nên câu này đúng.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 12}
+Xác định xem mỗi câu sau là đúng hay sai.
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $\emptyset\in\{\emptyset\}$
+        \item $\emptyset\in\{\emptyset,\{\emptyset\}\}$
+        \item $\{\emptyset\}\in\{\emptyset\}$
+        \item $\{\emptyset\}\in\{\{\emptyset\}\}$
+        \item $\{\emptyset\}\subset\{\emptyset,\{\emptyset\}\}$
+        \item $\{\{\emptyset\}\}\subset\{\emptyset,\{\emptyset\}\}$
+        \item $\{\{\emptyset\}\}\subset\{\{\emptyset\},\{\emptyset\}\}$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Vì $\emptyset$ cũng là một phần tử, câu này đúng.
+        \item Vì $\emptyset$ cũng là một phần tử, câu này đúng.
+        \item Không đúng vì tập hợp bên phải chỉ chứa $\emptyset$, không chứa $\{\emptyset\}$.
+        \item Vì tập hợp $\{\emptyset\}$ thuộc một tập hợp lớn hơn chỉ chứa $\emptyset$ nên câu này đúng.
+        \item Vì $\{\emptyset\}$ là một tập hợp chứa $\emptyset$, ở tập hợp bên phải có chứa $\emptyset$ nên câu này đúng.
+        \item Câu này đúng vì vế trái là 3 tập hợp lồng nhau, 2 tập hợp mẹ chỉ chứa một phần tử và tập hợp con là một tập rỗng. Tập hợp bên phải chính là tập hợp bên trái nhưng có một phần tử $\emptyset$ nữa nên câu này đúng.
+        \item Câu này đúng, lý do như câu trên nhưng ở tập hợp bên phải phần tử $\emptyset$ trở thành tập hợp $\{\emptyset\}$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 13}
+Xác định xem mỗi câu sau là đúng hay sai.
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{3}
+        \item $x\in\{x\}$
+        \item $\{x\}\subseteq\{x\}$
+        \item $\{x\}\in\{x\}$
+        \item $\{x\}\in\{\{x\}\}$
+        \item $\emptyset\subseteq\{x\}$
+        \item $\emptyset\in\{x\}$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Vì tập hợp bên phải chứa $x$ nên câu này đúng.
+        \item Vì hai tập hợp như nhau và mọi tập hợp đều là tập con của chính nó nên câu này đúng.
+        \item Vì $\{x\}$ chỉ chứa $x$, không chứa $\{x\}$ nên câu này sai.
+        \item Câu này đúng vì lúc này tập hợp bên phải có chứa $\{x\}$.
+        \item Tập rỗng là tập con của mọi tập hợp nên câu này đúng.
+        \item Vì tập hợp bên phải không chứa $\emptyset$ nên câu này sai.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 26}
+Xác định xem mỗi tập hợp sau đây có phải tập hợp power set của một tập hợp khác không, với $a$ và $b$ riêng biệt.
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $\emptyset$
+        \item $\{\emptyset,\{a\}\}$
+        \item $\{\emptyset,\{a\},\{\emptyset,a\}\}$
+        \item $\{\emptyset,\{a\},\{b\},\{a,b\}\}$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item $\mathcal{P}(\emptyset)=\{\emptyset\}$
+        \item Đây không phải power set của bất kì tập hợp nào. Để thoả điều kiện, nó phải có thêm phần tử $\{\emptyset,\{a\}\}$, lúc đó nó sẽ bằng $\mathcal{P}(\{\emptyset,\{a\}\})$.
+        \item Như đã giải thích ở câu trên, tập hợp này là $\mathcal{P}(\{\emptyset,\{a\}\})$.
+        \item Đây không phải power set của bất kì tập hợp nào. Để thoả điều kiện, nó phải có thêm các phần tử $\{\emptyset,a\}$, $\{\emptyset,b\}$, $\{\emptyset,a,b\}$, lúc đó nó sẽ bằng $\mathcal{P}(\{\emptyset,a,b\})$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 27}
+Chứng minh rằng $\mathcal{P}(A)\subseteq\mathcal{P}(B)$ khi và chỉ khi $A\subseteq B$.
+\begin{proof}Ta chứng minh theo 2 chiều:\\
+    \par\textbf{Trường hợp 1:} Chứng minh định lý theo chiều nghịch.
+    Ta giả sử hai tập hợp $A=\{x_1,\dots,x_n\}$ và $B=\{x_1,\dots,x_n,x_{n+1}\}$.
+    Các phần tử của $\mathcal{P}(A)$ như sau:
+    \begin{itemize}
+        \item $\emptyset$
+        \item $\{x_1\},\{x_2\},\dots,\{x_n\}$: $\mathcal{P}(A)$ ít hơn $\mathcal{P}(B)$ phần tử $\{x_{n+1}\}$.
+        \item $\{x_1,x_2\}$,$\{x_1,x_3\},\dots,\{x_i,x_j\}$: $\mathcal{P}(A)$ ít hơn $\mathcal{P}(B)$ phần tử\\ $\{x_1,x_{n+1}\},\{x_2,x_{n+1}\},\dots,\{x_i,x_{n+1}\}$.
+        \item \dots
+    \end{itemize}
+    Tiếp tục lặp lại như trên, ta tính được $|\mathcal{P}(B)|=2|\mathcal{P}(A)|+1$, do có một phần tử mới $\{x_{n+1}\}$ và thêm $x_{n+1}$ vào các tập hợp đã có. Vậy ta suy ra điều phải chứng minh.
+    \par\textbf{Trường hợp 2:} Chứng minh định lý theo chiều thuận.
+    Giả sử ta có tập hợp $\mathcal{P}(A)$ có các phần tử như sau:
+    \begin{itemize}
+        \item $\emptyset$
+        \item $\{x_1\},\{x_2\},\dots,\{x_n\}$
+        \item $\{x_1,x_2\}$,$\{x_1,x_3\},\dots,\{x_i,x_j\}$
+        \item \dots các tổ hợp chập $k$ của $A$.
+    \end{itemize}
+    Để $\mathcal{P}(A)\subseteq\mathcal{P}(B)$, đồng thời giữ được tính chất của power set ($B$ phải xác định), ta cho $\mathcal{P}(A)=\mathcal{P}(B)$, đồng thời thêm vào $\mathcal{P}(B)$ các phần tử sau:
+    \begin{itemize}
+        \item $\{x_1,x_{n+1}\},\{x_2,x_{n+1}\},\dots,\{x_n,x_{n+1}\}$
+        \item $\{x_1,x_2\}$,$\{x_1,x_3\},\dots,\{x_n,x_{n+1}\}$
+        \item \dots các tổ hợp chập $k$ của $A$.
+    \end{itemize}
+    Dễ thấy rằng với 2 tập hợp $\mathcal{P}(A)$ và $\mathcal{P}(B)$ như vậy thì $A=\{x_1,\dots,x_n\}$ và $B=\{x_1,\dots,x_n,x_{n+1}\}$.
+    
+    Vậy $\mathcal{P}(A)\subseteq\mathcal{P}(B)$ khi và chỉ khi $A\subseteq B$.
+\end{proof}
+\subsection*{Bài 28}
+Chứng minh rằng nếu $A\subseteq C$ và $B\subseteq D$ thì $A\times B\subseteq C\times D$.
+\begin{proof}
+    Ta giả sử: \begin{itemize}
+        \item $A=\{a_1,a_2,\dots,a_n\}$
+        \item $B=\{b_1,b_2,\dots,b_n\}$
+        \item $C=\{a_1,a_2,\dots,a_n,a_{n+1}\}$
+        \item $D=\{b_1,b_2,\dots,b_n,b_{n+1}\}$
+    \end{itemize}
+    Ta tính được: $$A\times B=\{(a_1,b_1),(a_1,b_2),\dots,(a_1,b_n),(a_2,b_1),\dots,(a_n,b_n)\}$$
+    Tương tự với: $$C\times D=\{(a_1,b_1),(a_1,b_2),\dots,(a_1,b_n),(a_1,b_{n+1}),(a_2,b_1),\dots,(a_{n+1},b_{n+1})\}$$
+    Dễ thấy rằng $C\times D$ có nhiều hơn $A\times B$ ở các phần tử $(a_i,b_{n+1})$ và $(a_{n+1},b_i)$.
+
+    Vậy nếu $A\subseteq C$ và $B\subseteq D$ thì $A\times B\subseteq C\times D$.
+\end{proof}
+\subsection*{Bài 41}
+Giải thích tại sao $A\times B\times C$ và $(A\times B)\times C$ không giống nhau.
+\begin{proof}
+    \par Xét về cấu trúc của các tuple thu được, biểu thức bên trái cho ta tập hợp $A\times B\times C=\{(a_i,b_j,c_k)\}$ Còn biểu thức bên phải: $$A\times B\times C=\{((a_i,b_j),c_k)\}$$ với $a_i\in A,b_j\in B,c_k\in C$ với $i=1\dots|A|,j=1\dots|B|,k=1\dots|C|$. Kết quả của biểu thức bên trái chứa 3 phần tử, của bên phải chứa 1 tuple con gồm 2 phần tử và 1 phần tử dư ra.
+\end{proof}
+\subsection*{Bài 42}
+Giải thích tại sao $(A\times B)\times(C\times D)$ và $A\times(B\times C)\times D$ không giống nhau.
+\begin{proof}
+    \par Xét về cấu trúc của các tuple thu được, biểu thức bên trái cho ta tập hợp $$(A\times B)\times(C\times D)=\{((a_i,b_j),(c_k,d_l))\}$$ Còn biểu thức bên phải: $$A\times(B\times C)\times D=\{(a_i,(b_j,c_k),d_l)\}$$ với $i=1\dots|A|,j=1\dots|B|,k=1\dots|C|,l=1\dots|D|$ và $a_i\in A,b_j\in B,c_k\in C,d_l\in D$. Kết quả của biểu thức bên trái chứa 2 tuple, của bên phải chứa 1 phần tử tự do, sau đó đến 1 tuple, rồi 1 phần tử tự do.
+\end{proof}
+\subsection*{Bài 43}
+Chứng minh hoặc bác bỏ rằng nếu $A$ và $B$ là tập hợp thì $\mathcal{P}(A\times B)=\mathcal{P}(A)\times\mathcal{P}(B)$.
+\begin{proof}
+    Giả sử $A=\{a_1\dots a_n\},B=\{b_1,\dots b_n\}$.
+    \begin{itemize}
+        \item Với $\mathcal{P}(A\times B)$, $A\times B$ là một tập hợp các tuple có dạng $(a_i,b_j)$, tìm power set của tập này ta có một power set của các tuple có dạng $\{\{(a_i,b_j)\},\{(a_i,b_j),(a_i,b_{j+k})\dots\}\}$.
+        \item Với $\mathcal{P}(A)\times\mathcal{P}(B)$, $\mathcal{P}(A)$ và $\mathcal{P}(B)$ lần lượt cho ta một tập hợp của các tập con của $A$ và $B$. Tích của chúng là một tập hợp của các tuple có dạng $\{(\{a_i\},\{b_j,b_{j+k}\})\}$.
+    \end{itemize}
+    Vậy, $\mathcal{P}(A\times B)\neq\mathcal{P}(A)\times\mathcal{P}(B)$.
+\end{proof}
+\subsection*{Bài 44}
+Chứng minh hoặc bác bỏ rằng nếu $A,B,C$ là tập hợp không rỗng và $A\times B=A\times C$ thì $B=C$.
+\begin{proof}
+    Giả sử $A=\{a_1\dots a_n\},B=\{b_1,\dots b_m\},C=\{c_1,\dots c_t\}$
+    
+    Vì phép nhân $A\times B$ sẽ cho ta một tập hợp có $|A||B|$ tuple, $A\times C$ có $|A||C|$ tuple. Vì vậy để phép nhân này bằng nhau thì $m=t$, nghĩa là $B$ và $C$ có cùng số phần tử.
+
+    $A\times B$ sinh ra các tuple có dạng $(a_i,b_j)$, $A\times C$ cũng sinh ra các tuple có dạng $(a_i,c_j)$ và để cho các tuple này bằng nhau thì $b_j=c_j$, suy ra $B=C$.
+\end{proof}
+\subsection*{Bài 49}
+Tính chất của một cặp có thứ tự là hai hoặc nhiều cặp bằng nhau chỉ khi các phần tử đầu tiên của chúng bằng nhau và các phần tử thứ hai của chúng bằng nhau. Ngạc nhiên thay, thay vì xem cặp có thứ tự là một ý tưởng mới, ta có thể xây dựng các cặp này chỉ bằng những tư tưởng cơ bản từ lý thuyết tập hợp. Chứng minh rằng nếu ta định nghĩa cặp $(a,b)$ là tập hợp $\{\{a\},\{a,b\}\}$ thì $(a,b)=(c,d)$ khi và chỉ khi $a=c$ và $b=d$.
+\begin{proof}
+    Hai tập hợp bằng nhau chỉ khi mọi phần tử của chúng bằng nhau. Vì tập hợp chỉ có hai tập hợp con, với một cái có 1 phần tử, 1 cái có 2 phần tử, không thể xảy ra trường hợp $\{a\}=\{c,d\}$ hay $\{c\}=\{a,b\}$. Vậy chỉ có một trường hợp duy nhất là $\{a,b\}=\{c,d\}$ và $\{a\}=\{c\}$. Dựa vào định nghĩa trên dễ thấy rằng nếu $a\neq c$ hoặc $b\neq d$ thì biểu thức trên không thể xảy ra, vậy $a=c$ và $b=d$.
+
+    Chứng minh theo chiều ngược lại, dùng phương pháp thế dễ thấy rằng nếu $a=c$ và $b=d$ thì đẳng thức trên là đúng.
+
+    Như vậy nếu ta định nghĩa cặp $(a,b)$ là $\{\{a\},\{a,b\}\}$ thì $(a,b)=(c,d)$ chỉ khi $a=c$ và $b=d$.
+\end{proof}
+\subsection*{Bài 50}
+Bài này giới thiệu về \textbf{nghịch lý của Russell}. Đặt $S$ là tập hợp chứa tập hợp $x$ bất kì nếu $x$ không thuộc chính nó, nghĩa là $S=\{x|x\notin x\}$.
+\begin{enumerate}[label=\alph*)]
+    \item Chứng minh rằng nếu $S$ là phần tử của $S$ thì sẽ dẫn đến mâu thuẫn.
+    \item Chứng minh rằng nếu $S$ không là phần tử của $S$ thì sẽ dẫn đến mâu thuẫn.
+\end{enumerate}
+Từ phần (a) và (b) có thể thấy $S$ không thể xác định. Có thể tránh nghịch lí này bằng cách giới hạn kiểu phần tử mà tập hợp có thể có.
+\begin{proof}
+    Theo định nghĩa tập hợp, một tập hợp sẽ chứa các phần tử của nó. Như vậy ta thấy một tập hợp không thể chứa chính nó. Vậy $x$ đại diện cho mọi tập hợp. Ta sẽ xem $x=\{x_1\dots x_n\}$.
+    \begin{enumerate}[label=\alph*)]
+        \item Vậy $S=\{\{x_1\dots x_n\}\}$. Ta sẽ thêm $S$ vào $S$, lúc này $S$ trở thành: $S=\{\{x_1\dots x_n\},\{\{x_1\dots x_n\}\}\}$. Nhưng lúc này $S$ đã trở thành tập hợp khác, tập hợp mới này vẫn chưa chứa $S$ hiện tại. Ta lại tiếp tục thêm, $S$ thay đổi liên tục, vì thế mãi mãi không thể xác định $S$.
+        \item Vì $S$ cũng là một tập hợp như $x$, $S$ không thể chứa chính nó, nếu ta không thêm $S$ vào $S$, sẽ mâu thuẫn với định nghĩa $S$ là một tập hợp chứa các tập hợp không chứa được chính nó.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 51}
+Mô tả một quy trình liệt kê toàn bộ các tập con của một tập hợp.
+\begin{proof}
+    Trong toán học, ta có thể liệt kê toàn bộ các tập con của một tập hợp bằng cách: nếu $n$ là số phần tử của một tập hợp, ta lần lượt liệt kê các tổ hợp chập 1 đến $n$ của tập hợp đó.
+
+    Trong tin học, vì mỗi phần tử của tập hợp mẹ có thể thuộc hoặc không thuộc tập con ta đang xét, ta có thể kí hiệu chúng là 1 và 0, vậy ta có thể biểu diễn tập con dưới dạng 1 dãy $n$ bit. Một dãy $n$ bit có thể biểu thị một giá trị bất kì từ 0 đến $2^n$, với mỗi giá trị ta được một tập con.
+\end{proof}

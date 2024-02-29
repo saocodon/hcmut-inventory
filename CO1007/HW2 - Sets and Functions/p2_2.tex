@@ -1,0 +1,190 @@
+\section*{Phần 2.2}
+\subsection*{Bài 15}
+Chứng minh định luật De Morgan thứ hai trong bảng 1 bằng cách chứng minh rằng nếu $A$ và $B$ là tập hợp thì $\overline{A\cup B}=\bar A\cap\bar B$
+\begin{enumerate}[label=\alph*)]
+    \item bằng cách chứng minh mỗi bên là tập con của nhau.
+    \item sử dụng bảng thành viên.
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Xét $x\in\overline{A\cup B}$, vậy $x\notin A\cup B$, thì $x\notin A\land x\notin B$. Mà $x\notin A$ thì $x\in\bar A$, tương tự với tập $B$ ta có $x\in\bar A\land x\in\bar B$, nên $x\in\bar A\cap\bar B$. Vậy $\overline{A\cup B}\subseteq\bar A\cap\bar B$.
+        
+        Xét theo chiều ngược lại, nếu $x\in\bar A\cap\bar B$ thì $x\in\bar A\land x\in\bar B$, suy ra $x\notin A\land x\notin B$. Mà nếu vậy thì $x\notin A\cup B$, tương đương $x\in\overline{A\cup B}$.
+        \item Ta có bảng thành viên sau:
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c|c|c}
+                $A$ & $B$ & $\bar A$ & $\bar B$ & $A\cup B$ & $\overline{A\cup B}$ & $\bar A\cap\bar B$\cr\hline
+                0 & 0 & 1 & 1 & 0 & 1 & 1\cr
+                0 & 1 & 1 & 0 & 1 & 0 & 0\cr
+                1 & 0 & 0 & 1 & 1 & 0 & 0\cr
+                1 & 1 & 0 & 0 & 1 & 0 & 0\cr
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 16}
+Cho $A$ và $B$ là các tập hợp. Chứng minh rằng
+\begin{enumerate}[label=\alph*)]
+    \begin{multicols}{2}
+        \item $(A\cap B)\subseteq A$
+        \item $A\subseteq(A\cup B)$
+        \item $A-B\subseteq A$
+        \item $A\cap(B-A)=\emptyset$
+        \item $A\cup(B-A)=A\cup B$
+    \end{multicols}
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta biết $A\cap B=\{x|x\in A\land x\in B\}$:
+            \begin{itemize}
+                \item Nếu $A\subseteq B$ thì $(A\cap B)=A$.
+                \item Nếu $B\subset A$ thì $|A\cap B|<|A|$, và vì $x\in A$ nên $(A\cap B)\subset A$. 
+            \end{itemize}
+        \item Ta biết $A\cup B=\{x|x\in A\lor x\in B\}$:
+        \begin{itemize}
+            \item Nếu $A\subseteq B$ thì $(A\cup B)=A$.
+            \item Nếu $B\subset A$ thì $|A\cup B|>|A|$ vì $x\in A$ hoặc $x\in B$ nên $A\subset(A\cup B)$. 
+        \end{itemize}
+        \item Ta có $A-B=A\cap\bar B$. Chứng minh tương tự câu a.
+        \item Ta có $B-A=B\cap\bar A$. Thay vào biểu thức và sắp xếp lại ta có $A\cap\bar A\cap B=\emptyset\cap B=\emptyset$.
+        \item Tương tự câu trên ta có $A\cup (B\cap\bar A)=(A\cup B)\cap(A\cup\bar A)=(A\cup B)\cap U=A\cup B$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 17}
+Chứng minh rằng nếu $A$ và $B$ là các tập hợp trong tập xác định $U$ thì $A\subseteq B$ khi và chỉ khi $\bar A\cup B=U$.
+\begin{proof}
+    Ta có:
+    \begin{align*}
+        \bar A\cup B&=\{x|x\in \bar A\lor x\in B\}\\
+        &=\{x|x\notin A\lor x\in B\}
+    \end{align*}
+    Lúc này có ba trường hợp: \begin{itemize}
+        \item Nếu $A\neq B$ thì $\bar A\cup B=A$.
+        \item Nếu $A\cap B\neq\emptyset$ thì $A\cup B=A\setminus B$.
+        \item Nếu $A\subseteq B$ thì $A\cup B=U$. Dễ thấy rằng dù $x\in A$ thì $x\in B$ làm cho điều kiện đúng, ta vẫn sẽ lấy phần tử này.
+    \end{itemize}
+    Từ đó suy ra điều phải chứng minh.
+\end{proof}
+\subsection*{Bài 19}
+Chứng minh rằng nếu $A$, $B$, $C$ là các tập hợp, thì $\overline{A\cap B\cap C}=\bar A\cup\bar B\cup\bar C$.
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item \begin{itemize}
+            \item Chứng minh theo chiều thuận: $x\in\overline{A\cap B\cap C}$ có nghĩa là $x$ không được thuộc cả ba tập hợp cùng lúc. Như vậy ta có 6 trường hợp: \begin{itemize}
+                \begin{multicols}{2}
+                    \item $x\in A$ thì $x\in\bar B\cap\bar C$.
+                    \item $x\in B$ thì $x\in\bar A\cap\bar C$.
+                    \item $x\in C$ thì $x\in\bar A\cap\bar B$.
+                    \item $x\in A\cap B$ thì $x\in\bar C$.
+                    \item $x\in A\cap C$ thì $x\in\bar B$.
+                    \item $x\in B\cap C$ thì $x\in\bar A$.
+                \end{multicols}
+            \end{itemize}
+            Dễ thấy rằng với mọi trường hợp, $x$ đều thuộc $\bar A$, $\bar B$ hoặc $\bar C$. Vậy $\overline{A\cap B\cap C}\subseteq\bar A\cup\bar B\cup\bar C$.
+            \item Chứng minh theo chiều nghịch: xét $x\in\bar A\cup\bar B\cup\bar C$. Nếu:
+            \begin{itemize}
+                \item $x\in\bar A$ thì $x\in (B\cup C\cup U)\setminus A$
+                \item $x\in\bar B$ thì $x\in (A\cup C\cup U)\setminus B$
+                \item $x\in\bar C$ thì $x\in (B\cup A\cup U)\setminus C$
+            \end{itemize}
+            Dùng phép tuyển với các trường hợp trên ta thu được $x\in\overline{A\cap B\cap C}$. Vậy $\bar A\cup\bar B\cup\bar C\subseteq\overline{A\cap B\cap C}$.
+        \end{itemize}
+        Suy ra điều phải chứng minh.
+        \item Ta có bảng thành viên sau:
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c|c|c|c|c}
+                $A$ & $B$ & $C$ & $\bar A$ & $\bar B$ & $\bar C$ & $A\cap B\cap C$ & $\overline{A\cap B\cap C}$ & $\bar A\cup\bar B\cup\bar C$\cr\hline
+                0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 & 1\cr
+                0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 1\cr
+                0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1\cr
+                0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 1\cr
+                1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1\cr
+                1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1\cr
+                1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 1\cr
+                1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0\cr
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 20}
+Đặt $A$, $B$, $C$ là các tập hợp. Chứng minh rằng:
+\begin{enumerate}[label=\alph*)]
+    \item $(A\cup B)\subseteq(A\cup B\cup C)$
+    \item $(A\cap B\cap C)\subseteq(A\cap B)$
+    \item $(A-B)-C\subseteq A-C$
+    \item $(A-C)\cap(C-B)=\emptyset$
+    \item $(B-A)\cup(C-A)=(B\cup C)-A$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Dễ thấy rằng vì phép hợp không loại trừ phần tử nào ra khỏi tập hợp, nên ta có $|A\cup B|\leq|A\cup B\cup C|$.
+        \item Tương tự như câu trên, nhưng vì phép giao ngược lại với phép hợp, chỉ có tác dụng loại trừ các phần tử khỏi tập hợp nếu không có điểm chung, nên $|A\cup B\cup C|\leq|A\cup B|$.
+        \item Với định lý $A-B=A\cap\bar B$, ta có $((A\cap\bar B)\cap\bar C)\subseteq A\cap\bar C$. Sử dụng câu b suy ra điều phải chứng minh.
+        \item Sử dụng định lý ở câu c, ta có $(A\cap\bar C)\cap(C\cap\bar B)=\emptyset$.
+        \item Sử dụng định lý ở câu c, ta có $(B\cap\bar A)\cup(C\cap\bar A)=(\bar A\cap B)\cup(\bar A\cap C)=\bar A\cap(B\cup C)=(B\cup C)-A$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 21}
+Chứng minh rằng nếu $A$ và $B$ là tập hợp, thì
+\begin{enumerate}[label=\alph*)]
+    \item $A-B=A\cap\bar B$
+    \item $(A\cap B)\cup(A\cap\bar B)=A$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item $A-B=\{x\in A\land x\notin B\}=\{x\in A\land x\in\bar B\}=A\cap\bar B$.
+        \item $(A\cap B)\cup(A\cap\bar B)=A\cap(B\cup\bar B)=A\cap U=A$.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 35}
+Đặt $A$, $B$ và $C$ là các tập hợp. Dùng các định lí ở Bảng 1 để chứng minh $\overline{(A\cup B)}\cap\overline{(B\cup C)}\cap\overline{(A\cup C)}=\bar A\cap\bar B\cap\bar C$.
+\begin{proof}
+    \begin{align*}
+        \overline{(A\cup B)}\cap\overline{(B\cup C)}\cap\overline{(A\cup C)}&=(\bar A\cap\bar B)\cap(\bar A\cap\bar C)\cap(\bar B\cap\bar C)\\
+        &=\bar A\cap\bar B\cap\bar C
+    \end{align*}
+\end{proof}
+\subsection*{Bài 36}
+Chứng minh hoặc bác bỏ rằng với mọi tập hợp $A$, $B$, $C$, ta có
+\begin{enumerate}[label=\alph*)]
+    \item $A\times(B\cup C)=(A\times B)\cup(A\times C)$
+    \item $A\times(B\cap C)=(A\times B)\cap(A\times C)$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có \begin{itemize}
+            \item $A\times(B\cup C)=\{(a,b)|a\in A\land (b\in B\lor b\in C)\}$ (1)
+            \item $A\times B=\{(a,b)|a\in A\land b\in B\}$ (2)
+            \item $A\times C=\{(a,b)|a\in A\land b\in C\}$ (3)
+        \end{itemize}
+        Dùng định luật phân phối mệnh đề hợp của (2) và (3) ta được $\{(a,b)|(a\in A\land b\in B)\lor(a\in A\land b\in C)\}=\{(a,b)|a\in A\land (b\in B\lor b\in C)\}$ (1). Vậy câu a đúng.
+        \item Ta có \begin{itemize}
+            \item $A\times(B\cap C)=\{(a,b)|a\in A\land (b\in B\land b\in C)\}$ (1)
+            \item $A\times B=\{(a,b)|a\in A\land b\in B\}$ (2)
+            \item $A\times C=\{(a,b)|a\in A\land b\in C\}$ (3)
+        \end{itemize}
+        Dùng định luật phân phối mệnh đề giao của (2) và (3) ta có $\{(a,b)|(a\in A\land b\in B)\land(a\in A\land b\in C)\}=\{(a,b)|a\in A\land (b\in B\land b\in C)\}$ (1). Vậy câu b đúng.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 37}
+Chứng minh hoặc bác bỏ rằng với mọi tập hợp $A$, $B$, $C$, ta có
+\begin{enumerate}[label=\alph*)]
+    \item $A\times(B-C)=(A\times B)-(A\times C)$
+    \item $\bar A\times\overline{B\cup C}=\overline{A\times(B\cup C)}$
+\end{enumerate}
+\begin{proof}.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có \begin{itemize}
+            \item $A\times(B-C)=\{(a,b)|a\in A\land b\in B\land b \in\bar C\}$
+            \item $A\times B=\{(a,b)|a\in A\land b\in B\}$
+            \item $A\times C=\{(a,b)|a\in A\land b\in C\}\rightarrow \overline{A\times C}=\{(a,b)|a\in\bar A\lor b\in\bar C\}$
+        \end{itemize}
+        Ta có $(A\times B)-(A\times C)=(A\times B)\cap\overline{A\times C}=\{(a,b)|(a\in A\land b\in B)\land(a\in\bar A\lor b\in\bar C)\}$. Biểu thức này đã tối giản, ta không thể đơn giản bớt hay biến đổi. Vì vậy câu này sai.
+        \item Ta viết lại vế trái:$$\bar A\times\overline{B\cup C}=\bar A\times(\bar B\cap \bar C)=\{(a,b)|a\in\bar A\land(b\in\bar B\lor b\in\bar C)\}$$
+        Với vế phải, ta tính \begin{align*}
+            &A\times(B\cup C)=\{(a,b)|a\in A\land(b\in B\lor b\in C)\}\\
+            \rightarrow&\overline{A\times(B\cup C)}=\{(a,b)|a\in\bar A\land(b\in\bar B\lor b\in\bar C)\}
+        \end{align*}
+        Vì vậy, câu này đúng.
+    \end{enumerate}
+\end{proof}
