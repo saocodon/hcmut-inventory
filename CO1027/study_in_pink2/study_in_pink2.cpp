@@ -22,6 +22,7 @@ Map::Map(int num_rows, int num_cols, int num_walls, Position * array_walls, int 
 	this->num_cols = num_cols;
 	map = new MapElement**[num_rows];
 	for (int i = 0; i < num_rows; i++) {
+		map[i] = new MapElement*[num_cols];
 		for (int j = 0; j < num_cols; j++) {
 			// check if (i,j) is in array_walls
 			for (int k = 0; k < num_walls; k++) {
@@ -41,18 +42,19 @@ Map::Map(int num_rows, int num_cols, int num_walls, Position * array_walls, int 
 }
 
 Map::~Map() {
-	for (int i = 0; i < num_rows; i++) {
-		for (int j = 0; j < num_cols; j++) {
-			delete map[i][j];
-		}
-	}
-	delete map;
+	/*
+	for (int i = 0; i < num_rows; i++)
+		delete[] map[i];
+	delete map;*/
 }
 
 bool Map::isValid(const Position &pos, MovingObject *mv_obj) const {
 	// kiem tra cham bien tren/trai
 	if (pos.getCol() < 0 || pos.getRow() < 0) return false;
 	string name = mv_obj->getName();
+
+	if (pos.getRow() >= num_rows || pos.getCol() >= num_cols) return false;
+
 	switch (map[pos.getRow()][pos.getCol()]->getType()) {
 		case WALL: return false;
 		case FAKE_WALL:
@@ -122,6 +124,7 @@ Position getNextPos_criminal_robot(Position pos, Map* map, MovingObject* mv_obj,
 	char a = ((mv_obj->getName() == "Criminal") ? -1 : 1);
 	int dist[4] = { a * INT_MAX, a * INT_MAX, a * INT_MAX, a * INT_MAX }, max_minDist = a * INT_MAX;
 	Position returnValue = Position::npos;
+	
 	for (int i = 0; i < 4; i++) {
 		Position nextPosition = Position(pos.getRow() + coordinates[i].first, pos.getCol() + coordinates[i].second);
 		if (map->isValid(nextPosition, mv_obj)) {
@@ -139,7 +142,6 @@ Position getNextPos_criminal_robot(Position pos, Map* map, MovingObject* mv_obj,
 	}
 #undef minimizeDist
 #undef maximizeDist
-#undef null 
 #undef dist
 	return returnValue;
 }
@@ -171,8 +173,11 @@ bool ArrayMovingObject::add(MovingObject* mv_obj) {
 
 string ArrayMovingObject::str() const {
 	string result = "ArrayMovingObject[count=" + to_string(count) + ";capacity=" + to_string(capacity) + ";";
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < count; i++) {
 		result += arr_mv_objs[i]->str();
+		if (i < count - 1) result += ';';
+	}
+	result += ']';
 	return result;
 }
 
@@ -458,7 +463,7 @@ void Watson::meetRobot(Robot* robot) {
 	if (item->canUse(this, nullptr)) item->use(this, nullptr);
 }
 
-void Criminal::sendGift() {
+void StudyPinkProgram::sendGift() {
 	Position watsonPos = watson->getCurrentPosition();
 	if (sherlock->getCurrentPosition().isEqual(watsonPos.getRow(), watsonPos.getCol())) {
 		// Sherlock tang qua Watson

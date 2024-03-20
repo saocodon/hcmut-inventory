@@ -198,8 +198,7 @@ class Criminal : public Character {
 			this->watson = watson;
   	}
 		Position getNextPosition();
-		void sendGift(); 
-		void move() { _move(); sendGift(); }
+		void move() { _move(); }
 		string str() const { return _str(); }
 };
 
@@ -444,23 +443,30 @@ private:
     Map * map;
     ArrayMovingObject * arr_mv_objs;
 
+		int validCriminalSteps, robotCount;
+
 
 public:
-    StudyPinkProgram(const string & config_file_path);
+		StudyPinkProgram(const string & config_file_path, Sherlock* sherlock, Watson* watson, Criminal* criminal, Map* map, ArrayMovingObject* arr_mv_objs) {
+			config = new Configuration(config_file_path);
+			this->sherlock = sherlock;
+			this->watson = watson;
+			this->criminal = criminal;
+			this->map = map;
+			this->arr_mv_objs = arr_mv_objs;
+			validCriminalSteps = robotCount = 0;
+		}
 
     bool isStop() const;
 
     void printResult() const {
 			Position criminalPos = criminal->getCurrentPosition();
-        if (sherlock->getCurrentPosition().isEqual(criminalPos.getRow(), criminalPos.getCol())) {
+        if (sherlock->getCurrentPosition().isEqual(criminalPos.getRow(), criminalPos.getCol()))
             cout << "Sherlock caught the criminal" << endl;
-        }
-        else if (watson->getCurrentPosition().isEqual(criminalPos.getRow(), criminalPos.getCol())) {
+        else if (watson->getCurrentPosition().isEqual(criminalPos.getRow(), criminalPos.getCol()))
             cout << "Watson caught the criminal" << endl;
-        }
-        else {
+        else
             cout << "The criminal escaped" << endl;
-        }
     }
 
     void printStep(int si) const {
@@ -469,19 +475,42 @@ public:
             << sherlock->str() << "--|--" << watson->str() << "--|--" << criminal->str() << endl;
     }
 
+		void sendGift();
+
     void run(bool verbose) {
         // Note: This is a sample code. You can change the implementation as you like.
         // TODO
         for (int istep = 0; istep < config->num_steps; ++istep) {
             for (int i = 0; i < arr_mv_objs->size(); ++i) {
-                arr_mv_objs->get(i)->move();
+							if (!arr_mv_objs->isFull()) {
+								if (arr_mv_objs->get(i)->getName() == "Criminal") {
+									Position initialPos = criminal->getCurrentPosition();
+									arr_mv_objs->get(i)->move();
+									if (!criminal->getCurrentPosition().isEqual(initialPos.getRow(), initialPos.getCol()))
+										validCriminalSteps++;
+									if (validCriminalSteps == 3) {
+										if (robotCount == 0) {
+											arr_mv_objs->add(new RobotC(arr_mv_objs->size(), initialPos, map, criminal));
+										} else {
+#define dist(x,y) abs(x.getRow()-y.getRow())+abs(x.getCol()-y.getCol())
+											int sherlockDist = dist(sherlock->getCurrentPosition(), initialPos);
+											int watsonDist = dist(watson->getCurrentPosition(), initialPos);
+											if (sherlockDist < watsonDist)
+												arr_mv_objs->add(new RobotS(arr_mv_objs->size(), initialPos, map, RobotType::S, criminal, sherlock));
+											else if (sherlockDist > watsonDist)
+												arr_mv_objs->add(new RobotW(arr_mv_objs->size(), initialPos, map, RobotType::W, criminal, watson));
+											else
+												arr_mv_objs->add(new RobotSW(arr_mv_objs->size(), initialPos, map, RobotType::SW, criminal, sherlock, watson));
+										}
+									}
+								}
+							}
                 if (isStop()) {
                     printStep(istep);
                     break;
                 }
-                if (verbose) {
+                if (verbose)
                     printStep(istep);
-                }
             }
         }
         printResult();
