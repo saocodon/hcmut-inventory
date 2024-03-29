@@ -112,7 +112,7 @@ public:
 			this->map = map;
 			this->name = name;
 		}
-		virtual ~MovingObject() { free(map); }
+		virtual ~MovingObject() {}
     virtual Position getNextPosition() = 0;
     Position getCurrentPosition() const { return pos; }
     virtual void move() = 0;

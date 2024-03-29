@@ -154,9 +154,9 @@ void processPositionArrays(Position* &arr, string value) {
 	int begin = -1, wallCount = 0;
 	for (int i = 1; i < value.length() - 1; i++) {
 		switch (value[i]) {
-			case '(': begin = i + 1; break;
+			case '(': begin = i; break;
 			case ')':
-				Position newWall = Position(value.substr(begin, i - begin));
+				Position newWall = Position(value.substr(begin, i - begin + 1));
 				arr[wallCount++] = newWall;
 				break;
 		}
@@ -183,20 +183,28 @@ string ArrayMovingObject::str() const {
 
 Configuration::Configuration(const string & filepath) {
 	// init variables
-	arr_walls = new Position[num_walls];
 	arr_fake_walls = new Position[num_fake_walls];
 	// reading input
 	ifstream input(filepath);
 	if (input.is_open()) {
 		string line;
-		while (cin >> line) {
+		while (input.good()) {
+			input >> line;
 			int equalPosition = line.find('=');
 			string key = line.substr(0, equalPosition);
 			string value = line.substr(equalPosition + 1);
 			if (key == "MAP_NUM_ROWS") map_num_rows = stoi(value);
 			else if (key == "MAP_NUM_COLS") map_num_cols = stoi(value);
 			else if (key == "MAX_NUM_MOVING_OBJECTS") max_num_moving_objects = stoi(value);
+			else if (key == "NUM_WALLS") {
+				num_walls = stoi(value);
+				arr_walls = new Position[num_walls];
+			}
 			else if (key == "ARRAY_WALLS") processPositionArrays(arr_walls, value);
+			else if (key == "NUM_FAKE_WALLS") {
+				num_fake_walls = stoi(value);
+				arr_fake_walls = new Position[num_fake_walls];
+			}
 			else if (key == "ARRAY_FAKE_WALLS") processPositionArrays(arr_fake_walls, value);
 			else if (key == "SHERLOCK_MOVING_RULE") sherlock_moving_rule = value;
 			else if (key == "SHERLOCK_INIT_POS") sherlock_init_pos = Position(value);
@@ -230,15 +238,15 @@ string Configuration::str() const {
 		if (i < num_fake_walls - 1) result += ';';
 	}
 	result += "]\nSHERLOCK_MOVING_RULE=" + sherlock_moving_rule +
-		"SHERLOCK_INIT_POS=" + sherlock_init_pos.str() +
+		"\nSHERLOCK_INIT_POS=" + sherlock_init_pos.str() +
 		"\nSHERLOCK_INIT_HP=" + to_string(sherlock_init_hp) +
 		"\nSHERLOCK_INIT_EXP=" + to_string(sherlock_init_exp) +
 		"\nWATSON_MOVING_RULE=" + watson_moving_rule +
-		"\nWATSON_INIT_POS=(" + watson_init_pos.str() +
+		"\nWATSON_INIT_POS=" + watson_init_pos.str() +
 		"\nWATSON_INIT_HP=" + to_string(watson_init_hp) +
 		"\nWATSON_INIT_EXP=" + to_string(watson_init_exp) +
 		"\nCRIMINAL_INIT_POS=" + criminal_init_pos.str() +
-		"\nNUM_STEPS=" + to_string(num_steps);
+		"\nNUM_STEPS=" + to_string(num_steps) + "\n]";
 	return result;
 }
 
@@ -398,7 +406,6 @@ void Sherlock::meetRobot(Robot* robot) {
 					break;
 				case C:
 					if (exp > 500) {
-						// TODO: Criminal captured
 					} else {
 						bag->insert(robot->getItem());
 						delete robot;
