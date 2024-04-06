@@ -95,7 +95,6 @@ string Character::_str() const {
 
 Position getNextPos_sherlock_watson(int indexMovingRule, string moving_rule, Position pos, Map* map, MovingObject* mv_obj) {
 	int currentIndex = indexMovingRule % moving_rule.length();
-	cout << moving_rule[currentIndex] << "\n";
 	Position nextPosition;
 	pair<char, pair<int, int>> coordinates[] = { {'U', {-1, 0}}, {'D', {1, 0}}, {'L', {0, -1}}, {'R', {0, 1}} };
 	for (int i = 0; i < 4; i++) {

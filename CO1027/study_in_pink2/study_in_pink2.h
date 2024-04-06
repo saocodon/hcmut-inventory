@@ -74,7 +74,7 @@ class FakeWall : public MapElement {
 		int req_exp;
 	public:
 		FakeWall(int in_req_exp, ElementType type) : MapElement(type) { req_exp = in_req_exp; }
-		int getReqExp() const { return req_exp; }
+		inline int getReqExp() const { return req_exp; }
 };
 
 class Position {
@@ -87,13 +87,13 @@ public:
 		Position(int r=0, int c=0) { this->r = r; this->c = c; }
 		Position(const string & str_pos); 
 
-    int getRow() const { return r; }
-    int getCol() const { return c; }
-    void setRow(int r) { this->r = r; }
-    void setCol(int c) { this->c = c; }
+    inline int getRow() const { return r; }
+    inline int getCol() const { return c; }
+    inline void setRow(int r) { this->r = r; }
+    inline void setCol(int c) { this->c = c; }
 
-		string str() const { return ('(' + to_string(r) + ',' + to_string(c) + ')'); }
-		bool isEqual(int in_r, int in_c) const { return (in_r == r && in_c == c); }
+		inline string str() const { return ('(' + to_string(r) + ',' + to_string(c) + ')'); }
+		inline bool isEqual(int in_r, int in_c) const { return (in_r == r && in_c == c); }
 };
 
 // abstract class
@@ -117,7 +117,7 @@ public:
     Position getCurrentPosition() const { return pos; }
     virtual void move() = 0;
     virtual string str() const = 0;
-		string getName() { return name; }
+		inline string getName() { return name; }
 };
 
 class Map {
@@ -144,17 +144,17 @@ class Character : public MovingObject {
 			indexMovingRule = 0;
 			this->moving_rule = moving_rule;
 		}
-		void nm() {
+		inline void nm() {
 			hp = max(min(hp, 500), 0);
 			exp = max(min(exp, 900), 0);
 			// if (hp == 0 || exp == 0) TODO: Cannot move
 		}
 		void _move(); 
 		string _str() const;
-		int getEXP() const { return exp; }
-		void setEXP(int x) { exp += x; }
-		int getHP() const { return hp; }
-		void setHP(int x) { hp += x; }
+		inline int getEXP() const { return exp; }
+		inline void setEXP(int x) { exp += x; }
+		inline int getHP() const { return hp; }
+		inline void setHP(int x) { hp += x; }
 };
 
 class Sherlock : public Character {
@@ -165,10 +165,10 @@ class Sherlock : public Character {
 		Sherlock(int index, const string & moving_rule, const Position & init_pos, Map * map, int init_hp, int init_exp) :
 			Character(index, init_pos, map, "Sherlock", init_hp, init_exp, moving_rule) {}	
 		Position getNextPosition();
-		void move() {_move(); }
-		string str() const { return _str(); }
+		inline void move() {_move(); }
+		inline string str() const { return _str(); }
 		void meetRobot(Robot* robot);
-		SherlockBag* getBag() { return bag; }
+		inline SherlockBag* getBag() { return bag; }
 };
 
 class Watson : public Character {
@@ -179,10 +179,10 @@ class Watson : public Character {
 		Watson(int index, const string & moving_rule, const Position & init_pos, Map * map, int init_hp, int init_exp) :
 			Character(index, init_pos, map, "Watson", init_hp, init_exp, moving_rule) {}
 		Position getNextPosition();
-		void move() { _move(); }
-		string str() const { return _str(); }
+		inline void move() { _move(); }
+		inline string str() const { return _str(); }
 		void meetRobot(Robot* robot);
-		WatsonBag* getBag() { return bag; }
+		inline WatsonBag* getBag() { return bag; }
 };
 
 class Criminal : public Character {
@@ -198,8 +198,8 @@ class Criminal : public Character {
 			this->watson = watson;
   	}
 		Position getNextPosition();
-		void move() { _move(); }
-		string str() const { return _str(); }
+		inline void move() { _move(); }
+		inline string str() const { return _str(); }
 };
 
 class ArrayMovingObject {
@@ -214,10 +214,10 @@ class ArrayMovingObject {
 			arr_mv_objs = new MovingObject*[capacity];
 		}
 		~ArrayMovingObject() { delete[] arr_mv_objs; }
-		bool isFull() const { return (count == capacity); }
+		inline bool isFull() const { return (count == capacity); }
 		bool add(MovingObject * mv_obj);
-		MovingObject * get(int index) const { return arr_mv_objs[index]; }
-		int size() const { return count; } // return current number of elements in the array
+		inline MovingObject * get(int index) const { return arr_mv_objs[index]; }
+		inline int size() const { return count; } // return current number of elements in the array
 		string str() const;
 };
 
@@ -255,7 +255,7 @@ class Robot : public MovingObject {
 		Watson* watson;
 
 		void _move(); 
-		int _getDistance(MovingObject* mv_obj) const {
+		inline int _getDistance(MovingObject* mv_obj) const {
 			Position point = mv_obj->getCurrentPosition();
 			return abs(point.getRow() - pos.getRow()) + abs(point.getCol() - pos.getCol());
 		}
@@ -263,8 +263,8 @@ class Robot : public MovingObject {
 	public:
 		Robot(int index, const Position & init_pos, Map * map, RobotType robot_type, string name, Criminal* criminal = nullptr,
 				Sherlock* sherlock = nullptr, Watson* watson = nullptr);
-		RobotType getType() { return robot_type; }
-		BaseItem* getItem() { return item; }
+		inline RobotType getType() { return robot_type; }
+		inline BaseItem* getItem() { return item; }
 };
 
 class RobotC : public Robot {
@@ -276,10 +276,10 @@ class RobotC : public Robot {
 			this->robot_type = robot_type;
 		}
 		Position getNextPosition() { return criminal->getCurrentPosition(); }
-		void move() { _move(); }
-		int getDistance(Sherlock* mv_obj) const { return _getDistance(mv_obj); }
-		int getDistance(Watson* mv_obj) const { return _getDistance(mv_obj); }
-		string str() const { return _str(-1); }
+		inline void move() { _move(); }
+		inline int getDistance(Sherlock* mv_obj) const { return _getDistance(mv_obj); }
+		inline int getDistance(Watson* mv_obj) const { return _getDistance(mv_obj); }
+		inline string str() const { return _str(-1); }
 };
 
 class RobotS : public Robot {
@@ -292,9 +292,9 @@ class RobotS : public Robot {
 			this->sherlock = Sherlock;
 		}
 		Position getNextPosition(); 
-		void move() { _move(); }
-		int getDistance() const { return _getDistance(sherlock); }
-		string str() const { return _str(getDistance()); }
+		inline void move() { _move(); }
+		inline int getDistance() const { return _getDistance(sherlock); }
+		inline string str() const { return _str(getDistance()); }
 };
 
 class RobotW : public Robot {
@@ -307,9 +307,9 @@ class RobotW : public Robot {
 			this->watson = watson;
 		}
 		Position getNextPosition(); 
-		void move() { _move(); }
-		int getDistance() const { return _getDistance(watson); }
-		string str() const { return _str(getDistance()); }
+		inline void move() { _move(); }
+		inline int getDistance() const { return _getDistance(watson); }
+		inline string str() const { return _str(getDistance()); }
 };
 
 class RobotSW : public Robot {
@@ -324,13 +324,13 @@ class RobotSW : public Robot {
 			this->watson = watson;
 		}
 		Position getNextPosition(); 
-		void move() { _move(); }
-		int getDistance() const {
+		inline void move() { _move(); }
+		inline int getDistance() const {
 			int distanceToSherlock = _getDistance(sherlock);
 			int distanceToWatson = _getDistance(watson);
 			return distanceToSherlock + distanceToWatson;
 		}
-		string str() const { return _str(getDistance()); }
+		inline string str() const { return _str(getDistance()); }
 };
 
 // abstract class
@@ -342,39 +342,39 @@ class BaseItem {
 		BaseItem(ItemType itemType) { this->itemType = itemType; }
 		virtual bool canUse(Character* obj, Robot * robot) = 0;
 		virtual void use(Character* obj, Robot * robot) = 0;
-		ItemType getType() { return itemType; }
+		inline ItemType getType() { return itemType; }
 };
 
 class MagicBook : public BaseItem {
 	friend class TestStudyInPink;
 	public:
 		MagicBook() : BaseItem(ItemType::MAGIC_BOOK) {};
-		bool canUse(Character* obj, Robot * robot) { return (obj->getEXP() <= 350); }
-		void use(Character* obj, Robot * robot) { obj->setEXP(obj->getEXP() * 5 / 4); obj->nm(); }
+		inline bool canUse(Character* obj, Robot * robot) { return (obj->getEXP() <= 350); }
+		inline void use(Character* obj, Robot * robot) { obj->setEXP(obj->getEXP() * 5 / 4); obj->nm(); }
 };
 
 class EnergyDrink: public BaseItem {
 	friend class TestStudyInPink;
 	public:
 		EnergyDrink() : BaseItem(ItemType::ENERGY_DRINK) {};
-		bool canUse(Character* obj, Robot * robot) { return (obj->getHP() <= 100); }
-		void use(Character* obj, Robot * robot) { obj->setHP(obj->getHP() * 6 / 5); obj->nm(); }
+		inline bool canUse(Character* obj, Robot * robot) { return (obj->getHP() <= 100); }
+		inline void use(Character* obj, Robot * robot) { obj->setHP(obj->getHP() * 6 / 5); obj->nm(); }
 };
 
 class FirstAid: public BaseItem {
 	friend class TestStudyInPink;
 	public:
 		FirstAid() : BaseItem(ItemType::FIRST_AID) {};
-		bool canUse(Character* obj, Robot * robot) { return (obj->getHP() <= 100 || obj->getEXP() <= 350); }
-		void use(Character* obj, Robot * robot) { obj->setHP(obj->getHP() * 3 / 2); obj->nm(); }
+		inline bool canUse(Character* obj, Robot * robot) { return (obj->getHP() <= 100 || obj->getEXP() <= 350); }
+		inline void use(Character* obj, Robot * robot) { obj->setHP(obj->getHP() * 3 / 2); obj->nm(); }
 };
 
 class ExcemptionCard: public BaseItem {
 	friend class TestStudyInPink;
 	public:
 		ExcemptionCard() : BaseItem(ItemType::EXCEMPTION_CARD) {};
-		bool canUse(Character* obj, Robot * robot) { return (obj->getName() == "Sherlock" && obj->getHP() % 2 == 1); }
-		void use(Character* obj, Robot * robot) { if (robot != nullptr) delete robot; }
+		inline bool canUse(Character* obj, Robot * robot) { return (obj->getName() == "Sherlock" && obj->getHP() % 2 == 1); }
+		inline void use(Character* obj, Robot * robot) { if (robot != nullptr) delete robot; }
 };
 
 class PassingCard: public BaseItem {
@@ -383,8 +383,8 @@ class PassingCard: public BaseItem {
 		string challenge;
 	public:
 		PassingCard(string challenge) : BaseItem(ItemType::PASSING_CARD) { this->challenge = challenge; }
-		bool canUse(Character* obj, Robot * robot) { return (obj->getName() == "Watson" && obj->getHP() % 2 == 0); }
-		void use(Character* obj, Robot * robot) {
+		inline bool canUse(Character* obj, Robot * robot) { return (obj->getName() == "Watson" && obj->getHP() % 2 == 0); }
+		inline void use(Character* obj, Robot * robot) {
 			if (robot != nullptr) {
 				if (challenge != robot->getName() && challenge != "all") {
 					obj->setEXP(obj->getEXP() - 50);
@@ -409,8 +409,8 @@ class BaseBag {
 		Node* head;
 	public:
 		BaseBag(Character* obj) { this->obj = obj; head = nullptr; robot = nullptr; count = 0; }
-		virtual void meetRobot(Robot* robot) { this->robot = robot; }
-		virtual bool insert(BaseItem* item) { return false; }
+		inline virtual void meetRobot(Robot* robot) { this->robot = robot; }
+		inline virtual bool insert(BaseItem* item) { return false; }
 		virtual BaseItem* get();
 		virtual BaseItem* get(ItemType itemType); 
 		virtual string str() const;
@@ -459,7 +459,7 @@ public:
 
     bool isStop() const;
 
-    void printResult() const {
+    inline void printResult() const {
 			Position criminalPos = criminal->getCurrentPosition();
         if (sherlock->getCurrentPosition().isEqual(criminalPos.getRow(), criminalPos.getCol()))
             cout << "Sherlock caught the criminal" << endl;
@@ -469,7 +469,7 @@ public:
             cout << "The criminal escaped" << endl;
     }
 
-    void printStep(int si) const {
+    inline void printStep(int si) const {
         cout << "Step: " << setw(4) << setfill('0') << si
             << "--"
             << sherlock->str() << "--|--" << watson->str() << "--|--" << criminal->str() << endl;
@@ -477,7 +477,7 @@ public:
 
 		void sendGift();
 
-    void run(bool verbose) {
+    inline void run(bool verbose) {
         // Note: This is a sample code. You can change the implementation as you like.
         // TODO
         for (int istep = 0; istep < config->num_steps; ++istep) {
