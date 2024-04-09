@@ -1,0 +1,43 @@
+\section*{Phần 7.3}
+\subsection*{Bài 1}
+Cho rằng E và F là 2 biến cố trong một không gian mẫu và $p(E)=1/3$, $p(F)=1/2$, và $p(E|F)=2/5$. Tìm $p(F|E)$.
+\begin{proof}
+    Ta có $p(\bar F)=1-p(F)=1/2$ và $$p(E|F)=\frac{p(E\cap F)}{p(F)}\rightarrow\frac{2}{5}=\frac{p(E\cap F)}{\frac{1}{2}}$$
+    Suy ra $p(E\cup F)=1/5.$ Mà $p(E\cup F)=1-p(E\cup\bar F)=1-1/5=4/5.$ (vì một phần tử không thể vừa thuộc $F$ vừa thuộc $\bar F$). Ta lại có $$p(E|\bar F)=\frac{p(E|\bar F)}{p(\bar F)}=\frac{4}{5}:\frac{1}{2}=\frac{8}{5}$$
+    Cuối cùng thay vào công thức Bayes ta được đáp án:
+    $$p(F|E)=\frac{p(E|F)p(F)}{p(E|F)p(F)+p(E|\bar F)p(\bar F)}=\frac{\frac{2}{5}.\frac{1}{2}}{\frac{2}{5}.\frac{1}{2}+\frac{8}{5}.\frac{1}{2}}=\frac{1}{5}$$
+\end{proof}
+\subsection*{Bài 2}
+Cho rằng E và F là 2 biến cố trong một không gian mẫu và $p(E)=2/3$, $p(F)=3/4$, và $p(F|E)=5/8$. Tìm $p(E|F)$.
+\begin{proof}
+    Theo chứng minh trên, ta có $p(F|\bar E)=3/8$ và $p(\bar E)=1/3$. Ta đổi vai trò của $E$ và $F$ trong công thức Bayes:
+    $$p(E|F)=\frac{p(F|E)p(E)}{p(F|E)p(E)+p(F|\bar E)p(\bar E)}=\frac{\frac{5}{8}.\frac{2}{3}}{\frac{5}{8}.\frac{2}{3}+\frac{3}{8}.\frac{1}{3}}=\frac{10}{13}$$
+\end{proof}
+\subsection*{Bài 3}
+Cho rằng Frida chọn một quả bóng bằng cách chọn ngẫu nhiên một trong hai cái hộp, sau đó chọn một quả bóng ngẫu nhiên trong hộp đó. Hộp đầu tiên chứa 2 quả bóng trắng và 3 quả bóng xanh, hộp thứ hai chứa 4 quả bóng trắng và 1 quả bóng xanh. Xác suất Frida đã chọn bóng từ hộp đầu tiên là bao nhiêu, biết rằng cô ta đã chọn một quả bóng xanh?
+\begin{proof}
+    Gọi E là biến cố chọn quả bóng xanh, F là biến cố chọn hộp thứ nhất. Vậy ta có $p(E|F)=3/5,p(E|\bar F)=1/5$. Vì chọn ngẫu nhiên một trong hai hộp nên $p(F)=p(\bar F)=1/2$. Thay vào công thức Bayes ta được:
+    $$p(F|E)=\frac{p(E|F)p(F)}{p(E|F)p(F)+p(E|\bar F)p(\bar F)}=\frac{\frac{3}{5}.\frac{1}{2}}{\frac{3}{5}.\frac{1}{2}+\frac{1}{5}.\frac{1}{2}}=\frac{3}{4}$$
+\end{proof}
+\subsection*{Bài 11}
+Một công ty điện tử đang lên kế hoạch ra mắt một điện thoại camera mới. Công ty có một bản báo cáo tiếp thị cho mỗi sản phẩm mới dự đoán sự thành công hoặc thất bại của sản phẩm. Trong những sản phẩm mới đó, 60\% là thành công. Ngoài ra, 70\% sản phẩm thành công được dự đoán là thành công, trong khi 40\% sản phẩm thất bại được dự đoán là thành công. Tìm xác suất chiếc điện thoại camera này sẽ thành công nếu nó được dự đoán sẽ thành công.
+\begin{proof}
+    Gọi F là biến cố sản phẩm này thành công, E là biến cố sản phẩm này được dự đoán sẽ thành công. Ta cần tính $p(F|E)$, biết $p(E|F)=0.7,p(E|\bar F)=0.4,p(F)=0.6,p(\bar F)=0.4$. Sử dụng công thức Bayes ta có:
+    $$p(F|E)=\frac{p(E|F)p(F)}{p(E|F)p(F)+p(E|\bar F)p(\bar F)}=\frac{0.7*0.6}{0.7*0.6+0.4*0.4}\approx0.721$$
+\end{proof}
+\subsection*{Bài 13}
+Cho rằng $E,F_1,F_2$ và $F_3$ là các biến cố trong không gian mẫu S và $F_1,F_2$ và $F_3$ rời rạc từng cặp với nhau và hợp của chúng là S. Tìm $p(F_1|E)$ nếu $p(E|F_1)=1/8,p(E|F_2)=1/4,p(E|F_3)=1/6,p(F_1)=1/4,p(F_2)=1/4$ và $p(F_3)=1/2$.
+\begin{proof}
+    Thay toàn bộ vào công thức Bayes tổng quát ta được:
+    $$p(F_1|E)=\frac{p(E|F_1)p(F_1)}{\sum_{i=1}^{3}p(E|F_i)p(F_i)}=\frac{\frac{1}{8}.\frac{1}{4}}{\frac{1}{8}.\frac{1}{4}+\frac{1}{4}.\frac{1}{4}+\frac{1}{6}.\frac{1}{2}}=\frac{3}{17}$$
+\end{proof}
+\subsection*{Bài 21}
+Giả sử một bộ lọc spam Bayesian được luyện trên một tập hợp 10,000 tin nhắn spam và 5000 tin nhắn thường. Từ "enhancement" xuất hiện trong 1500 tin nhắn spam và 20 tin nhắn thông thường, trong khi từ "herbal" xuất hiện trong 800 tin nhắn spam và 200 tin nhắn thường. Xấp xỉ xác suất một tin nhắn nhận được có cả hai từ "enhancement" và "herbal" là spam. Liệu tin nhắn sẽ bị coi là spam nếu ngưỡng đặt là 0.9?
+\begin{proof}
+    Gọi p là xác suất từ đó có trong tin nhắn spam và q là xác suất nó có trong tin nhắn thường, ta có $p(\text{enhancement})=1500/10000=0.15,q(\text{enhancement})=20/5000=0.004,p(\text{herbal})=0.08,q(\text{herbal})=0.04$. Sử dụng công thức trung bình, ta có:
+    \begin{align*}
+        r(\text{enhancement,herbal})&=\frac{p(\text{enhancement})p(\text{herbal})}{p(\text{enhancement})p(\text{herbal})+q(\text{enhancement})q(\text{herbal})}\\
+        &=\frac{0.15*0.08}{0.15*0.08+0.004*0.04}\approx0.987
+    \end{align*}
+    Vậy tin nhắn sẽ bị coi là spam.
+\end{proof}

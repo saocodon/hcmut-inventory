@@ -1,0 +1,94 @@
+\section*{Phần 7.2}
+\subsection*{Bài 7}
+Xác suất của các biến cố sau là bao nhiêu khi ta chọn ngẫu nhiên một hoán vị của \{1,2,3,4\}?
+\begin{enumerate}[label=\alph*)]
+    \item 1 đứng trước 4.
+    \item 4 đứng trước 1.
+    \item 4 đứng trước 1 và 4 đứng trước 2.
+    \item 4 đứng trước 1, 4 đứng trước 2 và 4 đứng trước 3.
+    \item 4 đứng trước 3 và 2 đứng trước 1.
+\end{enumerate}
+\begin{proof}
+    Ta có tổng cộng $4!=24$ hoán vị nên:
+    \begin{enumerate}[label=\alph*)]
+        \item Ta có sáu cách sắp xếp: \{1,x,x,x\}, \{x,1,x,x\}, \{x,x,x,1\}.
+        \begin{itemize}
+            \item Cách đầu cho ta $3!=6$ cách.
+            \item Cách sau cho ta $3!-2!=4$ cách (loại đi các trường hợp \{4,1,x,x\})
+            \item Cách cuối chỉ cho ta $2!=2$ cách.
+        \end{itemize}
+        Vậy có tổng cộng 12 cách, xác suất là 1/2.
+        \item Tương tự câu trên nhưng đảo vai trò của 4 và 1, ta cũng có xác suất là 1/2.
+        \item Ta có sáu cách sắp xếp: \{4,x,x,x\}, \{x,4,x,x\}.
+        \begin{itemize}
+            \item Cách đầu cho ta $3!=6$ cách.
+            \item Cách sau cho ta $3!-2.2!=2$ cách (loại bỏ trường hợp \{1,4,x,x\} và \{2,4,x,x\})
+        \end{itemize}
+        Vậy tổng cộng có 8 cách, xác suất là 1/3.
+        \item Ta chỉ có 1 cách duy nhất: \{4,x,x,x\} vì vậy có $3!=6$ cách, vậy xác suất là 1/4.
+        \item Ta có cách sắp xếp: \{4,x,x,x\}, sẽ có $3!=6$ cách để đặt 3 vào 3 chỗ còn lại, nhưng mỗi cách lại có $2!=2$ cách đặt 1 và 2, ta loại trường hợp 1 đứng trước 2, vậy chỉ còn 1 cách, suy ra tổng cộng có 3 cách, vậy xác suất là 3/24=1/8.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 10}
+Xác suất của các biến cố sau là bao nhiêu nếu ta ngẫu nhiên chọn một hoán vị của 26 chữ cái viết thường trong bảng chữ cái tiếng Anh?
+\begin{enumerate}[label=\alph*)]
+    \item 13 chữ cái đầu tiên trong hoán vị tuân theo thứ tự bảng chữ cái.
+    \item a là chữ cái đầu tiên và z là chữ cái cuối cùng.
+    \item a và z đứng kế nhau trong hoán vị.
+    \item a và b không đứng cùng nhau trong hoán vị.
+    \item a và z cách nhau ít nhất 23 chữ cái trong hoán vị.
+    \item z đứng trước a và b trong hoán vị.
+\end{enumerate}
+\begin{proof}
+    Ta có tổng cộng 26! hoán vị.
+    \begin{enumerate}[label=\alph*)]
+        \item Ta chọn 13 chữ cái sau cùng ngẫu nhiên nên ta có $P^{13}_{26}$ chỉnh hợp, còn 13 chữ cái còn lại ta chỉ cần xếp theo thứ tự bảng chữ cái (1 cách xếp), vậy xác suất là $\frac{P^{13}_{26}}{26!}\approx1.606.10^{-10}$.
+        \item Ta chọn trước a và z, còn lại $24!$ hoán vị, vậy xác suất là $\frac{24!}{26!}=\frac{1}{625}$.
+        \item Có 25 trường hợp a và z có thể đứng kế nhau, từ \{a,z,xxx...\} đến \{...xxx,a,z\}, mỗi trường hợp có $24!$ hoán vị nên tổng cộng có $24!.25=25!$ hoán vị, xác suất là $\frac{1}{26}$.
+        \item Xem b như z trong trường hợp trên, ta có $25!$ thỏa mãn điều kiện này, và vì đây là biến cố đối nên ta lấy phần bù $1-\frac{1}{26}=\frac{25}{26}$.
+        \item Chỉ có 2 trường hợp \{a,...z,x\} và \{x,a,...,z\}, mỗi trường hợp có $24!$ hoán vị nên tổng cộng có $24!.2$ hoán vị, xác suất là $\frac{24!.2}{25!}=\frac{2}{25.26}=\frac{1}{325}$.
+        \item Ta sẽ tìm xác suất của biến cố đảo, hay số hoán vị mà a hoặc b hoặc cả hai đứng trước z. Ta có:
+        $$\underbrace{\dots a\dots b\dots}_{n-k-1\text{ chữ cái}}z\underbrace{\dots}_{k\text{ kí tự}}$$
+        Xét $k$ kí tự sau z, ta có $P^{k}_{24}$ chỉnh hợp (26 chữ cái trừ z, a hoặc b ra), với mỗi chỉnh hợp như vậy ta hoán vị $n-k-1$ kí tự trước z, suy ra số cách có thể là: $$\sum_{k=0}^{24}(P^k_{24}.(25-k)!)$$
+        Chia kết quả thu được cho $26!$, ta được xác suất 1/2.
+    \end{enumerate}
+\end{proof}
+\subsection*{Bài 11}
+Cho rằng E và F là hai biến cố sao cho $p(E)=0.7$ và $p(F)=0.5$. Chứng minh rằng $p(E\cup F)\geq0.7$ và $p(E\cap F)\geq0.2$.
+\begin{proof}
+    \par Theo nguyên lí Dirichlet, giả sử $|\Omega|=10$, ta có $|E|=7$ và $|F|=5$, vậy nếu ta chọn ngẫu nhiên 7 kết quả trong $\Omega$ cho E, trong trường hợp xấu nhất sẽ có 3 kết quả của F rơi vào 3 kết quả mà E chưa chọn, còn 2 kết quả chắc chắn rằng E đã chọn. Nếu may mắn hơn, sẽ có một vài kết quả mà cả E và F đều chưa chọn, xem như $|\Omega|<10$, vậy giao của hai tập hợp sẽ lớn hơn, nhưng giá trị nhỏ nhất là 0.2.
+    \par Tương tự với $E\cup F$, trong trường hợp tốt nhất F sẽ chọn 3 kết quả mà E chưa chọn, và 2 kết quả khác mà E đã chọn, như vậy hợp của chúng là toàn bộ không gian mẫu, hay $p(E\cup F)=1$, kém may mắn hơn thì sẽ có một vài kết quả mà cả E và F không chọn, vậy kết quả sẽ nhỏ hơn 1, nhưng sẽ luôn không dưới 0.7, kể cả trong trường hợp xấu nhất, toàn bộ kết quả của F đều được chọn bởi E. Lúc đó $p(E\cup F)=\max(p(E),p(F))=0.7$.
+\end{proof}
+\subsection*{Bài 12}
+Cho rằng E và F là hai biến cố sao cho $p(E)=0.8$ và $p(F)=0.6$. Chứng minh rằng $p(E\cup F)\geq0.8$ và $p(E\cap F)\geq0.4$.
+\begin{proof}
+    Chứng minh tương tự bài trên, vì $|E|$ và $|F|$ đều tăng 1 đơn vị nên $p(E\cap F)$ tăng 0.2, còn $p(E\cup F)=\max(p(E),p(F))=0.8$.
+\end{proof}
+\subsection*{Bài 13}
+Cho rằng E và F là hai biến cố, thì $p(E\cap F)\geq p(E)+p(F)-1$.
+\begin{proof}
+    Vì E và $F$ chung không gian mẫu nên ta có $p(E\cup F)=1$. Nếu ta coi $p(E)$ như $|E|$, $p(F)$ như $|F|$, dựa theo định lí $|E\cap F|=|E|+|F|-|E\cup F|$, ta suy ra điều phải chứng minh.
+\end{proof}
+\subsection*{Bài 26}
+Cho E là biến cố một dãy bit độ dài 3 có số bit 1 lẻ, F là biến cố dãy bit đó bắt đầu bằng bit 1. E và F có độc lập nhau không?
+\begin{proof}
+    Ta có $|\Omega|=2^3=8$ khả năng.
+    Để tìm |E|, ta tìm số dãy bit không có bit 1 nào (000), và 2 bit 1 (11x, cho ta 3 hoán vị), vậy $|E|=4$.
+    Để tìm |F|, dãy bit có dạng 1xx, dùng quy tắc nhân ta thu được 4 dãy bit thỏa, vậy $|F|=4$.
+    Tính toán ta được $p(E)=1/2$, $p(F)=1/2$ và $p(E)p(F)=1/4$.
+    Để tìm $|E\cap F|$, ta có 4 dãy bit bắt đầu bằng 1, nhưng trừ đi các trường hợp có 1 bit 0 (101, 110), thu được 2 dãy bit thỏa, vậy $p(E\cap F)=1/4$. Kết luận E và F độc lập nhau.
+\end{proof}
+\subsection*{Bài 31}
+Tìm xác suất một gia đình có năm người con không có con trai, nếu các giới tính là độc lập và nếu \begin{enumerate}[label=\alph*)]
+    \item một cậu bé và một cô bé có xác suất như nhau.
+    \item xác suất của một cậu bé là 0.51.
+    \item xác suất của đứa trẻ thứ $i$ là con trai là $0.51-(i/100)$
+\end{enumerate}
+\begin{proof}
+    Ta sử dụng công thức của định lý 2: Xác suất đúng $k$ lần thành công trong $n$ lần thử Bernoulli với tỉ lệ thành công $p$ và tỉ lệ thất bại $q=1-p$ là $C^k_np^kq^{n-k}$. Ta coi việc sinh được con gái là thành công. Từ đề bài ta có $n=k=5$.
+    \begin{enumerate}[label=\alph*)]
+        \item $p=0.5,q=0.5\rightarrow$ xác suất là $\frac{1}{32}=0.03125$.
+        \item $p=0.49,q=0.51\rightarrow$ xác suất là $0.49^5\approx0.02825$.
+        \item Vì xác suất thất bại thay đổi theo thứ tự con, từ công thức ta rút ra được, nếu $p^5$ xuất hiện trong công thức, vậy $p$ phải là hằng số. Ta sẽ áp dụng thành: $$C^5_5.\prod_{i=1}^5(1-0.51+\frac{i}{100})=0.03795012$$.
+    \end{enumerate}
+\end{proof}
