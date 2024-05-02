@@ -30,7 +30,7 @@ void Try(int n, int** C, char S, int k) {
 }
 
 void Travelling(int n, int** C, char S) {
-	perm[S - 65] = 0;
+	perm[0] = S - 65;
 	used[S - 65] = true;
 	// recursion
 	Try(n, C, S, 1);
