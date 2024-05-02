@@ -26,6 +26,11 @@
 \renewcommand{\footrulewidth}{1.25pt} % default is 0pt
 \renewcommand{\headrulewidth}{1.25pt} % default is 0.4pt
 \pagestyle{fancy} % allow fancy headers & footers
+\renewcommand{\sectionmark}[1]{}  % Section doesn't set a mark
+\makeatletter
+\renewcommand{\subsectionmark}[1]{%
+    \markright{\MakeUppercase{\ifnum\c@secnumdepth > \m@ne \thesubsection\quad\fi #1}}}
+\makeatother
 \setstretch{1.5} % set line spacing
 % configuring fancyhdr
 \lhead{
