@@ -2,7 +2,7 @@
 #define TSF_H
 
 #include <iostream>
-#include "bellman.h"
 
-void Travelling(); 
+void Travelling(int n, int** C, char S); 
+
 #endif

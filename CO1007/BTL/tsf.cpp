@@ -1,45 +1,40 @@
 #include "tsf.h"
 
-void Travelling() {
-	int n, S, F;
-	int*  value;
-	int*  previous;
-	int** C;
+int perm[30];
+bool used[30];
+int bestPerm[30], cost = 0, bestCost = 1e9 + 1;
 
-	std::cin >> n;
-
-	// allocating memory
-	value = (int*)malloc(sizeof(int) * n);
-	previous = (int*)malloc(sizeof(int) * n);
-	C = (int**)malloc(sizeof(int*) * n);
-	for (int i = 0; i < n; i++)
-		C[i] = (int*)malloc(sizeof(int) * n);
-
-	// input
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n; j++)
-			std::cin >> C[i][j];
-
-	std::cin >> S >> F;
-
-	// calculating
-	bool result = BF(C, n, S, value, previous);
-	if (result) {
-		BF_Path(n, previous, F);
-	} else {
-		std::cout << "Contains circuit of negative weight";
-		return;
+void Try(int n, int** C, char S, int k) {
+	for (int i = 1; i < n; i++) {
+		int h = perm[k - 1];
+		if (!used[i] && C[h][i] > 0) {
+			perm[k] = i;
+			cost += C[h][i];
+			used[i] = true;
+			if (k == n - 1) {
+				// go back to the first town
+				if (cost + C[i][0] < bestCost) {
+					bestCost = cost + C[i][0];
+					for (int j = 0; j <= k; j++)
+						bestPerm[j] = perm[j];
+				}
+			} else {
+				// check if cost < bestCost?
+				if (cost < bestCost)
+					Try(n, C, S, k + 1);
+			}
+			cost -= C[h][i];
+			used[i] = false;
+		}
 	}
+}
 
+void Travelling(int n, int** C, char S) {
+	perm[0] = 0;
+	used[0] = true;
+	// recursion
+	Try(n, C, S, 1);
 	for (int i = 0; i < n; i++)
-		std::cin >> value[i];
-	for (int i = 0; i < n; i++)
-		std::cin >> previous[i];
-
-	// deallocating memory
-	free(value);
-	free(previous);
-	for (int i = 0; i < n; i++)
-		free(C[i]);
-	free(C);
+		std::cout << (char)(bestPerm[i] + 65) << ' ';
+	std::cout << "A\nCost: " << bestCost;
 }
