@@ -25,7 +25,6 @@ int main() {
 	std::cin >> S >> F;
 
 	// calculating
-	/*
 	bool result = BF(C, n, S, value, previous);
 	if (result) {
 		std::cout << "Minimum cost from " << S << " to " << F << ": " << value[F - 65] << "\n";
@@ -34,7 +33,6 @@ int main() {
 		std::cout << "Contains circuit of negative weight";
 		return 1;
 	}
-	*/
 	Travelling(n, C, S);
 
 	// deallocating memory
