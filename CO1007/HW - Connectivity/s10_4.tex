@@ -77,3 +77,8 @@ Chứng minh rằng một đồ thị ít nhất 2 đỉnh phải có ít nhất
 \begin{proof}
 Ta biết đỉnh cắt nối 2 thành phần liên thông với nhau. Một thành phần liên thông có thể là một đồ thị, hoặc có thể chỉ là một đỉnh. Vì vậy, hai đỉnh này không thể là đỉnh cắt, trong trường hợp đơn giản nhất. Nếu có nhiều đỉnh hơn, chúng cũng không thể là đỉnh cắt vì nằm cùng trong một thành phần liên thông. Nếu đồ thị chỉ có 2 đỉnh và 1 cạnh, đương nhiên nó không phải đỉnh cắt, vì chỉ có 1 thành phần liên thông, không thể tạo ra đỉnh cắt, suy ra điều phải chứng minh.
 \end{proof}
+\subsection*{Bài 43}
+Chứng minh rằng khi một đơn đồ thị G có $k$ thành phần liên thông và mỗi thành phần có $n_1,n_2,\dots n_k$ đỉnh lần lượt, thì số cạnh của G không vượt quá $\sum_{i=1}^kC(n_i,2)$.
+\begin{proof}
+    Với mỗi thành phần liên thông, cứ một cách chọn 2 đỉnh (một tổ hợp), ta lại có một cạnh. Vậy mỗi thành phần liên thông sẽ có $C(n,2)$ cạnh, và vì các thành phần liên thông rời rạc nhau, không có cạnh nối giữa chúng, vì vậy ta chỉ cần cộng tất cả các cạnh của từng thành phần liên thông, suy ra điều phải chứng minh.
+\end{proof}
