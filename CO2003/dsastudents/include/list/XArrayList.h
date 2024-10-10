@@ -180,13 +180,10 @@ template <class T>
 XArrayList<T>::XArrayList(
     void (*deleteUserData)(XArrayList<T> *),
     bool (*itemEqual)(T &, T &),
-    int capacity)
+    int capacity) : deleteUserData(deleteUserData), itemEqual(itemEqual), capacity(capacity)
 {
     // TODO
-    this->deleteUserData = deleteUserData;
-    this->itemEqual      = itemEqual;
-    this->capacity       = capacity;
-    this->count          = 0;
+    this->count = 0;
     data = new T[capacity];
 }
 
@@ -203,7 +200,7 @@ void XArrayList<T>::copyFrom(const XArrayList<T> &list)
     this->itemEqual      = list.itemEqual;
     this->capacity       = list.capacity;
     this->count          = list.count;
-    data = new T[capacity];
+    ensureCapacity(capacity);
     std::copy(list.data, list.data + list.count, data);
 }
 
@@ -220,7 +217,7 @@ void XArrayList<T>::removeInternalData()
     this->capacity       = 0;
     this->count          = 0;
     if (deleteUserData != nullptr)
-        deleteUserData;
+        deleteUserData(this);
     else
         delete[] data;
     this->deleteUserData = nullptr;
@@ -231,11 +228,7 @@ XArrayList<T>::XArrayList(const XArrayList<T> &list)
 {
     // TODO
     // deep copy
-    std::copy(list.data, list.data + count, this->data);
-    this->capacity       = list.capacity;
-    this->count          = list.count;
-    this->itemEqual      = list.itemEqual;
-    this->deleteUserData = list.deleteUserData;
+    copyFrom(list);
 }
 
 template <class T>
@@ -256,14 +249,7 @@ template <class T>
 XArrayList<T>::~XArrayList()
 {
     // TODO
-    if (deleteUserData != nullptr)
-        deleteUserData;
-    else
-        delete[] data;
-    this->itemEqual      = nullptr;
-    this->deleteUserData = nullptr;
-    this->capacity       = 0;
-    this->count          = 0;
+    removeInternalData();
 }
 
 template <class T>
@@ -271,7 +257,6 @@ void XArrayList<T>::add(T e)
 {
     // TODO
     ensureCapacity(count);
-
     data[count++] = e;
 }
 
@@ -310,10 +295,15 @@ template <class T>
 bool XArrayList<T>::removeItem(T item, void (*removeItemData)(T))
 {
     // TODO
-    if (removeItemData != nullptr)
-        removeItemData(item);
-    
-    return !sizeof(item);
+    int id = indexOf(item);
+    if (id != -1) {
+        if (removeItemData != nullptr)
+            removeItemData(data[id]);
+        
+        removeAt(id);
+        return true;
+    }
+    return false;
 }
 
 template <class T>

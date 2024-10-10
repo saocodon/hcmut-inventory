@@ -242,26 +242,21 @@ using List = DLinkedList<T>;
 template <class T>
 DLinkedList<T>::DLinkedList(
     void (*deleteUserData)(DLinkedList<T> *),
-    bool (*itemEqual)(T &, T &))
+    bool (*itemEqual)(T &, T &)) : deleteUserData(deleteUserData), itemEqual(itemEqual)
 {
     // TODO
-    head                 = new Node(T(), nullptr, nullptr);
-    tail                 = new Node(T(), nullptr, head);
-    head->next           = tail;
-    count                = 0;
-    this->deleteUserData = deleteUserData;
-    this->itemEqual      = itemEqual;
+    head = new Node();
+    tail = new Node();
+    head->next = tail;
+    tail->prev = head;
+    count = 0;
 }
 
 template <class T>
 DLinkedList<T>::DLinkedList(const DLinkedList<T> &list)
 {
     // TODO
-    for (DLinkedList<T>::Iterator it = list.begin(); it != list.end(); it++)
-        add(*it);
-    count          = list.count;
-    itemEqual      = list.itemEqual;
-    deleteUserData = list.deleteUserData;
+    copyFrom(list);
 }
 
 template <class T>
@@ -279,15 +274,7 @@ template <class T>
 DLinkedList<T>::~DLinkedList()
 {
     // TODO
-    if (deleteUserData != nullptr)
-        deleteUserData;
-    else {
-        if (head != nullptr) delete head;
-        if (tail != nullptr) delete tail;
-    }
-    count = 0;
-    itemEqual      = nullptr;
-    deleteUserData = nullptr;
+    removeInternalData();
 }
 
 template <class T>
@@ -354,6 +341,9 @@ T DLinkedList<T>::removeAt(int index)
     delete nodeTruoc->next;
     nodeTruoc->next = nodeSau;
     nodeSau  ->prev = nodeTruoc;
+
+    count--;
+
     return phanTuBiXoa;
 }
 
@@ -412,10 +402,18 @@ template <class T>
 bool DLinkedList<T>::removeItem(T item, void (*removeItemData)(T))
 {
     // TODO
-    if (removeItemData != nullptr)
-        removeItemData(item);
-    
-    return !sizeof(item);
+    int id = -1;
+    for (Node* current = head->next; current != tail; current = current->next) {
+        id++;
+        if (equals(current->data, item, itemEqual)) {
+            if (removeItemData != nullptr)
+                removeItemData(current->data);
+            
+            removeAt(id);
+            return true;
+        }
+    }
+    return false;
 }
 
 template <class T>
