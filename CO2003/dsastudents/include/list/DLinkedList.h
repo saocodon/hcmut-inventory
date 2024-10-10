@@ -366,7 +366,7 @@ void DLinkedList<T>::clear()
 {
     // TODO
     if (deleteUserData != nullptr) {
-        deleteUserData;
+        deleteUserData(this);
     } else {
         Node* it = head->next;
         while (it != tail) {
@@ -482,14 +482,12 @@ void DLinkedList<T>::removeInternalData()
     // TODO
     // TODO
     if (deleteUserData != nullptr)
-        deleteUserData;
+        deleteUserData(this);
     else {
-        if (count > 0)
-            clear();
+        clear();
         if (head != nullptr) delete head;
         if (tail != nullptr) delete tail;
     }
-    count = 0;
     itemEqual      = nullptr;
     deleteUserData = nullptr;
 }
