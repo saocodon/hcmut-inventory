@@ -12,6 +12,7 @@ private:
     int batch_size;
     bool shuffle;
     bool drop_last;
+    int m_seed;
 
     xvector<Batch<DType, LType>> batches;
     xt::xarray<unsigned long> id;
@@ -49,12 +50,14 @@ public:
     DataLoader(Dataset<DType, LType>* ptr_dataset,
             int batch_size,
             bool shuffle=true,
-            bool drop_last=false) : batches(nullptr, Batch<DType, LType>::batchEQ){
+            bool drop_last=false,
+            int seed = -1) : batches(nullptr, Batch<DType, LType>::batchEQ){
         /*TODO: Add your code to do the initialization */
         this->ptr_dataset = ptr_dataset;
         this->batch_size  = batch_size;
         this->shuffle     = shuffle;
         this->drop_last   = drop_last;
+        m_seed            = seed;
 
         // compress into Batch objects
         int J = 0;
@@ -91,6 +94,10 @@ public:
 
         if (shuffle) {
             id = xt::arange(0, batches.size(), 1);
+            if (m_seed >= 0)
+                xt::random::seed(m_seed);
+            else
+                xt::random::seed(time(nullptr));
             xt::random::shuffle(id);
         }
     }
