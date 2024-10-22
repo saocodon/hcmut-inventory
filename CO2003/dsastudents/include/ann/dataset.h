@@ -29,7 +29,11 @@ public:
 
     virtual ~Batch(){}
     xt::xarray<DType>& getData(){return data; }
-    xt::xarray<LType>& getLabel(){return label; }
+    xt::xarray<LType>& getLabel(){
+        static xt::xarray<LType> nullValue = LType(0);
+        if (label.dimension() == 0) return nullValue;
+        return label;
+    }
 
 
     bool operator==(Batch<DType, LType> rhs) {
@@ -43,7 +47,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Batch<DType, LType>& batch) {
         os << "Batch Data:\n";
         os << batch.data; // Assuming xt::xarray has an overloaded operator<<
-        os << "Batch Labels:\n";
+        os << "\nBatch Labels:\n";
         os << batch.label; // Assuming xt::xarray has an overloaded operator<<
         return os;
     }
@@ -82,9 +86,9 @@ public:
             throw std::out_of_range("Index is out of range!");
 
         if (data.dimension() != 0 && label.dimension() != 0 && data_shape[0] == label_shape[0])
-            return DataLabel<DType, LType>(data(index), label(index));
+            return DataLabel<DType, LType>(xt::view(data, index, xt::all()), xt::view(label, index, xt::all()));
         else
-            return DataLabel<DType, LType>(data(index), xt::xarray<LType>());
+            return DataLabel<DType, LType>(xt::view(data, index, xt::all()), 0);
     }
     xt::svector<unsigned long> get_data_shape() { return data_shape; }
     xt::svector<unsigned long> get_label_shape() { return label_shape; }
