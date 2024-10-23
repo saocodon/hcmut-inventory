@@ -59,10 +59,10 @@ public:
         this->drop_last   = drop_last;
         m_seed            = seed;
 
-        id = xt::arange(0, ptr_dataset->len(), 1);
+        id = xt::arange(ptr_dataset->len());
 
         if (shuffle) {
-            xt::random::seed((m_seed >= 0) ? m_seed : time(nullptr));
+            if (m_seed >= 0) xt::random::seed(m_seed);
             xt::random::shuffle(id);
         }
 
@@ -71,19 +71,21 @@ public:
         for (int i = 0; i < ptr_dataset->len(); i = J) {
             // copy batch_size (samples) into data
             if (drop_last) {
-                J = min(i + batch_size, ptr_dataset->len());
-            } else {
-                if (ptr_dataset->len() - i < batch_size * 2) {
-                    J = ptr_dataset->len();
-                } else {
+                if (ptr_dataset->len() >= i + batch_size)
                     J = i + batch_size;
-                }
+            } else {
+                if (ptr_dataset->len() - i < batch_size * 2)
+                    J = ptr_dataset->len();
+                else
+                    J = i + batch_size;
             }
 
             auto dataShape = ptr_dataset->get_data_shape();
             auto labelShape = ptr_dataset->get_label_shape();
 
             dataShape[0] = J - i; // number of smaller datasets in the batch
+            if (labelShape.size() > 0)
+                labelShape[0] = J - i;
 
             xt::xarray<DType> data(dataShape);
             xt::xarray<LType> label(labelShape);
@@ -96,8 +98,10 @@ public:
 
                 xt::xarray<LType> jthSampleLabel = jthSample.getLabel();
                 // still returns xarray -> get index 0
-                if (label.dimension() > 0 && jthSampleLabel.dimension() > 0)
-                    label(j - i) = jthSampleLabel(0);
+                if (jthSampleLabel.dimension() != 0)
+                    xt::view(label, j - i) = jthSampleLabel;
+                else
+                    label(j - i) = jthSampleLabel();
             }
 
             batches.add(Batch<DType, LType>(data, label));
