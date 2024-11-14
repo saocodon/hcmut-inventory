@@ -1,0 +1,2 @@
+Number of points within the circle: 39117/50000
+Calculated PI number: 3.129359
