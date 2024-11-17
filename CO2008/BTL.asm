@@ -278,6 +278,7 @@ no_minus_sign:
     cvt.w.s $f2, $f0 # f0 la dap an, f2 la phan nguyen
     mfc1 $a0, $f2
     mfc1 $t7, $f2
+    li $s7, 0
     jal count_ready
     li $t2, '.'
     sb $t2, 0($t9)
@@ -291,6 +292,7 @@ no_minus_sign:
     mul.s $f2, $f2, $f4
     cvt.w.s $f2, $f2
     mfc1 $a0, $f2
+    li $s7, 1
     jal count_ready
     
     addi $t1, $t1, 4
@@ -310,7 +312,15 @@ count_loop:
     sb $t4, 0($t2)
     addi $t2, $t2, 1
     la $t5, num_buf
+    beq $s7, 1, decimal_part
+    beq $s7, 0, integer_part
+    
+integer_part:
     beq $a0, 0, count_write
+    j next_division
+decimal_part:
+    beq $t3, 4, count_write
+next_division:
     j count_loop
 count_write:
     subi $t2, $t2, 1
@@ -337,7 +347,23 @@ exit:
     li $v0, 16
     move $a0, $s6
     syscall
+    
+    li $v0, 10
+    syscall
 
 error_exit:
+    li $v0, 13
+    la $a0, fout
+    li $a1, 1
+    li $a2, 0
+    syscall
+    move $s6, $v0    
+
+    li $v0, 15
+    move $a0, $s6
+    la $a1, error
+    li $a2, 6
+    syscall
+    
     li $v0, 10
     syscall
