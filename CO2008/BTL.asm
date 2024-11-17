@@ -1,6 +1,7 @@
 .data 
     fin: .asciiz "input_matrix.txt"
     fout: .asciiz "output_matrix.txt"
+    error: .asciiz "Error"
     buffer_read: .space 1024
     buffer_write: .space 1024
     num_buf: .space 10
@@ -50,20 +51,26 @@
     la $t1, N
     sw $t0, 0($t1)
     # read M
-    lb $t0, 2($a1)
-    subi $t0, $t0, 48
+    lb $t2, 2($a1)
+    subi $t2, $t2, 48
     la $t1, M
-    sw $t0, 0($t1)
+    sw $t2, 0($t1)
     # read p
-    lb $t0, 4($a1)
-    subi $t0, $t0, 48
+    lb $t3, 4($a1)
+    subi $t3, $t3, 48
     la $t1, p
-    sw $t0, 0($t1)
+    sw $t3, 0($t1)
     # read s
-    lb $t0, 6($a1)
-    subi $t0, $t0, 48
+    lb $t4, 6($a1)
+    subi $t4, $t4, 48
     la $t1, s
-    sw $t0, 0($t1)
+    sw $t4, 0($t1)
+    
+    # N + 2p - m > 0
+    sub $t5, $t0, $t2
+    add $t5, $t5, $t3
+    add $t5, $t5, $t3
+    ble $t5, $zero, error_exit
     
     # parsing
     la $t0, buffer_read
@@ -173,12 +180,16 @@ next_iteration:
     add $a1, $a1, $t7 # add stride
     la $t4, N
     lw $t5, 0($t4)
+    la $s2, M
+    lw $s3, 0($s2)
+    add $t6, $a1, $s3 # canh ben phai cua kernel
     add $t5, $t5, $t1 # N + padding
-    blt $a1, $t5, next_iteration
-    # x = N - padding
+    ble $t6, $t5, next_iteration
+    
     add $a0, $a0, $t7 # add stride
     sub $a1, $zero, $t1
-    blt $a0, $t5, next_iteration
+    add $s2, $a0, $s3 # canh duoi cua kernel
+    ble $s2, $t5, next_iteration
     # x = N + padding && y = N + padding (end)
     j print
     
@@ -315,17 +326,18 @@ exit:
     li $a1, 1
     li $a2, 0
     syscall
-    move $s6, $v0
-    
+    move $s6, $v0    
+
     li $v0, 15
     move $a0, $s6
     la $a1, buffer_write
     sub $a2, $t9, $a1
     syscall
-    
+        
     li $v0, 16
     move $a0, $s6
     syscall
-    
+
+error_exit:
     li $v0, 10
     syscall
